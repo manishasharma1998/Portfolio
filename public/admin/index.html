@@ -32,19 +32,24 @@
 <body>
   <noscript>Your browser needs JavaScript enabled to use the content manager.</noscript>
   <script>window.CMS_MANUAL_INIT = true;</script>
+  <script src="/admin/js-yaml.min.js"></script>
   <script src="/admin/decap-cms.js"></script>
   <script>
     (async function () {
       try {
         var CMS = window.decapCms || window.CMS;
-        cmsDiag("Decap loaded: " + (CMS ? "yes" : "NO"));
-        if (!CMS) { cmsDiagOverlay(); return; }
+        cmsDiag("Decap loaded: " + (CMS ? "yes" : "NO") + ", js-yaml: " + (window.jsyaml ? "yes" : "NO"));
+        if (!CMS || !window.jsyaml) { cmsDiagOverlay(); return; }
         cmsDiag("Fetching config.yml…");
         var res = await fetch("/admin/config.yml");
         if (!res.ok) { cmsDiag("config fetch failed: HTTP " + res.status); cmsDiagOverlay(); return; }
         var yamlText = await res.text();
-        cmsDiag("config OK (" + yamlText.length + " chars), initializing CMS…");
-        await CMS.init({ config: yamlText });
+        cmsDiag("config OK (" + yamlText.length + " chars), parsing YAML…");
+        var config = window.jsyaml.load(yamlText);
+        cmsDiag("config parsed: " + (config && config.backend && config.collections ? "yes" : "NO"));
+        if (!config || !config.backend || !config.collections) { cmsDiagOverlay(); return; }
+        cmsDiag("Initializing CMS…");
+        await CMS.init({ config: config });
         cmsDiag("CMS.init completed");
       } catch (e) {
         cmsDiag("init error: " + (e && (e.message || e)) + " ");
