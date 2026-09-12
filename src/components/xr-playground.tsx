@@ -299,7 +299,7 @@ export function XRPlayground({ copy }: { copy: SiteConfig["xr"] }) {
                   alt="IIT Delhi — Executive Programme in VR/AR certificate, Grade A"
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-contain p-3"
+                  className="object-cover"
                 />
                 <p className="absolute bottom-3 left-4 font-mono text-[10px] tracking-[0.18em] text-lens-300 uppercase">
                   Certified · Grade A
