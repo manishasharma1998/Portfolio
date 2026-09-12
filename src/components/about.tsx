@@ -89,8 +89,8 @@ export function About() {
 
       <div className="mt-12 grid gap-4 sm:grid-cols-3">
         {photos.map((p, i) => (
-          <Reveal key={p.src} delay={i * 0.08}>
-            <figure className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-ink-850">
+          <Reveal key={p.src} delay={i * 0.08} className="h-full">
+            <figure className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-ink-850">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={p.src}
@@ -106,7 +106,7 @@ export function About() {
                   }}
                 />
               </div>
-              <figcaption className="px-4 py-3 font-mono text-[11px] tracking-[0.12em] text-fog-400 uppercase">
+              <figcaption className="mt-auto px-4 py-3 font-mono text-[11px] tracking-[0.12em] text-fog-400 uppercase">
                 {p.caption}
               </figcaption>
             </figure>
