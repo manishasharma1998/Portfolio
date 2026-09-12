@@ -27,6 +27,26 @@
       cmsDiag("PROMISE ERROR: " + (e.reason && (e.reason.message || e.reason)) + " ");
       cmsDiagOverlay();
     });
+    (function () {
+      window.__cmsPanel = [];
+      var panel = document.createElement("div");
+      panel.id = "cms-panel";
+      panel.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:2147483000;background:#000;color:#7dffb0;border-bottom:1px solid #7dffb0;font:11px/1.5 monospace;padding:6px 10px;white-space:pre-wrap;max-height:30vh;overflow:auto;";
+      document.addEventListener("DOMContentLoaded", function () {
+        document.body.appendChild(panel);
+      });
+      window.__cmsPanelAdd = function (line) {
+        window.__cmsPanel.push(new Date().toISOString().slice(11, 23) + " " + line);
+        if (panel.parentNode) {
+          panel.textContent = window.__cmsPanel.join("\n");
+        }
+      };
+      window.__cmsPanelAdd("init: awaiting setup");
+      window.addEventListener("message", function (ev) {
+        if (typeof ev.data !== "string" || ev.data.indexOf("authorization:") !== 0) return;
+        window.__cmsPanelAdd("AUTH MSG from " + ev.origin + ": " + ev.data.slice(0, 70) + (ev.data.length > 70 ? "…" : ""));
+      });
+    })();
   </script>
 </head>
 <body>
@@ -48,6 +68,9 @@
         var config = window.jsyaml.load(yamlText);
         cmsDiag("config parsed: " + (config && config.backend && config.collections ? "yes" : "NO"));
         if (!config || !config.backend || !config.collections) { cmsDiagOverlay(); return; }
+        if (window.__cmsPanelAdd) {
+          window.__cmsPanelAdd("backend: base_url=" + config.backend.base_url + " | auth_endpoint=" + config.backend.auth_endpoint + " | repo=" + config.backend.repo + " | branch=" + config.backend.branch);
+        }
         cmsDiag("Initializing CMS…");
         await CMS.init({ config: config });
         cmsDiag("CMS.init completed");
