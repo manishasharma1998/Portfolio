@@ -8,95 +8,22 @@
   <link rel="cms-config-url" type="text/yaml" href="/admin/config.yml" />
   <link rel="stylesheet" href="/admin/cms.css" />
   <script>
-    window.__cmsDiagLog = [];
-    function cmsDiag(msg) { window.__cmsDiagLog.push(msg); console.error("[cms-diag]", msg); }
-    function cmsDiagOverlay() {
-      var box = document.getElementById("cms-diag");
-      if (!box) {
-        box = document.createElement("div");
-        box.id = "cms-diag";
-        box.style.cssText = "position:fixed;left:12px;right:12px;bottom:12px;z-index:99999;background:#111;color:#ff6b6b;border:1px solid #ff6b6b;border-radius:8px;padding:12px;font:12px/1.5 monospace;white-space:pre-wrap;max-height:45vh;overflow:auto;";
-        document.body.appendChild(box);
-      }
-      box.textContent = window.__cmsDiagLog.join("\n");
-    }
-    window.addEventListener("error", function (e) {
-      cmsDiag("SCRIPT ERROR: " + (e.message || "unknown") + (e.filename ? " at " + e.filename + ":" + e.lineno : ""));
-      cmsDiagOverlay();
-    });
-    window.addEventListener("unhandledrejection", function (e) {
-      cmsDiag("PROMISE ERROR: " + (e.reason && (e.reason.message || e.reason)) + " ");
-      cmsDiagOverlay();
-    });
     (function () {
-      window.__cmsPanel = [];
-      var panel = document.createElement("div");
-      panel.id = "cms-panel";
-      panel.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:2147483000;background:#000;color:#7dffb0;border-bottom:1px solid #7dffb0;font:11px/1.5 monospace;padding:6px 10px;white-space:pre-wrap;max-height:30vh;overflow:auto;";
-      document.addEventListener("DOMContentLoaded", function () {
-        document.body.appendChild(panel);
-      });
-      window.__cmsPanelAdd = function (line) {
-        window.__cmsPanel.push(new Date().toISOString().slice(11, 23) + " " + line);
-        if (panel.parentNode) panel.textContent = window.__cmsPanel.join("\n");
-      };
-      window.__cmsPanelAdd("init: awaiting setup");
-
-      var _origLog = console.log;
-      console.log = function () {
-        try {
-          var _m = Array.prototype.slice.call(arguments, 0).map(function (a) {
-            return typeof a === "string" ? a : (a && a.message) || String(a);
-          }).join(" ");
-          if (_m && _m.length > 3 && _m.indexOf("[cms-diag]") === -1) window.__cmsPanelAdd("LOG: " + String(_m).slice(0, 200));
-        } catch (e) {}
-        _origLog.apply(console, arguments);
-      };
-      var _origWarn = console.warn;
-      console.warn = function () {
-        try {
-          var _m = Array.prototype.slice.call(arguments, 0).map(function (a) {
-            return typeof a === "string" ? a : (a && a.message) || String(a);
-          }).join(" ");
-          if (_m && _m.length) window.__cmsPanelAdd("WARN: " + String(_m).slice(0, 200));
-        } catch (e) {}
-        _origWarn.apply(console, arguments);
-      };
-      var _origErr = console.error;
-      console.error = function () {
-        try {
-          var _m = Array.prototype.slice.call(arguments, 0).map(function (a) {
-            return typeof a === "string" ? a : (a && a.message) || String(a);
-          }).join(" ");
-          if (_m && _m.length) window.__cmsPanelAdd("ERR: " + String(_m).slice(0, 200));
-        } catch (e) {}
-        _origErr.apply(console, arguments);
-      };
-
-      window.__cmsBaseUrl = window.location.origin;
-      window.addEventListener("message", function (ev) {
-        if (typeof ev.data !== "string" || ev.data.indexOf("authorization:") !== 0) return;
-        var kind = "?";
-        var raw = "";
-        var m = ev.data.match(/^authorization:github:(success|error):(.*)$/);
-        if (m) { kind = m[1]; raw = m[2]; }
-        window.__cmsPanelAdd("AUTH MSG from " + ev.origin + " | origin-ok=" + (ev.origin === window.location.origin) + " | kind=" + kind);
-        var payload = null;
-        try { payload = JSON.parse(raw); } catch (e) {}
-        if (kind === "error" && payload && payload.message) window.__cmsPanelAdd("Auth error detail: " + payload.message);
-        var keys = [];
-        for (var i = 0; i < localStorage.length; i++) {
-          var k = localStorage.key(i);
-          if (k) keys.push(k);
+      var box = null;
+      function ensureBox() {
+        if (!box) {
+          box = document.createElement("div");
+          box.id = "cms-error";
+          box.style.cssText = "position:fixed;left:12px;right:12px;bottom:12px;z-index:2147483000;background:#111;color:#ff6b6b;border:1px solid #ff6b6b;border-radius:8px;padding:12px;font:12px/1.5 monospace;white-space:pre-wrap;max-height:40vh;overflow:auto;";
+          document.body.appendChild(box);
         }
-        window.__cmsPanelAdd("localStorage keys: " + keys.join(", "));
-        [4000, 8000, 15000].forEach(function (ms) {
-          setTimeout(function () {
-            var ncCount = document.querySelectorAll("[class*='nc-']").length;
-            var txt = document.body ? document.body.innerText.slice(0, 180).replace(/\s+/g, " ") : "no-body";
-            window.__cmsPanelAdd("@" + ms + "ms hash=" + location.hash + " nc-nodes=" + ncCount + " | " + txt);
-          }, ms);
-        });
+        return box;
+      }
+      window.addEventListener("error", function (e) {
+        ensureBox().textContent = "ERROR: " + (e.message || "unknown") + (e.filename ? " at " + e.filename + ":" + e.lineno : "");
+      });
+      window.addEventListener("unhandledrejection", function (e) {
+        ensureBox().textContent = "UNHANDLED ERROR: " + (((e.reason && (e.reason.message || e.reason)) || e.reason) + " ");
       });
     })();
   </script>
