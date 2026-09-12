@@ -77,7 +77,7 @@ export default function OpenGraphImage() {
             fontSize: 22,
           }}
         >
-          Instantly available to relocate — Dubai
+          Instantly available to relocate
         </div>
       </div>
     ),

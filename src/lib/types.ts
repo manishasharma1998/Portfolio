@@ -63,7 +63,7 @@ export type TimelineConfig = BlockConfig & {
 };
 
 export type ContactConfig = BlockConfig & {
-  dubaiNote: string;
+  relocationNote: string;
   resumeLabel: string;
   resumeNote: string;
 };

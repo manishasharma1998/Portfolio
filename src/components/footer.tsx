@@ -28,7 +28,7 @@ export function Footer() {
         <p className="flex flex-wrap items-center gap-x-4 font-mono text-[11px] text-fog-500">
           <span>
             Designed & built in <span className="text-bone-100">Next.js</span> ·
-            available in <span className="text-lens-300">Dubai</span>
+            relocation-ready
           </span>
           <a
             href="/admin/index.html"

@@ -7,7 +7,7 @@
   "linkedin": "https://www.linkedin.com/in/manishasharmaa",
   "behance": "https://www.behance.net/manishasharma78",
   "resume": "/Manisha-Sharma-Resume.pdf",
-  "location": "New Delhi, India · Instantly available to relocate to Dubai, UAE",
+  "location": "New Delhi, India · Instantly available to relocate",
   "nav": [
     { "label": "Home", "href": "/" },
     { "label": "Work", "href": "/work" },
@@ -16,7 +16,7 @@
     { "label": "Journey", "href": "#journey" },
     { "label": "Contact", "href": "#contact" }
   ],
-  "relocationBadge": "Instantly available to relocate — Dubai",
+  "relocationBadge": "Instantly available to relocate worldwide",
   "hero": {
     "eyebrow": "A portfolio designed to repel the wrong clients",
     "line1": "UX Designer with a *research-first* brain.",
@@ -25,7 +25,7 @@
     "scrollHint": "Scroll — the interesting part is below this",
     "primaryCta": "See the work",
     "secondaryCta": "Download resume",
-    "portraitCaption": "Dubai-bound · open to work",
+    "portraitCaption": "Relocation-ready · open to work",
     "portraitLabel": "Manisha · UX/UI & XR"
   },
   "metrics": [
@@ -200,7 +200,7 @@
     "titleBefore": "I’ll respond.",
     "titleBreak": "Probably before you do.",
     "blurb": "If you need a design yes-man who replies “great feedback!” in nineteen minutes, I respect you enough not to apply. But if you’re hiring for judgment, not just output — the doors below are open.",
-    "dubaiNote": "Dubai-based recruiters: relocation readiness is immediate, and I work your business hours from first call.",
+    "relocationNote": "Relocation-ready: open to remote or on-site roles globally, with immediate availability.",
     "resumeLabel": "Download resume",
     "resumeNote": "PDF · one page · no fluff"
   }

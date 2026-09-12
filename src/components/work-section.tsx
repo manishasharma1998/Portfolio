@@ -38,7 +38,7 @@ export function Work() {
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {projects.map((study, i) => (
-            <Reveal key={study.slug} delay={i * 0.1}>
+            <Reveal key={study.slug} delay={i * 0.1} className="h-full">
               <CaseStudyCard study={study} />
             </Reveal>
           ))}

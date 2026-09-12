@@ -24,14 +24,14 @@ export function BehanceGallery() {
 
         <RevealStagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((p) => (
-            <RevealItem key={p.url} className={p.url === projects[0].url ? "sm:row-span-2" : ""}>
+            <RevealItem key={p.url}>
               <a
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.07] bg-ink-850 transition-colors duration-300 hover:border-lens-400/30"
               >
-                <div className={`relative overflow-hidden ${p.url === projects[0].url ? "aspect-[4/3]" : "aspect-[16/10]"}`}>
+                <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
                     src={p.cover}
                     alt={p.title}

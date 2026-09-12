@@ -36,9 +36,9 @@ export function Contact() {
           </p>
           <p className="mx-auto mt-5 max-w-xl text-sm text-fog-500">
             <span className="font-mono text-lens-300">
-              {site.contact.dubaiNote.split(":")[0]}:
+              {site.contact.relocationNote.split(":")[0]}:
             </span>{" "}
-            {site.contact.dubaiNote.split(":")[1] ?? site.contact.dubaiNote}
+            {site.contact.relocationNote.split(":")[1] ?? site.contact.relocationNote}
           </p>
         </Reveal>
 

@@ -26,13 +26,12 @@ export const metadata: Metadata = {
     template: "%s · Manisha Sharma",
   },
   description:
-    "UX Designer with a research-first brain. XR Designer with a headset on. 70+ projects shipped, 42% drop-off reduced, IIT Delhi certified. Instantly available to relocate to Dubai.",
+    "UX Designer with a research-first brain. XR Designer with a headset on. 70+ projects shipped, 42% drop-off reduced, IIT Delhi certified. Instantly available to relocate.",
   keywords: [
     "UX Designer",
     "XR Designer",
     "UI Designer",
     "AR VR Designer",
-    "Dubai",
     "Manisha Sharma",
     "Spatial design",
     "Design systems",
@@ -40,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Manisha Sharma — UX & XR Designer",
     description:
-      "UX Designer with a research-first brain. XR Designer with a headset on. Instantly available to relocate to Dubai.",
+      "UX Designer with a research-first brain. XR Designer with a headset on. Instantly available to relocate.",
     type: "website",
     locale: "en_US",
   },

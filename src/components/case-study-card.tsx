@@ -79,7 +79,7 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
         href={outer}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex flex-col overflow-hidden rounded-2xl border border-white/[0.07] bg-ink-850 transition-colors duration-300 hover:border-lens-400/30"
+        className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.07] bg-ink-850 transition-colors duration-300 hover:border-lens-400/30"
       >
         {inner}
       </a>
@@ -89,7 +89,7 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
   return (
     <Link
       href={outer}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-white/[0.07] bg-ink-850 transition-colors duration-300 hover:border-lens-400/30"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.07] bg-ink-850 transition-colors duration-300 hover:border-lens-400/30"
     >
       {inner}
     </Link>
