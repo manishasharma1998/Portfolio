@@ -56,8 +56,12 @@
       }
       setTimeout(function () {
         var m = document.querySelector(".nc-root, #nc-root, [class*='nc-']");
-        cmsDiag(m ? "Editor mounted OK" : "Editor did not mount UI after 8s");
-        cmsDiagOverlay();
+        if (m) {
+          console.log("[cms-diag] Editor mounted OK");
+        } else {
+          cmsDiag("Editor did not mount UI after 8s");
+          cmsDiagOverlay();
+        }
       }, 8000);
     })();
   </script>
