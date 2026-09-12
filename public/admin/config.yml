@@ -1,0 +1,135 @@
+# ──────────────────────────────────────────────────────────────
+# Decap CMS config — the "Manage content" panel at /admin
+#
+# Simplest setup: host the site on NETLIFY. Netlify handles the
+# GitHub login, so only ONE thing to edit below: `repo`.
+#
+# BEFORE PUBLISHING, change:
+#   repo       → your GitHub repo, e.g. manis2105/portfolio (No .git)
+#   site_domain → your live site (lower down)
+#
+# If you host on Vercel instead, also uncomment base_url + auth_endpoint
+# and do the one-time OAuth setup described in the README.
+# ──────────────────────────────────────────────────────────────
+
+backend:
+  name: github
+  repo: your-github-username/your-repo-name
+  branch: main
+  # base_url: https://your-site.vercel.app   # only if hosted on Vercel
+  # auth_endpoint: api/auth                  # only if hosted on Vercel
+
+# Where uploaded images are stored (committed to the repo).
+media_folder: public/images
+public_folder: /images
+
+# Preview of the live site when logged in.
+site_domain: your-site-name.netlify.app
+
+locale: en
+
+collections:
+  - name: projects
+    label: Case Studies
+    label_singular: Case Study
+    folder: content/projects
+    extension: md
+    format: frontmatter
+    create: true
+    delete: true
+    identifier_field: slug
+    slug: "{{slug}}"
+    summary: "{{index}} — {{title}}"
+    sortable_fields: [index, title, year]
+    fields:
+      - { label: "Order (social)", name: index, widget: string, hint: "Grid order. Keep it 01, 02, 03…" }
+      - { label: Slug, name: slug, widget: string, hint: "Unique — becomes the page URL /work/<slug>. No spaces." }
+      - { label: Title, name: title, widget: string }
+      - { label: Category, name: category, widget: string, hint: "Small label above the card, e.g. E-commerce · Flow Optimisation" }
+      - { label: Problem (card one-liner), name: problem, widget: text }
+      - { label: Year, name: year, widget: string }
+      - { label: Role, name: role, widget: string }
+      - { label: Duration, name: duration, widget: string }
+      - { label: Platform, name: platform, widget: string }
+      - { label: Chips, name: chips, widget: list, default: [] }
+      - { label: Published, name: published, widget: boolean, default: true, required: false, hint: "Off = hidden from the site (safe to keep the file)." }
+      - label: Card cover
+        name: cover
+        widget: object
+        fields:
+          - { label: Hue, name: hue, widget: number, default: 232, min: 0, max: 360, hint: "Colour of the card, 0–360. Try 232, 262, 176, 340." }
+          - { label: Big number, name: title, widget: string, hint: "Shown large on the card, e.g. 60% → 35%." }
+          - { label: Subtitle, name: subtitle, widget: string }
+      - label: Outcome metrics (cards on the study page)
+        name: metrics
+        widget: list
+        fields:
+          - { label: Value, name: value, widget: string }
+          - { label: Label, name: label, widget: string }
+      - { label: Hero line, name: hero, widget: text }
+      - { label: Tools used, name: tools, widget: list, default: [] }
+      - label: Page kind
+        name: mode
+        widget: select
+        options: [deep, card]
+        default: deep
+        hint: "deep = full case-study page. card = link out (set External URL below)."
+      - { label: External URL (card mode only), name: external, widget: string, required: false }
+      - label: Story body
+        name: body
+        widget: markdown
+        hint: "New projects come pre-filled with your writing structure. Sections = ## Heading, small labels = ### kicker: …"
+        default: |
+          Set the scene in a paragraph or two. What was the brief, and why did it matter?
+
+          ## Context
+          ### kicker: The assignment
+
+          The background — one or two honest paragraphs.
+
+          ## Research & Discovery
+          ### kicker: Before a single pixel
+
+          - Finding one
+          - Finding two
+
+          ## Solution
+          ### kicker: What shipped
+
+          What you actually delivered.
+
+          ## Outcome
+          ### kicker: What the numbers said
+
+          Hard numbers beat adjectives. Add a metric or three.
+
+          ## Reflection
+
+          What would you do differently next time — and what did you learn?
+
+  - name: behance
+    label: Behance Projects
+    format: json
+    extension: json
+    files:
+      - name: behance
+        label: Behance Section
+        file: content/behance.json
+        fields:
+          - { label: Kicker, name: kicker, widget: string }
+          - { label: Title line 1, name: titleBefore, widget: string }
+          - { label: Title line 2, name: titleBreak, widget: string }
+          - { label: Blurb, name: blurb, widget: text }
+          - { label: Profile card label, name: profileLabel, widget: string }
+          - { label: Profile card blurb, name: profileBlurb, widget: text }
+          - { label: Behance profile URL, name: profileUrl, widget: string }
+          - label: Projects
+            name: projects
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Behance URL, name: url, widget: string }
+              - { label: Cover image, name: cover, widget: image, choose_url: true }
+              - { label: Views, name: views, widget: number }
+              - { label: Appreciations, name: appreciations, widget: number }
+              - { label: Tags, name: tags, widget: list }

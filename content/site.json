@@ -1,0 +1,207 @@
+{
+  "name": "Manisha Sharma",
+  "role": "UX & UI Designer · XR Designer",
+  "email": "maonishasharma@gmail.com",
+  "phone": "+91 97179 22464",
+  "whatsapp": "https://wa.me/919717922464",
+  "linkedin": "https://www.linkedin.com/in/manishasharmaa",
+  "behance": "https://www.behance.net/manishasharma78",
+  "resume": "/Manisha-Sharma-Resume.pdf",
+  "location": "New Delhi, India · Instantly available to relocate to Dubai, UAE",
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "Work", "href": "/work" },
+    { "label": "XR", "href": "#xr" },
+    { "label": "Skills", "href": "#skills" },
+    { "label": "Journey", "href": "#journey" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "relocationBadge": "Instantly available to relocate — Dubai",
+  "hero": {
+    "eyebrow": "A portfolio designed to repel the wrong clients",
+    "line1": "UX Designer with a *research-first* brain.",
+    "line2": "XR Designer with a headset on.",
+    "warning": "Warning: I don’t produce “delightful experiences” on schedule. I build interfaces that survive contact with real users — and I have the drop-off charts to prove it, not a moodboard. If that sounds wrong for you, the exit is right there.",
+    "scrollHint": "Scroll — the interesting part is below this",
+    "primaryCta": "See the work",
+    "secondaryCta": "Download resume",
+    "portraitCaption": "Dubai-bound · open to work",
+    "portraitLabel": "Manisha · UX/UI & XR"
+  },
+  "metrics": [
+    { "value": 70, "suffix": "+", "label": "Projects shipped live" },
+    { "value": 42, "suffix": "%", "label": "Drop-off removed from flows" },
+    { "value": 200, "suffix": "+", "label": "Design system components" },
+    { "value": 3, "suffix": "×", "label": "Employee of the Month" }
+  ],
+  "about": {
+    "kicker": "Origin story",
+    "titleBefore": "I read people before",
+    "titleAccent": "for them.",
+    "paragraphs": [
+      "I read people before I design for them. The instinct that matters most in UX — interrogate the system before proposing a solution — is the hardest skill in the job, and it does not come from a bootcamp or a tool. It comes from watching what users actually do when incentives, constraints and reality collide.",
+      "UX didn’t hijack my career. Research arrived before the title did. The questions are always the same — who are these people, what are they trying to do, who benefits from the current arrangement, and why does it keep failing the exact same way?",
+      "So when a checkout keeps dropping users and every stakeholder blames price, I go look at the screen. When an app keeps confusing new users, I go watch them use it. When someone asks me to “make it delightful,” I default to making it *defensible* instead."
+    ],
+    "polisciLabel": "Built on · Research instinct",
+    "polisci": [
+      "Interrogating the brief, not obeying it",
+      "Watching what users actually do",
+      "Testing hypotheses against evidence",
+      "Primary sources, not vibes"
+    ],
+    "bridge": "same skill, new surface",
+    "uxLabel": "Now applied as · UX Research",
+    "ux": [
+      "Challenging the brief, not obeying it",
+      "Journey maps & user interviews",
+      "Heuristic evaluation & A/B tests",
+      "Real users, not personas-as-decor"
+    ],
+    "pivotLabel": "Then the pivot",
+    "pivot": "I’ve always been drawn to studying systems. XR lets me build them. When the interface stops being a rectangle and becomes a place you walk into, the research-to-build loop gets brutally honest — you step inside the thing you’re designing. I trained in VR/AR at IIT Delhi because flat screens taught me layout, and I want to be inside the next decade of interfaces, not watching it from outside.",
+    "noVibe": "If you needed a designer who nods, produces twelve logo options and calls it strategy — you’d have stopped reading this by now. This section was never for you.",
+    "photos": [
+      {
+        "src": "/images/profile.jpg",
+        "alt": "Manisha Sharma — UX & XR designer",
+        "caption": "The person doing the thinking",
+        "hue": 232
+      },
+      {
+        "src": "/images/working.jpg",
+        "alt": "Manisha Sharma at work",
+        "caption": "At it. Cameras out, opinions checked.",
+        "hue": 262
+      },
+      {
+        "src": "/images/eom.jpg",
+        "alt": "Manisha Sharma — Employee of the Month",
+        "caption": "Employee of the Month. ×3, if you're counting.",
+        "hue": 176
+      }
+    ]
+  },
+  "work": {
+    "kicker": "Selected work",
+    "titleBefore": "Three case studies.",
+    "titleBreak": "Not ten.",
+    "blurb": "This section is kept deliberately short. If you need a designer who fills a grid with quantity and calls it a body of work, you can close this tab with our sincere blessing.",
+    "closer": "Every case study follows the same spine — context, research, constraints, process, outcome, and the part most designers skip: what I’d redo. Read one, and you’ll know exactly how I think before you ever sit in a room with me."
+  },
+  "xr": {
+    "kicker": "XR Playground",
+    "titleBefore": "Step inside.",
+    "titleBreak": "Not into a brochure.",
+    "blurb": "Warning: none of this was made with templates. The scenes below were built in Unity and Blender, and walked through in a real headset. If you still think the metaverse is a PowerPoint, don't try this on — you'll confuse my quiet craft with your hype.",
+    "caption": "This viewport is the live slot for Manisha’s WebGL build or headset walkthrough recording — swap in the real artifact and the parallax scene steps aside. Sound is off by default, because good spatial design never starts by yelling at you."
+  },
+  "skills": {
+    "kicker": "Skills & toolkit",
+    "titleBefore": "Not a tag cloud.",
+    "titleBreak": "A stack with a spine.",
+    "blurb": "Tools are cheap. Decision-making isn’t. This grouping exists to show you how the brain works before the software does.",
+    "columns": {
+      "research": {
+        "title": "Research & Strategy",
+        "note": "The part most portfolios skip — the part that stops expensive rework.",
+        "items": [
+          "User Research",
+          "Usability Testing",
+          "Journey Mapping",
+          "Heuristic Evaluation",
+          "A/B Testing",
+          "Design Thinking",
+          "AI-assisted UX Research"
+        ]
+      },
+      "design": {
+        "title": "Design & Prototyping",
+        "note": "Screens are the output. Decisions are the deliverable.",
+        "items": [
+          "Interaction Design",
+          "Design Systems",
+          "Wireframing",
+          "Prototyping",
+          "WCAG 2.1 AA",
+          "RTL / Arabic UI",
+          "Conversational UI"
+        ]
+      },
+      "xr": {
+        "title": "XR & Emerging Tools",
+        "note": "Where the next chapter is — and where I already work.",
+        "items": [
+          "Unity · AR/VR Prototyping",
+          "Blender · 3D & Environments",
+          "Spatial UX",
+          "Scene Building & Animation",
+          "Human-AI Interaction",
+          "Midjourney Ideation"
+        ]
+      }
+    },
+    "toolkitLabel": "Daily drivers",
+    "toolkit": [
+      "Figma",
+      "Framer",
+      "Miro",
+      "InVision",
+      "Jira",
+      "Notion",
+      "Unity",
+      "Blender",
+      "ChatGPT / Claude",
+      "Midjourney",
+      "Uizard"
+    ]
+  },
+  "timeline": {
+    "kicker": "The journey",
+    "titleBefore": "Calm, on purpose.",
+    "titleBreak": "Measured, on record.",
+    "blurb": "Each node reveals itself as you scroll. Nothing shouts; things surface. That’s the whole metaphor — and the whole person.",
+    "overlapNote": "The dates above genuinely overlap — full-time agency work alongside freelancing is not a red flag, it’s a good O(n) way to learn what shipping for actually-different businesses feels like.",
+    "items": [
+      {
+        "period": "Sept 2024 — Present",
+        "org": "Technoid Infusion Agency Pvt Ltd",
+        "role": "UI & UX Designer",
+        "body": "SaaS, e-commerce and real-estate products. Journey mapping, A/B testing, heuristic evaluation, Figma design systems, Agile/Scrum and dev handoff that developers actually thank me for."
+      },
+      {
+        "period": "2023 — Present",
+        "org": "Freelance",
+        "role": "UI & UX Designer",
+        "body": "End-to-end e-commerce and retail UI systems for repeat clients. Full discovery — personas, journey maps, wireframes — delivered mobile-first and WCAG 2.1 AA."
+      },
+      {
+        "period": "Jan — Jul 2025",
+        "org": "IIT Delhi · Executive Programme",
+        "role": "Certified XR Designer (Grade A)",
+        "body": "VR/AR, immersive workflow design, Unity prototyping, Blender modelling and environments, interactive VR experiences and simulations."
+      },
+      {
+        "period": "2022",
+        "org": "IGNOU",
+        "role": "Master's in Political Science",
+        "body": "The research instinct most designers fake. Reading systems, people and incentives before proposing a single solution."
+      },
+      {
+        "period": "2019",
+        "org": "University of Delhi",
+        "role": "Bachelor of Arts",
+        "body": "Where the habit of interrogating received wisdom started."
+      }
+    ]
+  },
+  "contact": {
+    "kicker": "Contact",
+    "titleBefore": "I’ll respond.",
+    "titleBreak": "Probably before you do.",
+    "blurb": "If you need a design yes-man who replies “great feedback!” in nineteen minutes, I respect you enough not to apply. But if you’re hiring for judgment, not just output — the doors below are open.",
+    "dubaiNote": "Dubai-based recruiters: relocation readiness is immediate, and I work your business hours from first call.",
+    "resumeLabel": "Download resume",
+    "resumeNote": "PDF · one page · no fluff"
+  }
+}

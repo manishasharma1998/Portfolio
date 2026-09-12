@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0b0d12;
+  --foreground: #f4f1ec;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-ink-950: #08090d;
+  --color-ink-900: #0b0d12;
+  --color-ink-850: #10131b;
+  --color-ink-800: #151924;
+  --color-ink-700: #1e2432;
+  --color-ink-600: #2a3244;
+
+  --color-fog-500: #7b8297;
+  --color-fog-400: #9aa0b3;
+  --color-fog-300: #b9becd;
+
+  --color-bone-200: #e8e3da;
+  --color-bone-100: #f4f1ec;
+
+  --color-accent-400: #9d7fff;
+  --color-accent-500: #8b6dff;
+  --color-lens-300: #9db8ff;
+  --color-lens-400: #6c8cff;
+  --color-lens-500: #4d70f2;
+
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(141, 109, 255, 0.35);
+  color: #f4f1ec;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Thin custom scrollbar to match the dark OS mood */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0d12;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2432;
+  border-radius: 8px;
+  border: 2px solid #0b0d12;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a3244;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Receding grid helper used by the hero */
+.grid-recede {
+  perspective: 900px;
+}
+
+.grid-plane {
+  position: absolute;
+  left: -60vw;
+  top: -58vh;
+  width: 220vw;
+  height: 220vh;
+  transform: rotateX(62deg);
+  transform-origin: 50% 0%;
+  background-image: linear-gradient(
+      to right,
+      rgba(124, 156, 255, 0.14) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(124, 156, 255, 0.14) 1px, transparent 1px);
+  background-size: 76px 76px;
+  animation: grid-scroll 8s linear infinite;
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.15));
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95),
+    rgba(0, 0, 0, 0.15)
+  );
+}
+
+@keyframes grid-scroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 76px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid-plane {
+    animation: none;
+  }
+}
