@@ -41,37 +41,58 @@
       };
       window.__cmsPanelAdd("init: awaiting setup");
 
+      var _origLog = console.log;
+      console.log = function () {
+        try {
+          var _m = Array.prototype.slice.call(arguments, 0).map(function (a) {
+            return typeof a === "string" ? a : (a && a.message) || String(a);
+          }).join(" ");
+          if (_m && _m.length > 3 && _m.indexOf("[cms-diag]") === -1) window.__cmsPanelAdd("LOG: " + String(_m).slice(0, 200));
+        } catch (e) {}
+        _origLog.apply(console, arguments);
+      };
+      var _origWarn = console.warn;
+      console.warn = function () {
+        try {
+          var _m = Array.prototype.slice.call(arguments, 0).map(function (a) {
+            return typeof a === "string" ? a : (a && a.message) || String(a);
+          }).join(" ");
+          if (_m && _m.length) window.__cmsPanelAdd("WARN: " + String(_m).slice(0, 200));
+        } catch (e) {}
+        _origWarn.apply(console, arguments);
+      };
       var _origErr = console.error;
       console.error = function () {
         try {
           var _m = Array.prototype.slice.call(arguments, 0).map(function (a) {
             return typeof a === "string" ? a : (a && a.message) || String(a);
           }).join(" ");
-          if (_m && _m.length) window.__cmsPanelAdd("CONSOLE-ERR: " + String(_m).slice(0, 220));
+          if (_m && _m.length) window.__cmsPanelAdd("ERR: " + String(_m).slice(0, 200));
         } catch (e) {}
         _origErr.apply(console, arguments);
       };
 
+      window.__cmsBaseUrl = window.location.origin;
       window.addEventListener("message", function (ev) {
         if (typeof ev.data !== "string" || ev.data.indexOf("authorization:") !== 0) return;
         var kind = "?";
         var raw = "";
         var m = ev.data.match(/^authorization:github:(success|error):(.*)$/);
         if (m) { kind = m[1]; raw = m[2]; }
-        var originBase = window.__cmsBaseUrl || "?";
-        window.__cmsPanelAdd("AUTH MSG from " + ev.origin + " | base_url=" + originBase + " | origin-ok=" + (ev.origin === originBase) + " | kind=" + kind);
+        window.__cmsPanelAdd("AUTH MSG from " + ev.origin + " | origin-ok=" + (ev.origin === window.location.origin) + " | kind=" + kind);
         var payload = null;
-        try { payload = JSON.parse(raw); } catch (e) { window.__cmsPanelAdd("auth payload parse failed"); }
+        try { payload = JSON.parse(raw); } catch (e) {}
         if (kind === "error" && payload && payload.message) window.__cmsPanelAdd("Auth error detail: " + payload.message);
-        if (payload && payload.token) {
-          fetch("https://api.github.com/repos/manishasharma1998/Portfolio", { headers: { Authorization: "Bearer " + payload.token } })
-            .then(function (res) { window.__cmsPanelAdd("GH API status: " + res.status + (res.status === 200 ? " (token VALID)" : " (token REJECTED)")); })
-            .catch(function (e) { window.__cmsPanelAdd("GH API fetch error: " + e.message); });
+        var keys = [];
+        for (var i = 0; i < localStorage.length; i++) {
+          var k = localStorage.key(i);
+          if (k) keys.push(k);
         }
+        window.__cmsPanelAdd("localStorage keys: " + keys.join(", "));
         [4000, 8000, 15000].forEach(function (ms) {
           setTimeout(function () {
             var ncCount = document.querySelectorAll("[class*='nc-']").length;
-            var txt = document.body ? document.body.innerText.slice(0, 220).replace(/\s+/g, " ") : "no-body";
+            var txt = document.body ? document.body.innerText.slice(0, 180).replace(/\s+/g, " ") : "no-body";
             window.__cmsPanelAdd("@" + ms + "ms hash=" + location.hash + " nc-nodes=" + ncCount + " | " + txt);
           }, ms);
         });
@@ -81,43 +102,6 @@
 </head>
 <body>
   <noscript>Your browser needs JavaScript enabled to use the content manager.</noscript>
-  <script>window.CMS_MANUAL_INIT = true;</script>
-  <script src="/admin/js-yaml.min.js"></script>
   <script src="/admin/decap-cms.js"></script>
-  <script>
-    (async function () {
-      try {
-        var CMS = window.decapCms || window.CMS;
-        cmsDiag("Decap loaded: " + (CMS ? "yes" : "NO") + ", js-yaml: " + (window.jsyaml ? "yes" : "NO"));
-        if (!CMS || !window.jsyaml) { cmsDiagOverlay(); return; }
-        cmsDiag("Fetching config.yml…");
-        var res = await fetch("/admin/config.yml");
-        if (!res.ok) { cmsDiag("config fetch failed: HTTP " + res.status); cmsDiagOverlay(); return; }
-        var yamlText = await res.text();
-        cmsDiag("config OK (" + yamlText.length + " chars), parsing YAML…");
-        var config = window.jsyaml.load(yamlText);
-        cmsDiag("config parsed: " + (config && config.backend && config.collections ? "yes" : "NO"));
-        if (!config || !config.backend || !config.collections) { cmsDiagOverlay(); return; }
-        window.__cmsBaseUrl = config.backend.base_url;
-        if (window.__cmsPanelAdd) {
-          window.__cmsPanelAdd("backend: base_url=" + config.backend.base_url + " | auth_endpoint=" + config.backend.auth_endpoint + " | repo=" + config.backend.repo + " | branch=" + config.backend.branch);
-        }
-        cmsDiag("Initializing CMS…");
-        await CMS.init({ config: config });
-        cmsDiag("CMS.init completed");
-      } catch (e) {
-        cmsDiag("init error: " + (e && (e.message || e)) + " ");
-      }
-      setTimeout(function () {
-        var m = document.querySelector(".nc-root, #nc-root, [class*='nc-']");
-        if (m) {
-          console.log("[cms-diag] Editor mounted OK");
-        } else {
-          cmsDiag("Editor did not mount UI after 8s");
-          cmsDiagOverlay();
-        }
-      }, 8000);
-    })();
-  </script>
 </body>
 </html>
