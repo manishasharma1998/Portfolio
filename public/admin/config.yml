@@ -1,30 +1,25 @@
 # ──────────────────────────────────────────────────────────────
 # Decap CMS config — the "Manage content" panel at /admin
 #
-# Simplest setup: host the site on NETLIFY. Netlify handles the
-# GitHub login, so only ONE thing to edit below: `repo`.
-#
-# BEFORE PUBLISHING, change:
-#   repo       → your GitHub repo, e.g. manis2105/portfolio (No .git)
-#   site_domain → your live site (lower down)
-#
-# If you host on Vercel instead, also uncomment base_url + auth_endpoint
-# and do the one-time OAuth setup described in the README.
+# Hosted on VERCEL, so this uses the built-in OAuth proxy at
+# /api/auth. GitHub login requires two env vars on Vercel:
+#   GITHUB_CLIENT_ID / GITHUB_CLIENT_SECRET
+# (see README → "Alternative: host on Vercel")
 # ──────────────────────────────────────────────────────────────
 
 backend:
   name: github
   repo: manishasharma1998/Portfolio
   branch: main
-  # base_url: https://your-site.vercel.app   # only if hosted on Vercel
-  # auth_endpoint: api/auth                  # only if hosted on Vercel
+  base_url: https://portfolio-two-flax-31.vercel.app
+  auth_endpoint: api/auth
 
 # Where uploaded images are stored (committed to the repo).
 media_folder: public/images
 public_folder: /images
 
 # Preview of the live site when logged in.
-site_domain: your-site-name.netlify.app
+site_domain: portfolio-two-flax-31.vercel.app
 
 locale: en
 
