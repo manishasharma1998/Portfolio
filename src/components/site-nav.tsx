@@ -36,7 +36,7 @@ export function SiteNav({
         aria-label="Primary"
       >
         <a
-          href="#top"
+          href="/"
           onClick={close}
           className="font-display text-base font-semibold tracking-tight text-bone-100"
         >

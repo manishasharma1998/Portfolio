@@ -11,10 +11,10 @@
   "nav": [
     { "label": "Home", "href": "/" },
     { "label": "Work", "href": "/work" },
-    { "label": "XR", "href": "#xr" },
-    { "label": "Skills", "href": "#skills" },
-    { "label": "Journey", "href": "#journey" },
-    { "label": "Contact", "href": "#contact" }
+    { "label": "XR", "href": "/#xr" },
+    { "label": "Skills", "href": "/#skills" },
+    { "label": "Journey", "href": "/#journey" },
+    { "label": "Contact", "href": "/#contact" }
   ],
   "relocationBadge": "Instantly available to relocate worldwide",
   "hero": {
