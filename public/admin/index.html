@@ -28,26 +28,33 @@
       cmsDiagOverlay();
     });
   </script>
-  <script src="/admin/decap-cms.js"></script>
 </head>
 <body>
   <noscript>Your browser needs JavaScript enabled to use the content manager.</noscript>
+  <script>window.CMS_MANUAL_INIT = true;</script>
+  <script src="/admin/decap-cms.js"></script>
   <script>
-    window.CMS_MANUAL_INIT = false;
-
-    cmsDiag("Script tag loaded. Waiting for editor to boot…");
-    var bootTimer = setTimeout(function () {
-      var mounted = document.querySelector(".nc-root, #nc-root, [class*='nc-']");
-      if (!mounted) {
-        cmsDiag("Editor did not mount a UI after 15s.");
-        fetch("/admin/config.yml")
-          .then(function (r) { cmsDiag("config.yml status: " + r.status); })
-          .catch(function (e) { cmsDiag("config.yml fetch failed: " + e.message); });
-        cmsDiagOverlay();
-      } else {
-        cmsDiag("Editor mounted: " + (mounted.className || mounted.id || mounted.tagName));
+    (async function () {
+      try {
+        var CMS = window.decapCms || window.CMS;
+        cmsDiag("Decap loaded: " + (CMS ? "yes" : "NO"));
+        if (!CMS) { cmsDiagOverlay(); return; }
+        cmsDiag("Fetching config.yml…");
+        var res = await fetch("/admin/config.yml");
+        if (!res.ok) { cmsDiag("config fetch failed: HTTP " + res.status); cmsDiagOverlay(); return; }
+        var yamlText = await res.text();
+        cmsDiag("config OK (" + yamlText.length + " chars), initializing CMS…");
+        await CMS.init({ config: yamlText });
+        cmsDiag("CMS.init completed");
+      } catch (e) {
+        cmsDiag("init error: " + (e && (e.message || e)) + " ");
       }
-    }, 15000);
+      setTimeout(function () {
+        var m = document.querySelector(".nc-root, #nc-root, [class*='nc-']");
+        cmsDiag(m ? "Editor mounted OK" : "Editor did not mount UI after 8s");
+        cmsDiagOverlay();
+      }, 8000);
+    })();
   </script>
 </body>
 </html>
