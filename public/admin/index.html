@@ -6,10 +6,48 @@
   <meta name="robots" content="noindex" />
   <title>Content Manager</title>
   <link rel="stylesheet" href="/admin/cms.css" />
+  <script>
+    window.__cmsDiagLog = [];
+    function cmsDiag(msg) { window.__cmsDiagLog.push(msg); console.error("[cms-diag]", msg); }
+    function cmsDiagOverlay() {
+      var box = document.getElementById("cms-diag");
+      if (!box) {
+        box = document.createElement("div");
+        box.id = "cms-diag";
+        box.style.cssText = "position:fixed;left:12px;right:12px;bottom:12px;z-index:99999;background:#111;color:#ff6b6b;border:1px solid #ff6b6b;border-radius:8px;padding:12px;font:12px/1.5 monospace;white-space:pre-wrap;max-height:45vh;overflow:auto;";
+        document.body.appendChild(box);
+      }
+      box.textContent = window.__cmsDiagLog.join("\n");
+    }
+    window.addEventListener("error", function (e) {
+      cmsDiag("SCRIPT ERROR: " + (e.message || "unknown") + (e.filename ? " at " + e.filename + ":" + e.lineno : ""));
+      cmsDiagOverlay();
+    });
+    window.addEventListener("unhandledrejection", function (e) {
+      cmsDiag("PROMISE ERROR: " + (e.reason && (e.reason.message || e.reason)) + " ");
+      cmsDiagOverlay();
+    });
+  </script>
   <script src="/admin/decap-cms.js"></script>
 </head>
 <body>
   <noscript>Your browser needs JavaScript enabled to use the content manager.</noscript>
-  <script>window.CMS_MANUAL_INIT = false;</script>
+  <script>
+    window.CMS_MANUAL_INIT = false;
+
+    cmsDiag("Script tag loaded. Waiting for editor to boot…");
+    var bootTimer = setTimeout(function () {
+      var mounted = document.querySelector(".nc-root, #nc-root, [class*='nc-']");
+      if (!mounted) {
+        cmsDiag("Editor did not mount a UI after 15s.");
+        fetch("/admin/config.yml")
+          .then(function (r) { cmsDiag("config.yml status: " + r.status); })
+          .catch(function (e) { cmsDiag("config.yml fetch failed: " + e.message); });
+        cmsDiagOverlay();
+      } else {
+        cmsDiag("Editor mounted: " + (mounted.className || mounted.id || mounted.tagName));
+      }
+    }, 15000);
+  </script>
 </body>
 </html>
