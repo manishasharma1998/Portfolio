@@ -10,6 +10,18 @@ const sendMsg = (payload: string) =>
   `window.opener.postMessage(${JSON.stringify(payload)}, window.location.origin);window.close();`;
 
 /**
+ * Decap's implicit-grant popup flow REQUIRES a challenge handshake:
+ *   1. popup posts "authorizing:github" to the opener,
+ *   2. Decap echoes it back (and swaps in its token listener),
+ *   3. only then does the popup post "authorization:github:<status>:<payload>".
+ * Posting the token directly is silently ignored by Decap.
+ */
+const handshakeScript = (message: string) =>
+  `(function(){var t=window.location.origin;function r(e){if(e.origin!==t)return;if(e.data==="authorizing:github"){window.opener.postMessage(${JSON.stringify(
+    message
+  )},t);setTimeout(function(){window.close()},50)}}window.addEventListener("message",r,false);window.opener.postMessage("authorizing:github",t)})();`;
+
+/**
  * Decap CMS external-OAuth proxy (GitHub backend).
  *
  *  - GET without `code`  → begin flow: redirect to GitHub's authorize screen.
@@ -48,8 +60,8 @@ export async function GET(request: NextRequest) {
     if (data.error || !data.access_token) {
       const message =
         "authorization:github:error:" +
-        (data.error_description || data.error || "unknown");
-      return new Response(authPage(sendMsg(message)), {
+        JSON.stringify({ message: data.error_description || data.error || "unknown" });
+      return new Response(authPage(handshakeScript(message)), {
         headers: { "Content-Type": "text/html; charset=utf-8" },
       });
     }
@@ -57,7 +69,7 @@ export async function GET(request: NextRequest) {
     const message =
       "authorization:github:success:" +
       JSON.stringify({ token: data.access_token, provider: "github" });
-    return new Response(authPage(sendMsg(message)), {
+    return new Response(authPage(handshakeScript(message)), {
       headers: { "Content-Type": "text/html; charset=utf-8" },
     });
   }
