@@ -75,11 +75,6 @@ export function Timeline({ copy }: { copy: TimelineConfig }) {
                       </p>
                       <h3 className="font-display text-lg font-medium text-bone-100 sm:text-xl">
                         {node.role}
-                        {i === 0 ? (
-                          <span className="ml-3 rounded-full bg-lens-400/15 px-2.5 py-0.5 align-middle font-mono text-[10px] tracking-[0.15em] text-lens-300">
-                            CURRENT
-                          </span>
-                        ) : null}
                       </h3>
                       <p className="text-sm font-medium text-fog-300">{node.org}</p>
                       <p className="mt-2 max-w-2xl text-sm leading-relaxed text-fog-500">
