@@ -108,6 +108,42 @@ export type CaseStudySection = {
   bullets?: string[];
 };
 
+export type CaseVisual =
+  | {
+      kind: "compare";
+      title: string;
+      caption?: string;
+      before: number;
+      after: number;
+      beforeLabel?: string;
+      afterLabel?: string;
+      unit?: string;
+    }
+  | {
+      kind: "funnel";
+      title: string;
+      caption?: string;
+      steps: { label: string; value: string }[];
+    }
+  | {
+      kind: "bars";
+      title: string;
+      caption?: string;
+      bars: { label: string; value: number; suffix?: string }[];
+    }
+  | {
+      kind: "steps";
+      title: string;
+      caption?: string;
+      steps: string[];
+    }
+  | {
+      kind: "stack";
+      title: string;
+      caption?: string;
+      layers: { label: string; detail?: string }[];
+    };
+
 export type CaseStudy = {
   slug: string;
   index: string;
@@ -127,6 +163,8 @@ export type CaseStudy = {
   sections: CaseStudySection[];
   reflection: { body: string[]; bullets?: string[] };
   tools: string[];
+  visuals?: CaseVisual[];
+  images?: string[];
   mode: "deep" | "card";
   external?: string;
 };

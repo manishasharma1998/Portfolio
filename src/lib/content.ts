@@ -5,6 +5,7 @@ import type {
   BehanceConfig,
   CaseStudy,
   CaseStudySection,
+  CaseVisual,
   SiteConfig,
 } from "./types";
 
@@ -165,6 +166,8 @@ export function parseProjectMarkdown(
     sections,
     reflection,
     tools: Array.isArray(meta.tools) ? meta.tools.map(String) : [],
+    visuals: Array.isArray(meta.visuals) ? (meta.visuals as CaseVisual[]) : [],
+    images: Array.isArray(meta.images) ? meta.images.map(String) : [],
     mode,
     ...(typeof meta.external === "string" && meta.external.length
       ? { external: meta.external }

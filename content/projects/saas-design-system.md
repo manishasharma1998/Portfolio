@@ -23,7 +23,30 @@
     { "value": "1", "label": "source of truth" }
   ],
   "hero": "When three teams build on the same platform, “just fix this one screen” is never just one screen. The system had to come first — or every screen would keep quietly fighting the last one.",
-  "tools": ["Figma", "Storybook", "Jira", "Miro"]
+  "tools": ["Figma", "Storybook", "Jira", "Miro"],
+  "visuals": [
+    {
+      "kind": "stack",
+      "title": "The system pyramid",
+      "caption": "Every layer inherits the one beneath it, so decisions stay cheap and screens stop arguing with each other.",
+      "layers": [
+        { "label": "Design tokens", "detail": "semantic colour · type · spacing · radius" },
+        { "label": "200+ components", "detail": "states, usage rules, accessibility notes" },
+        { "label": "Patterns", "detail": "empty states, pagination, forms" },
+        { "label": "Product surfaces", "detail": "adopted org-wide, shipping weekly" }
+      ]
+    },
+    {
+      "kind": "compare",
+      "title": "One component, one belief",
+      "caption": "Status-pill variants collapsed from three to one token-driven source of truth.",
+      "before": 3,
+      "after": 1,
+      "unit": " variants",
+      "beforeLabel": "Before · three conflicting pills",
+      "afterLabel": "After · one source of truth"
+    }
+  ]
 }
 ---
 The failure mode of a fast-growing SaaS product isn’t bad design. It’s inconsistent design — the same button doing five things.

@@ -23,7 +23,31 @@
     { "value": "Grade A", "label": "at IIT Delhi" }
   ],
   "hero": "A VR experience is a UX problem with gravity and scale. This is where I stopped designing for a rectangle and started designing for a body — Unity mechanics, Blender environments, and the uncomfortable questions of what spatial UX should even mean.",
-  "tools": ["Unity", "Blender", "Meta Quest", "Midjourney"]
+  "tools": ["Unity", "Blender", "Meta Quest", "Midjourney"],
+  "visuals": [
+    {
+      "kind": "stack",
+      "title": "The asset pipeline",
+      "caption": "On a standalone headset every object costs compute — nothing entered a scene without a reason.",
+      "layers": [
+        { "label": "Blender", "detail": "modelling · materials · environments" },
+        { "label": "Unity", "detail": "scene building · interactions · animation" },
+        { "label": "Build", "detail": "headset-ready, held at 90fps" },
+        { "label": "Verification", "detail": "walked through by real people" }
+      ]
+    },
+    {
+      "kind": "steps",
+      "title": "Build → Walk → Learn → Repeat",
+      "caption": "Revisions were dictated by scale, reach and glance-line — never the editor viewport.",
+      "steps": [
+        "Blender — model and texture every object",
+        "Unity — assemble the scene and its interactions",
+        "Headset — walk a real person through it",
+        "Iterate — measure reach, adjust scale, redo"
+      ]
+    }
+  ]
 }
 ---
 Figma doesn’t have a floor. Blender does. The six months at IIT Delhi’s Executive Programme in VR/AR were spent learning what changes when the interface becomes somewhere you stand.

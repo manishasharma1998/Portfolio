@@ -23,7 +23,29 @@
     { "value": "3", "label": "A/B tests before shipping" }
   ],
   "hero": "A checkout flow losing 60% of users looks like a business problem. It was a trust problem, a clarity problem, and a friction problem disguised as one page. Six weeks of research and testing later, the numbers told a story the client stopped guessing.",
-  "tools": ["Figma", "Maze", "GA4", "Hotjar"]
+  "tools": ["Figma", "Maze", "GA4", "Hotjar"],
+  "visuals": [
+    {
+      "kind": "compare",
+      "title": "Checkout drop-off, before & after",
+      "caption": "One research-backed fix instead of a price cut. The abandonment rate fell to nearly half without redesigning a single screen.",
+      "before": 60,
+      "after": 35,
+      "unit": "%",
+      "beforeLabel": "Before · price blamed",
+      "afterLabel": "After · trust fixed"
+    },
+    {
+      "kind": "funnel",
+      "title": "Where the 60% were lost",
+      "caption": "User-test recordings made it impossible to keep blaming price. Every captured loss pointed the same way: the payment step.",
+      "steps": [
+        { "label": "Abandoned on the payment step", "value": "65%" },
+        { "label": "Abandoned on cart / shipping", "value": "29%" },
+        { "label": "Other friction points", "value": "6%" }
+      ]
+    }
+  ]
 }
 ---
 A checkout flow losing 60% of users looks like a business problem. It was a trust problem, a clarity problem, and a friction problem disguised as one page. Six weeks of research and testing later, the numbers told a story the client stopped guessing.

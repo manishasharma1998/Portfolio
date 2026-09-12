@@ -5,6 +5,7 @@ import { getCaseStudy, getDeepProjects, getSiteConfig } from "@/lib/content";
 import { SiteNav } from "@/components/site-nav";
 import { Footer } from "@/components/footer";
 import { Reveal } from "@/components/primitives/reveal";
+import { CaseGallery, CaseVisuals } from "@/components/case-visuals";
 
 type Props = PageProps<"/work/[slug]">;
 
@@ -126,6 +127,18 @@ export default async function CaseStudyPage({ params }: Props) {
               </p>
             ))}
           </div>
+
+          {study.visuals?.length ? (
+            <div className="mb-16">
+              <CaseVisuals visuals={study.visuals} />
+            </div>
+          ) : null}
+
+          {study.images?.length ? (
+            <div className="mb-16">
+              <CaseGallery images={study.images} />
+            </div>
+          ) : null}
 
           <div className="flex flex-col gap-14 sm:gap-20">
             {study.sections.map((s, i) => (
