@@ -43,20 +43,20 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.1} className="mt-12">
-          <div className="mx-auto flex max-w-3xl flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
+          <div className="mx-auto flex w-full max-w-4xl flex-row gap-3">
             {links.map((l) => (
               <a
                 key={l.label}
                 href={l.href}
                 target={l.href.startsWith("http") ? "_blank" : undefined}
                 rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="group flex items-center justify-between gap-4 rounded-2xl border border-white/[0.07] bg-ink-850 px-5 py-4 transition-colors duration-300 hover:border-lens-400/40 sm:min-w-[240px]"
+                className="group flex min-w-0 flex-1 items-center justify-between gap-2 rounded-2xl border border-white/[0.07] bg-ink-850 px-4 py-4 transition-colors duration-300 hover:border-lens-400/40"
               >
                 <span>
                   <span className="block font-display text-base font-medium text-bone-100">
                     {l.label}
                   </span>
-                  <span className="mt-0.5 block font-mono text-[11px] text-fog-500">
+                  <span className="mt-0.5 hidden font-mono text-[11px] text-fog-500 sm:block">
                     {l.note}
                   </span>
                 </span>
