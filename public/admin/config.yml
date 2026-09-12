@@ -14,7 +14,7 @@
 
 backend:
   name: github
-  repo: your-github-username/your-repo-name
+  repo: manishasharma1998/Portfolio
   branch: main
   # base_url: https://your-site.vercel.app   # only if hosted on Vercel
   # auth_endpoint: api/auth                  # only if hosted on Vercel
