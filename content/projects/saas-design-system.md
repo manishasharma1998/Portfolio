@@ -46,6 +46,20 @@
       "beforeLabel": "Before · three conflicting pills",
       "afterLabel": "After · one source of truth"
     }
+  ],
+  "figures": [
+    {
+      "after": "Research & Discovery",
+      "eyebrow": "The audit, in one sentence",
+      "title": "Every screen was winning its own argument",
+      "text": "Three variants of one status pill. Two empty states for the same data. A button that deleted in one place and saved in another — the product had stopped disagreeing with users and started disagreeing with itself."
+    },
+    {
+      "after": "Solution",
+      "eyebrow": "Weekly releases, zero regressions",
+      "title": "Consistency became the default",
+      "text": "Teams adopted the system org-wide. Pattern debates stopped resetting screens, and features started landing with the same visual grammar — because the boring layer was finally normalised."
+    }
   ]
 }
 ---

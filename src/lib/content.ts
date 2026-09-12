@@ -3,6 +3,7 @@ import path from "node:path";
 import { load as yamlLoad } from "js-yaml";
 import type {
   BehanceConfig,
+  CaseFigure,
   CaseStudy,
   CaseStudySection,
   CaseVisual,
@@ -168,6 +169,7 @@ export function parseProjectMarkdown(
     tools: Array.isArray(meta.tools) ? meta.tools.map(String) : [],
     visuals: Array.isArray(meta.visuals) ? (meta.visuals as CaseVisual[]) : [],
     images: Array.isArray(meta.images) ? meta.images.map(String) : [],
+    figures: Array.isArray(meta.figures) ? (meta.figures as CaseFigure[]) : [],
     mode,
     ...(typeof meta.external === "string" && meta.external.length
       ? { external: meta.external }

@@ -47,6 +47,20 @@
         "Iterate — measure reach, adjust scale, redo"
       ]
     }
+  ],
+  "figures": [
+    {
+      "after": "Research & Discovery",
+      "eyebrow": "The hardest research question",
+      "title": "How do you measure attention inside a headset?",
+      "text": "Heat maps assume a flat screen. In a scene you walk through, “looking” stops being a coordinate and becomes a body language. I studied embodied interaction frameworks because no dashboard already covered it."
+    },
+    {
+      "after": "Process",
+      "eyebrow": "The debug loop",
+      "title": "The 90fps rule settles every debate",
+      "text": "A beautiful scene is a lie until it runs on a headset. Scale, reach and glance-line dictated the revisions — and “does this object earn its compute?” became the fastest design argument I've ever had."
+    }
   ]
 }
 ---

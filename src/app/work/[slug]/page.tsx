@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Fragment } from "react";
 import { notFound } from "next/navigation";
 import { getCaseStudy, getDeepProjects, getSiteConfig } from "@/lib/content";
 import { SiteNav } from "@/components/site-nav";
 import { Footer } from "@/components/footer";
 import { Reveal } from "@/components/primitives/reveal";
-import { CaseGallery, CaseVisuals } from "@/components/case-visuals";
+import { CaseGallery, CasePoster, CaseVisuals } from "@/components/case-visuals";
 
 type Props = PageProps<"/work/[slug]">;
 
@@ -130,7 +131,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
           {study.visuals?.length ? (
             <div className="mb-16">
-              <CaseVisuals visuals={study.visuals} />
+              <CaseVisuals visuals={study.visuals} hue={study.cover.hue} />
             </div>
           ) : null}
 
@@ -141,9 +142,22 @@ export default async function CaseStudyPage({ params }: Props) {
           ) : null}
 
           <div className="flex flex-col gap-14 sm:gap-20">
-            {study.sections.map((s, i) => (
-              <Reveal key={s.heading} delay={i * 0.03}>
-                <div className="grid gap-6 md:grid-cols-[220px_1fr] md:gap-10">
+            {study.sections.map((s, i) => {
+              const posters = (study.figures ?? []).filter(
+                (f) => f.after === s.heading
+              );
+              return (
+                <Fragment key={s.heading}>
+                  {posters.map((f, j) => (
+                    <CasePoster
+                      key={`${s.heading}-${j}`}
+                      figure={f}
+                      hue={f.hue ?? study.cover.hue}
+                      index={i + j + 2}
+                    />
+                  ))}
+                  <Reveal delay={i * 0.03}>
+                    <div className="grid gap-6 md:grid-cols-[220px_1fr] md:gap-10">
                   <div className="md:sticky md:top-28 md:self-start">
                     <p className="font-mono text-[11px] tracking-[0.25em] text-lens-300 uppercase">
                       {s.kicker}
@@ -174,7 +188,9 @@ export default async function CaseStudyPage({ params }: Props) {
                   </div>
                 </div>
               </Reveal>
-            ))}
+              </Fragment>
+              );
+            })}
           </div>
 
           {/* Reflection */}

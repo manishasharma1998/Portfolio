@@ -144,6 +144,14 @@ export type CaseVisual =
       layers: { label: string; detail?: string }[];
     };
 
+export type CaseFigure = {
+  eyebrow?: string;
+  title?: string;
+  text?: string;
+  hue?: number;
+  after: string;
+};
+
 export type CaseStudy = {
   slug: string;
   index: string;
@@ -165,6 +173,7 @@ export type CaseStudy = {
   tools: string[];
   visuals?: CaseVisual[];
   images?: string[];
+  figures?: CaseFigure[];
   mode: "deep" | "card";
   external?: string;
 };

@@ -45,6 +45,20 @@
         { "label": "Other friction points", "value": "6%" }
       ]
     }
+  ],
+  "figures": [
+    {
+      "after": "Research & Discovery",
+      "eyebrow": "Session six, minute two",
+      "title": "The cursor stopped at the card input",
+      "text": "Five of six recordings froze at the same field. Not one participant called the page suspicious — they just wouldn't commit to it. That's when “make it convert” stopped sounding like a pricing problem."
+    },
+    {
+      "after": "Solution",
+      "eyebrow": "Shipped, then measured",
+      "title": "−25 points in one quarter",
+      "text": "Three A/B tests, one shipped variant, and the drop-off curve flattened. Same checkout, same screen count — minus the doubts that were never visible in the code."
+    }
   ]
 }
 ---
