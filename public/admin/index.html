@@ -37,11 +37,10 @@
       });
       window.__cmsPanelAdd = function (line) {
         window.__cmsPanel.push(new Date().toISOString().slice(11, 23) + " " + line);
-        if (panel.parentNode) {
-          panel.textContent = window.__cmsPanel.join("\n");
-        }
+        if (panel.parentNode) panel.textContent = window.__cmsPanel.join("\n");
       };
       window.__cmsPanelAdd("init: awaiting setup");
+
       var _origErr = console.error;
       console.error = function () {
         try {
@@ -52,13 +51,8 @@
         } catch (e) {}
         _origErr.apply(console, arguments);
       };
+
       window.addEventListener("message", function (ev) {
-        if (typeof ev.data !== "string" || ev.data.indexOf("authorization:") !== 0) return;
-        setTimeout(function () { window.__cmsPanelAdd("hash@2.5s= " + location.hash); }, 2500);
-        setTimeout(function () {
-          window.__cmsPanelAdd("hash@5s= " + location.hash + " | body=" + (document.body ? document.body.innerText.slice(0, 160).replace(/\s+/g, " ") : "no-body"));
-        }, 5000);
-      });
         if (typeof ev.data !== "string" || ev.data.indexOf("authorization:") !== 0) return;
         var kind = "?";
         var raw = "";
@@ -74,6 +68,10 @@
             .then(function (res) { window.__cmsPanelAdd("GH API status: " + res.status + (res.status === 200 ? " (token VALID)" : " (token REJECTED)")); })
             .catch(function (e) { window.__cmsPanelAdd("GH API fetch error: " + e.message); });
         }
+        setTimeout(function () { window.__cmsPanelAdd("hash@2.5s= " + location.hash); }, 2500);
+        setTimeout(function () {
+          window.__cmsPanelAdd("hash@5s= " + location.hash + " | body=" + (document.body ? document.body.innerText.slice(0, 160).replace(/\s+/g, " ") : "no-body"));
+        }, 5000);
       });
     })();
   </script>
