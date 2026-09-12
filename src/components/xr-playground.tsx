@@ -271,8 +271,8 @@ export function XRPlayground({ copy }: { copy: SiteConfig["xr"] }) {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink-900/60 to-transparent" />
-                <p className="absolute bottom-3 left-4 font-mono text-[10px] tracking-[0.18em] text-bone-100/90 uppercase">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
+                <p className="absolute bottom-3 left-4 rounded-full bg-black/60 px-2.5 py-1 font-mono text-[10px] tracking-[0.18em] text-lens-300 uppercase backdrop-blur-sm">
                   IIT Delhi · XR lab
                 </p>
               </div>
@@ -286,8 +286,8 @@ export function XRPlayground({ copy }: { copy: SiteConfig["xr"] }) {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink-900/60 to-transparent" />
-                <p className="absolute bottom-3 left-4 font-mono text-[10px] tracking-[0.18em] text-bone-100/90 uppercase">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
+                <p className="absolute bottom-3 left-4 rounded-full bg-black/60 px-2.5 py-1 font-mono text-[10px] tracking-[0.18em] text-lens-300 uppercase backdrop-blur-sm">
                   VR/AR · Executive Programme
                 </p>
               </div>
