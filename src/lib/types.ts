@@ -57,9 +57,20 @@ export type TimelineItem = {
   body: string;
 };
 
+export type EducationItem = {
+  period: string;
+  org: string;
+  role: string;
+  note?: string;
+};
+
 export type TimelineConfig = BlockConfig & {
   overlapNote: string;
   items: TimelineItem[];
+  education: {
+    label: string;
+    items: EducationItem[];
+  };
 };
 
 export type ContactConfig = BlockConfig & {

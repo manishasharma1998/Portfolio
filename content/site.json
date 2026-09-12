@@ -161,39 +161,33 @@
     "titleBefore": "Calm, on purpose.",
     "titleBreak": "Measured, on record.",
     "blurb": "Each node reveals itself as you scroll. Nothing shouts; things surface. That’s the whole metaphor — and the whole person.",
-    "overlapNote": "The dates above genuinely overlap — full-time agency work alongside freelancing is not a red flag, it’s a good O(n) way to learn what shipping for actually-different businesses feels like.",
+    "overlapNote": "Freelance ran as a full shop before the agency seat opened — same discovery discipline, same mobile-first standard, shipped for clients who kept coming back.",
     "items": [
       {
         "period": "Sept 2024 — Present",
         "org": "Technoid Infusion Agency Pvt Ltd",
         "role": "UI & UX Designer",
-        "body": "SaaS, e-commerce and real-estate products. Journey mapping, A/B testing, heuristic evaluation, Figma design systems, Agile/Scrum and dev handoff that developers actually thank me for."
+        "body": "End-to-end web & mobile products across SaaS, e-commerce & real estate — all shipped live. Checkout & onboarding flows improved via journey mapping & A/B testing, delivered within a single sprint; usability findings converted into stakeholder-approved fixes. Built a scalable Figma design system that cut developer handoff time; Agile/Scrum with PMs, devs & clients, with pixel-accurate handoff on every build."
       },
       {
-        "period": "2023 — Present",
+        "period": "2023 — Aug 2024",
         "org": "Freelance",
         "role": "UI & UX Designer",
-        "body": "End-to-end e-commerce and retail UI systems for repeat clients. Full discovery — personas, journey maps, wireframes — delivered mobile-first and WCAG 2.1 AA."
-      },
-      {
-        "period": "Jan — Jul 2025",
-        "org": "IIT Delhi · Executive Programme",
-        "role": "Certified XR Designer (Grade A)",
-        "body": "VR/AR, immersive workflow design, Unity prototyping, Blender modelling and environments, interactive VR experiences and simulations."
-      },
-      {
-        "period": "2022",
-        "org": "IGNOU",
-        "role": "Master's in Political Science",
-        "body": "The research instinct most designers fake. Reading systems, people and incentives before proposing a single solution."
-      },
-      {
-        "period": "2019",
-        "org": "University of Delhi",
-        "role": "Bachelor of Arts",
-        "body": "Where the habit of interrogating received wisdom started."
+        "body": "Complete end-to-end UI systems for e-commerce & retail clients, from user research to developer handoff. Full discovery — personas, journey mapping, wireframes — every decision grounded in real user needs. Mobile-first, WCAG 2.1 AA across web & mobile. Repeat business & referrals followed, because the clients came back."
       }
-    ]
+    ],
+    "education": {
+      "label": "Education",
+      "items": [
+        { "period": "Jan 2026", "org": "Times Pro", "role": "Certificate Programme in Gen AI for Managers", "note": "Certification" },
+        { "period": "Feb 2025", "org": "Times Pro", "role": "Certificate Programme in Gen AI Fundamentals", "note": "Certification" },
+        { "period": "Jan – Jul 2025", "org": "IIT Delhi", "role": "Executive Programme in Virtual & Augmented Reality", "note": "Grade A" },
+        { "period": "Jan – Aug 2024", "org": "Dice Academy, New Delhi", "role": "UI/UX Design Certification", "note": "On-site training" },
+        { "period": "Aug – Nov 2024", "org": "Coursera", "role": "Google UX Design Professional Certificate" },
+        { "period": "2020 – 2022", "org": "IGNOU", "role": "Master's in Political Science" },
+        { "period": "2016 – 2019", "org": "University of Delhi", "role": "Bachelor of Arts" }
+      ]
+    }
   },
   "contact": {
     "kicker": "Contact",

@@ -38,50 +38,99 @@ export function Timeline({ copy }: { copy: TimelineConfig }) {
           }
         />
 
-        <div ref={ref} className="relative mt-14 lg:ml-2">
-          {/* track */}
-          <div className="absolute top-0 left-[7px] h-full w-px bg-white/[0.08]" />
-          {/* fill */}
-          {!reduce ? (
-            <motion.div
-              aria-hidden
-              style={{ scaleY: fill }}
-              className="absolute top-0 left-[7px] h-full w-px origin-top bg-gradient-to-b from-lens-400 via-accent-400 to-lens-400/40"
-            />
-          ) : null}
+        <div className="mt-14 grid items-start gap-12 lg:grid-cols-2 lg:gap-8">
+          {/* Experience */}
+          <div className="min-w-0">
+            <p className="font-mono text-xs tracking-[0.3em] text-lens-300 uppercase">
+              Experience
+            </p>
 
-          <RevealStagger className="flex flex-col gap-10" stagger={0.12}>
-            {copy.items.map((node, i) => (
-              <RevealItem key={node.org} className="relative pl-10">
-                <span className="absolute top-1 left-0 flex items-center justify-center">
-                  <span
-                    className={`h-[15px] w-[15px] rounded-full border-2 ${
-                      i === 0
-                        ? "border-lens-400 bg-ink-900 shadow-[0_0_18px_rgba(108,140,255,0.7)]"
-                        : "border-white/25 bg-ink-900"
-                    }`}
-                  />
-                </span>
-                <div className="flex flex-col gap-1">
-                  <p className="font-mono text-[11px] tracking-[0.2em] text-fog-500 uppercase">
-                    {node.period}
-                  </p>
-                  <h3 className="font-display text-lg font-medium text-bone-100 sm:text-xl">
-                    {node.role}
-                    {i === 0 ? (
-                      <span className="ml-3 rounded-full bg-lens-400/15 px-2.5 py-0.5 align-middle font-mono text-[10px] tracking-[0.15em] text-lens-300">
-                        CURRENT
-                      </span>
-                    ) : null}
-                  </h3>
-                  <p className="text-sm font-medium text-fog-300">{node.org}</p>
-                  <p className="mt-2 max-w-2xl text-sm leading-relaxed text-fog-500">
-                    {node.body}
-                  </p>
-                </div>
-              </RevealItem>
-            ))}
-          </RevealStagger>
+            <div ref={ref} className="relative mt-8 lg:ml-2">
+              {/* track */}
+              <div className="absolute top-0 left-[7px] h-full w-px bg-white/[0.08]" />
+              {/* fill */}
+              {!reduce ? (
+                <motion.div
+                  aria-hidden
+                  style={{ scaleY: fill }}
+                  className="absolute top-0 left-[7px] h-full w-px origin-top bg-gradient-to-b from-lens-400 via-accent-400 to-lens-400/40"
+                />
+              ) : null}
+
+              <RevealStagger className="flex flex-col gap-10" stagger={0.12}>
+                {copy.items.map((node, i) => (
+                  <RevealItem key={node.org} className="relative pl-10">
+                    <span className="absolute top-1 left-0 flex items-center justify-center">
+                      <span
+                        className={`h-[15px] w-[15px] rounded-full border-2 ${
+                          i === 0
+                            ? "border-lens-400 bg-ink-900 shadow-[0_0_18px_rgba(108,140,255,0.7)]"
+                            : "border-white/25 bg-ink-900"
+                        }`}
+                      />
+                    </span>
+                    <div className="flex flex-col gap-1">
+                      <p className="font-mono text-[11px] tracking-[0.2em] text-fog-500 uppercase">
+                        {node.period}
+                      </p>
+                      <h3 className="font-display text-lg font-medium text-bone-100 sm:text-xl">
+                        {node.role}
+                        {i === 0 ? (
+                          <span className="ml-3 rounded-full bg-lens-400/15 px-2.5 py-0.5 align-middle font-mono text-[10px] tracking-[0.15em] text-lens-300">
+                            CURRENT
+                          </span>
+                        ) : null}
+                      </h3>
+                      <p className="text-sm font-medium text-fog-300">{node.org}</p>
+                      <p className="mt-2 max-w-2xl text-sm leading-relaxed text-fog-500">
+                        {node.body}
+                      </p>
+                    </div>
+                  </RevealItem>
+                ))}
+              </RevealStagger>
+            </div>
+          </div>
+
+          {/* Education */}
+          <div className="min-w-0">
+            <p className="font-mono text-xs tracking-[0.3em] text-lens-300 uppercase">
+              {copy.education.label}
+            </p>
+
+            <RevealStagger
+              className="mt-8 flex flex-col gap-3"
+              stagger={0.07}
+              delayChildren={0.05}
+            >
+              {copy.education.items.map((e, i) => (
+                <RevealItem
+                  key={e.role}
+                  className="group rounded-2xl border border-white/[0.07] bg-ink-850 transition-colors duration-300 hover:border-lens-400/30"
+                >
+                  <div className="flex items-start gap-3 p-4 sm:p-5">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-lens-400/25 bg-lens-400/[0.08] font-mono text-[11px] text-lens-300">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="min-w-0">
+                      <h3 className="font-display text-base font-medium leading-snug text-bone-100">
+                        {e.role}
+                      </h3>
+                      <p className="mt-1 text-sm font-medium text-fog-300">{e.org}</p>
+                      {e.note ? (
+                        <p className="mt-2 font-mono text-[10px] tracking-[0.2em] text-fog-500 uppercase">
+                          {e.note}
+                        </p>
+                      ) : null}
+                    </div>
+                    <span className="ml-auto mt-0.5 shrink-0 rounded-full border border-white/10 px-2.5 py-1 font-mono text-[10px] tracking-[0.15em] whitespace-nowrap text-lens-300">
+                      {e.period}
+                    </span>
+                  </div>
+                </RevealItem>
+              ))}
+            </RevealStagger>
+          </div>
         </div>
 
         <Reveal delay={0.1}>
