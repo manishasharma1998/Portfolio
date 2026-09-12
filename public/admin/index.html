@@ -5,19 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Content Manager</title>
-  <link rel="stylesheet" href="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.css" />
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <link rel="stylesheet" href="/admin/cms.css" />
+  <script src="/admin/decap-cms.js"></script>
 </head>
 <body>
-  <!-- Decap CMS renders into this element -->
-  <script>
-    (function () {
-      var div = document.createElement("div");
-      div.id = "nc-root";
-      document.body.appendChild(div);
-
-      window.CMS_MANUAL_INIT = false;
-    })();
-  </script>
+  <noscript>Your browser needs JavaScript enabled to use the content manager.</noscript>
+  <script>window.CMS_MANUAL_INIT = false;</script>
 </body>
 </html>
