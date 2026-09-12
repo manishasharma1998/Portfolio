@@ -51,7 +51,7 @@ export function Footer() {
                     href={l.href}
                     className="group inline-flex items-center gap-2 text-sm text-fog-400 transition-colors hover:text-bone-100"
                   >
-                    <span className="h-px w-3 bg-white/[0.15] transition-all duration-300 group-hover:w-5 group-hover:bg-lens-400" />
+                    <span className="h-px w-3 bg-lens-400 opacity-0 transition-all duration-300 group-hover:w-5 group-hover:opacity-100" />
                     {l.label}
                   </a>
                 </li>
@@ -73,7 +73,7 @@ export function Footer() {
                     rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
                     className="group inline-flex items-center gap-2 text-sm text-fog-400 transition-colors hover:text-bone-100"
                   >
-                    <span className="h-px w-3 bg-white/[0.15] transition-all duration-300 group-hover:w-5 group-hover:bg-lens-400" />
+                    <span className="h-px w-3 bg-lens-400 opacity-0 transition-all duration-300 group-hover:w-5 group-hover:opacity-100" />
                     {c.label}
                   </a>
                 </li>
