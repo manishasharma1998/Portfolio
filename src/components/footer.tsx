@@ -12,6 +12,8 @@ export function Footer() {
   ] as const;
 
   const header = "font-mono text-[11px] tracking-[0.25em] text-fog-500 uppercase";
+  const dash =
+    "h-px w-3 bg-lens-400 opacity-0 transition-all duration-300 group-hover:w-5 group-hover:opacity-100";
 
   return (
     <footer className="relative overflow-hidden border-t border-white/[0.06] bg-ink-950">
@@ -21,27 +23,24 @@ export function Footer() {
       />
 
       <div className="relative mx-auto max-w-6xl px-5 py-14 sm:px-8 sm:py-16">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-          {/* Portfolio */}
+        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr] md:gap-8">
+          {/* Brand */}
           <div>
-            <p className={header}>Portfolio</p>
-            <div className="mt-4">
-              <p className="font-display text-2xl font-semibold tracking-tight text-bone-100">
-                {site.name}
-                <span className="text-lens-400">.</span>
-              </p>
-              <p className="mt-1.5 font-mono text-[11px] tracking-[0.2em] text-lens-300 uppercase">
-                {site.role}
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-fog-500">{site.location}</p>
-              <a
-                href={site.resume}
-                download
-                className="mt-6 inline-flex items-center gap-2 rounded-full bg-lens-400 px-5 py-2.5 text-sm font-medium text-ink-950 transition-colors hover:bg-lens-300"
-              >
-                Download resume <span aria-hidden>↓</span>
-              </a>
-            </div>
+            <p className="font-display text-2xl font-semibold tracking-tight text-bone-100">
+              {site.name}
+              <span className="text-lens-400">.</span>
+            </p>
+            <p className="mt-1.5 font-mono text-[11px] tracking-[0.2em] text-lens-300 uppercase">
+              {site.role}
+            </p>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-fog-500">{site.location}</p>
+            <a
+              href={site.resume}
+              download
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-lens-400 px-5 py-2.5 text-sm font-medium text-ink-950 transition-colors hover:bg-lens-300"
+            >
+              Download resume <span aria-hidden>↓</span>
+            </a>
           </div>
 
           {/* Navigate */}
@@ -54,8 +53,8 @@ export function Footer() {
                     href={l.href}
                     className="group inline-flex items-center gap-2 text-sm text-fog-400 transition-colors hover:text-bone-100"
                   >
-                    <span className="h-px w-3 bg-lens-400 opacity-0 transition-all duration-300 group-hover:w-5 group-hover:opacity-100" />
                     {l.label}
+                    <span className={dash} />
                   </a>
                 </li>
               ))}
@@ -74,36 +73,29 @@ export function Footer() {
                     rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
                     className="group inline-flex items-center gap-2 text-sm text-fog-400 transition-colors hover:text-bone-100"
                   >
-                    <span className="h-px w-3 bg-lens-400 opacity-0 transition-all duration-300 group-hover:w-5 group-hover:opacity-100" />
                     {c.label}
+                    <span className={dash} />
                   </a>
                 </li>
               ))}
             </ul>
           </div>
+        </div>
 
-          {/* Colophon */}
-          <div>
-            <p className={header}>Colophon</p>
-            <ul className="mt-4 space-y-2.5">
-              <li className="font-mono text-[11px] tracking-[0.15em] text-fog-500 uppercase">
-                © {year} {site.name}
-              </li>
-              <li className="font-mono text-[11px] leading-relaxed tracking-[0.15em] text-fog-500 uppercase">
-                Designed &amp; built in <span className="text-bone-100">Next.js</span> ·
-                relocation-ready
-              </li>
-              <li>
-                <a
-                  href="/admin/index.html"
-                  className="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.15em] text-fog-400 uppercase transition-colors hover:text-bone-100"
-                >
-                  <span className="h-px w-3 bg-lens-400 opacity-0 transition-all duration-300 group-hover:w-5 group-hover:opacity-100" />
-                  Manage content
-                </a>
-              </li>
-            </ul>
-          </div>
+        {/* Bottom bar */}
+        <div className="mt-12 flex flex-col gap-4 border-t border-white/[0.06] pt-6 sm:flex-row sm:items-center sm:gap-8">
+          <p className="font-mono text-[11px] tracking-[0.15em] text-fog-500 uppercase">
+            © {year} {site.name}
+          </p>
+          <p className="font-mono text-[11px] tracking-[0.15em] text-fog-500 uppercase">
+            Designed &amp; built in <span className="text-bone-100">Next.js</span> · relocation-ready
+          </p>
+          <a
+            href="/admin/index.html"
+            className="font-mono text-[11px] tracking-[0.15em] text-fog-500 uppercase transition-colors hover:text-lens-300"
+          >
+            Manage content
+          </a>
         </div>
       </div>
     </footer>
