@@ -164,7 +164,7 @@ export function XRPlayground({ copy }: { copy: SiteConfig["xr"] }) {
             className="group relative overflow-hidden rounded-3xl border border-white/[0.09] bg-black shadow-[0_0_80px_-20px_rgba(108,140,255,0.25)]"
           >
             {/* scene */}
-            <div className="relative aspect-[16/10] w-full [perspective:1200px] sm:aspect-[16/9]">
+            <div className="relative aspect-[4/3] w-full [perspective:1200px] sm:aspect-[16/9]">
               {/* horizon glow */}
               <motion.div
                 aria-hidden
@@ -191,39 +191,61 @@ export function XRPlayground({ copy }: { copy: SiteConfig["xr"] }) {
                   }}
                 />
 
-                {/* floating panels */}
-                {panels.map((p) => (
-                  <div
-                    key={p.id}
-                    className={`absolute ${p.className} [transform-style:preserve-3d]`}
-                    style={{ transform: p.depth }}
-                  >
-                    <motion.div
-                      className="rounded-xl border border-white/12 bg-white/[0.06] p-4 backdrop-blur-md"
-                      whileHover={reduce ? undefined : { y: -6 }}
-                      transition={{ duration: 0.4 }}
+                {/* desktop floating panels */}
+                <div className="hidden sm:block">
+                  {panels.map((p) => (
+                    <div
+                      key={p.id}
+                      className={`absolute ${p.className} [transform-style:preserve-3d]`}
+                      style={{ transform: p.depth }}
                     >
-                      <p className="flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] text-lens-300">
-                        <span className="h-1 w-1 rounded-full bg-lens-400" />
-                        {p.label}
-                      </p>
-                      <p className="mt-2 font-display text-sm font-medium text-bone-100 sm:text-base">
-                        {p.sub}
-                      </p>
-                      <div className="mt-3 h-1 w-full overflow-hidden rounded-full bg-white/10">
-                        <div className="h-full w-2/3 rounded-full bg-lens-400/80" />
-                      </div>
-                    </motion.div>
-                  </div>
-                ))}
+                      <motion.div
+                        className="rounded-xl border border-white/12 bg-white/[0.06] p-4 backdrop-blur-md"
+                        whileHover={reduce ? undefined : { y: -6 }}
+                        transition={{ duration: 0.4 }}
+                      >
+                        <p className="flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] text-lens-300">
+                          <span className="h-1 w-1 rounded-full bg-lens-400" />
+                          {p.label}
+                        </p>
+                        <p className="mt-2 font-display text-sm font-medium text-bone-100 sm:text-base">
+                          {p.sub}
+                        </p>
+                        <div className="mt-3 h-1 w-full overflow-hidden rounded-full bg-white/10">
+                          <div className="h-full w-2/3 rounded-full bg-lens-400/80" />
+                        </div>
+                      </motion.div>
+                    </div>
+                  ))}
+                </div>
 
                 {/* hud tokens */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:72px_72px]" />
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.6)_100%)]" />
               </motion.div>
 
+              {/* mobile stacked panel cards */}
+              <div className="absolute inset-x-3 bottom-3 z-10 flex flex-col gap-2 sm:hidden">
+                {panels.map((p) => (
+                  <div
+                    key={p.id}
+                    className="flex items-center gap-3 rounded-xl border border-white/12 bg-black/60 px-3.5 py-2.5 backdrop-blur-md"
+                  >
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-lens-400" />
+                    <div className="min-w-0">
+                      <p className="truncate font-mono text-[10px] tracking-[0.2em] text-lens-300">
+                        {p.label}
+                      </p>
+                      <p className="mt-0.5 truncate font-display text-xs font-medium text-bone-100">
+                        {p.sub}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
               {/* viewport meta */}
-              <div className="absolute top-4 left-5 flex items-center gap-2.5">
+              <div className="absolute top-4 left-5 z-10 flex items-center gap-2.5">
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black/50 px-3 py-1 backdrop-blur-md">
                   <span className="flex h-2 w-2 gap-0.5" aria-hidden>
                     <span className="h-full w-0.5 animate-pulse rounded-full bg-red-400" />
@@ -243,14 +265,17 @@ export function XRPlayground({ copy }: { copy: SiteConfig["xr"] }) {
               <button
                 type="button"
                 onClick={toggle}
-                className="absolute bottom-4 right-5 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-black/50 px-3.5 py-1.5 backdrop-blur-md transition-colors hover:border-lens-400/40"
+                className="absolute top-4 right-4 z-10 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-black/50 px-3.5 py-1.5 backdrop-blur-md transition-colors hover:border-lens-400/40 sm:top-auto sm:right-5 sm:bottom-4"
                 aria-pressed={enabled}
               >
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-lens-400 opacity-60" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-lens-400" />
                 </span>
-                <span className="font-mono text-[10px] tracking-[0.18em] uppercase">
+                <span className="font-mono text-[10px] tracking-[0.18em] uppercase sm:hidden">
+                  Ambience {enabled ? "· on" : "· off"}
+                </span>
+                <span className="hidden font-mono text-[10px] tracking-[0.18em] uppercase sm:inline">
                   Spatial ambience {enabled ? "· on" : "· off"}
                 </span>
               </button>
