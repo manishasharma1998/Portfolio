@@ -182,7 +182,7 @@ export function ChatBot({
   function greet() {
     setStarted(true);
     setTyping(true);
-    const text = `Hi, I'm ${name.split(" ")[0]} — your AI guide here. Ask me about the work, skills, XR, or hiring, or tap a question below.`;
+    const text = `Namaste, this is ${name.split(" ")[0]}, how can I help you?`;
     window.setTimeout(() => {
       setTyping(false);
       push("assistant", text, fallbackSeed());
