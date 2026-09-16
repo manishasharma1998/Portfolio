@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { getSiteConfig } from "@/lib/content";
+import { ChatBot } from "@/components/chat-bot";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -57,6 +59,8 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  const site = getSiteConfig();
+
   return (
     <html
       lang="en"
@@ -69,6 +73,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
         {children}
+        <ChatBot
+          name={site.name}
+          email={site.email}
+          whatsapp={site.whatsapp}
+          resume={site.resume}
+        />
       </body>
     </html>
   );
