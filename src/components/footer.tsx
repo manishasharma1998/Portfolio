@@ -83,6 +83,9 @@ export function Footer() {
           <p className="font-mono text-[11px] tracking-[0.15em] text-fog-500 uppercase">
             Designed &amp; built in <span className="text-bone-100">Next.js</span> · relocation-ready
           </p>
+          <p className="font-mono text-[11px] tracking-[0.15em] text-fog-500 uppercase">
+            Avatar video: <span className="text-bone-100">Vecteezy</span>
+          </p>
           <a
             href="/admin/index.html"
             className="font-mono text-[11px] tracking-[0.15em] text-fog-500 uppercase transition-colors hover:text-lens-300"

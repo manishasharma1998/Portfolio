@@ -2,20 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-
-const Avatar3D = dynamic<{ speaking: boolean }>(
-  () => import("./avatar3d").then((m) => m.Avatar3D),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="flex h-full w-full items-center justify-center">
-        <Avatar size={54} speaking={false} />
-      </div>
-    ),
-  }
-);
 
 type Action = {
   label: string;
@@ -332,6 +319,19 @@ export function ChatBot({
   );
 
   useEffect(() => {
+    if (!open) return;
+    const prevOverflow = document.body.style.overflow;
+    const prevPosition = document.body.style.position;
+    document.body.style.overflow = "hidden";
+    document.body.style.overscrollBehavior = "none";
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      document.body.style.position = prevPosition;
+      document.body.style.overscrollBehavior = "";
+    };
+  }, [open]);
+
+  useEffect(() => {
     const onScroll = () => {
       lastScrollRef.current = performance.now();
       if (window.scrollY > 120) scrolledRef.current = true;
@@ -448,7 +448,17 @@ export function ChatBot({
               <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-lens-400/60 to-transparent" />
               <div className="relative h-40 sm:h-44">
                 <div className="pointer-events-none absolute inset-0">
-                  <Avatar3D speaking={Boolean(speaking)} />
+                  <video
+                    key="manisha-avatar"
+                    className="h-full w-full object-cover"
+                    src="/avatar/manisha.mp4"
+                    poster="/avatar/manisha.png"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                  />
                 </div>
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-900/95 via-ink-900/15 to-transparent" />
                 <div className="absolute top-3 left-4 z-10 flex items-center gap-1.5 rounded-full border border-lens-400/30 bg-ink-900/70 px-2.5 py-1 font-mono text-[9px] tracking-[0.22em] text-lens-300 uppercase backdrop-blur">
@@ -540,6 +550,7 @@ export function ChatBot({
                             <a
                               key={a.label}
                               href={a.href}
+                              onClick={close}
                               target={a.href.startsWith("http") ? "_blank" : undefined}
                               rel={a.href.startsWith("http") ? "noopener noreferrer" : undefined}
                               className="rounded-full border border-lens-400/30 bg-lens-400/[0.08] px-3 py-1 text-[11px] font-medium text-lens-300 transition-colors hover:bg-lens-400/15"
@@ -550,6 +561,7 @@ export function ChatBot({
                             <Link
                               key={a.label}
                               href={a.href}
+                              onClick={close}
                               download={a.download}
                               className="rounded-full border border-lens-400/30 bg-lens-400/[0.08] px-3 py-1 text-[11px] font-medium text-lens-300 transition-colors hover:bg-lens-400/15"
                             >
