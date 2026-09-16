@@ -2,7 +2,20 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+
+const Avatar3D = dynamic<{ speaking: boolean }>(
+  () => import("./avatar3d").then((m) => m.Avatar3D),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex h-full w-full items-center justify-center">
+        <Avatar size={54} speaking={false} />
+      </div>
+    ),
+  }
+);
 
 type Action = {
   label: string;
@@ -413,54 +426,62 @@ export function ChatBot({
             role="dialog"
             aria-label={`${name} portfolio chat`}
           >
-            {/* Header */}
-            <div className="flex items-center justify-between gap-3 border-b border-white/[0.06] px-4 py-3">
-              <div className="flex items-center gap-3">
-                <Avatar speaking={Boolean(speaking)} />
-                <div>
-                  <p className="font-display text-sm font-medium text-bone-100">
+            {/* 3D avatar banner */}
+            <div className="relative overflow-hidden border-b border-white/[0.06]">
+              <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-lens-400/60 to-transparent" />
+              <div className="relative h-40 sm:h-44">
+                <div className="pointer-events-none absolute inset-0">
+                  <Avatar3D speaking={Boolean(speaking)} />
+                </div>
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-900/95 via-ink-900/15 to-transparent" />
+                <div className="absolute top-3 left-4 z-10 flex items-center gap-1.5 rounded-full border border-lens-400/30 bg-ink-900/70 px-2.5 py-1 font-mono text-[9px] tracking-[0.22em] text-lens-300 uppercase backdrop-blur">
+                  <span className={`h-1.5 w-1.5 rounded-full ${speaking ? "animate-pulse bg-lens-300" : "bg-lens-400"}`} />
+                  AI
+                </div>
+                <div className="absolute top-3 right-4 z-10 flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setVoiceOn((v) => !v)}
+                    aria-pressed={voiceOn}
+                    aria-label={voiceOn ? "Turn voice off" : "Turn voice on"}
+                    className={`flex h-8 w-8 items-center justify-center rounded-full border backdrop-blur transition-colors ${
+                      voiceOn
+                        ? "border-lens-400/40 bg-ink-900/50 text-lens-300 hover:bg-lens-400/10"
+                        : "border-white/10 bg-ink-900/50 text-fog-500 hover:border-white/20 hover:text-bone-100"
+                    }`}
+                  >
+                    {voiceOn ? (
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
+                        <rect x="9" y="3" width="6" height="11" rx="3" stroke="currentColor" strokeWidth="1.6" />
+                        <path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                      </svg>
+                    ) : (
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
+                        <rect x="9" y="3" width="6" height="11" rx="3" stroke="currentColor" strokeWidth="1.6" />
+                        <path d="M5 11a7 7 0 0 0 14 0M12 18v3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                        <path d="M4 4l16 16" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                      </svg>
+                    )}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={close}
+                    aria-label="Close chat"
+                    className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-ink-900/50 text-fog-400 backdrop-blur transition-colors hover:border-white/20 hover:text-bone-100"
+                  >
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden>
+                      <path d="M1 1l10 10M11 1L1 11" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                    </svg>
+                  </button>
+                </div>
+                <div className="absolute bottom-3 left-4 z-10">
+                  <p className="font-display text-sm font-semibold text-bone-100">
                     {name.split(" ")[0]} · AI
                   </p>
                   <p className="font-mono text-[10px] tracking-[0.18em] text-fog-500 uppercase">
-                    {speaking ? "Speaking…" : "Voice assistant"}
+                    {speaking ? "Speaking…" : "Greeting — female AI guide"}
                   </p>
                 </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => setVoiceOn((v) => !v)}
-                  aria-pressed={voiceOn}
-                  aria-label={voiceOn ? "Turn voice off" : "Turn voice on"}
-                  className={`flex h-8 w-8 items-center justify-center rounded-full border transition-colors ${
-                    voiceOn
-                      ? "border-lens-400/40 text-lens-300 hover:bg-lens-400/10"
-                      : "border-white/10 text-fog-500 hover:border-white/20 hover:text-bone-100"
-                  }`}
-                >
-                  {voiceOn ? (
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
-                      <rect x="9" y="3" width="6" height="11" rx="3" stroke="currentColor" strokeWidth="1.6" />
-                      <path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                    </svg>
-                  ) : (
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
-                      <rect x="9" y="3" width="6" height="11" rx="3" stroke="currentColor" strokeWidth="1.6" />
-                      <path d="M5 11a7 7 0 0 0 14 0M12 18v3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                      <path d="M4 4l16 16" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                    </svg>
-                  )}
-                </button>
-                <button
-                  type="button"
-                  onClick={close}
-                  aria-label="Close chat"
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 text-fog-400 transition-colors hover:border-white/20 hover:text-bone-100"
-                >
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden>
-                    <path d="M1 1l10 10M11 1L1 11" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-                  </svg>
-                </button>
               </div>
             </div>
 
