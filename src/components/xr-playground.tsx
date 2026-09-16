@@ -234,7 +234,7 @@ export function XRPlayground({ copy }: { copy: SiteConfig["xr"] }) {
                     REC · HEAD-ON
                   </span>
                 </span>
-                <span className="rounded-full border border-white/10 bg-black/50 px-3 py-1 font-mono text-[10px] tracking-[0.18em] text-fog-400 backdrop-blur-md">
+                <span className="hidden rounded-full border border-white/10 bg-black/50 px-3 py-1 font-mono text-[10px] tracking-[0.18em] text-fog-400 backdrop-blur-md sm:inline-flex">
                   UNITY · BLENDER · QUEST
                 </span>
               </div>

@@ -43,24 +43,24 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.1} className="mt-12">
-          <div className="mx-auto flex w-full max-w-4xl flex-row gap-3">
+          <div className="mx-auto grid w-full max-w-4xl grid-cols-2 gap-3 sm:flex sm:flex-row">
             {links.map((l) => (
               <a
                 key={l.label}
                 href={l.href}
                 target={l.href.startsWith("http") ? "_blank" : undefined}
                 rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="group flex min-w-0 flex-1 items-center justify-between gap-2 rounded-2xl border border-white/[0.07] bg-ink-850 px-4 py-4 transition-colors duration-300 hover:border-lens-400/40"
+                className="group flex min-w-0 flex-1 items-center justify-between gap-2 rounded-2xl border border-white/[0.07] bg-ink-850 px-3 py-3.5 transition-colors duration-300 hover:border-lens-400/40 sm:px-4 sm:py-4"
               >
-                <span>
-                  <span className="block font-display text-base font-medium text-bone-100">
+                <span className="min-w-0">
+                  <span className="block truncate font-display text-sm font-medium text-bone-100 sm:text-base">
                     {l.label}
                   </span>
                   <span className="mt-0.5 hidden font-mono text-[11px] text-fog-500 sm:block">
                     {l.note}
                   </span>
                 </span>
-                <span className="text-fog-500 transition-all duration-300 group-hover:translate-x-1 group-hover:text-lens-300">
+                <span className="shrink-0 text-fog-500 transition-all duration-300 group-hover:translate-x-1 group-hover:text-lens-300">
                   →
                 </span>
               </a>

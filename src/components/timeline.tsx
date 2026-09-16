@@ -107,10 +107,15 @@ export function Timeline({ copy }: { copy: TimelineConfig }) {
                     <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-lens-400/25 bg-lens-400/[0.08] font-mono text-[11px] text-lens-300">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <div className="min-w-0">
-                      <h3 className="font-display text-base font-medium leading-snug text-bone-100">
-                        {e.role}
-                      </h3>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
+                        <h3 className="font-display text-base font-medium leading-snug text-bone-100">
+                          {e.role}
+                        </h3>
+                        <span className="inline-flex rounded-full border border-white/10 px-2.5 py-1 font-mono text-[10px] leading-none tracking-[0.15em] whitespace-nowrap text-lens-300">
+                          {e.period}
+                        </span>
+                      </div>
                       <p className="mt-1 text-sm font-medium text-fog-300">{e.org}</p>
                       {e.note ? (
                         <p className="mt-2 font-mono text-[10px] tracking-[0.2em] text-fog-500 uppercase">
@@ -118,9 +123,6 @@ export function Timeline({ copy }: { copy: TimelineConfig }) {
                         </p>
                       ) : null}
                     </div>
-                    <span className="ml-auto mt-0.5 shrink-0 rounded-full border border-white/10 px-2.5 py-1 font-mono text-[10px] tracking-[0.15em] whitespace-nowrap text-lens-300">
-                      {e.period}
-                    </span>
                   </div>
                 </RevealItem>
               ))}

@@ -67,7 +67,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
             <Reveal delay={0.05}>
               <div className="mt-10 flex flex-col gap-3">
-                <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.22em] uppercase">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] tracking-[0.22em] uppercase">
                   <span className="text-lens-300">{study.category}</span>
                   <span className="text-fog-500">· {study.year}</span>
                   <span className="text-fog-500">· {study.index}</span>
@@ -107,8 +107,8 @@ export default async function CaseStudyPage({ params }: Props) {
         <section aria-label="Outcome metrics" className="border-b border-white/[0.06]">
           <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px px-5 sm:grid-cols-4 sm:px-8">
             {study.metrics.map((m) => (
-              <Reveal key={m.label} className="border-b border-white/[0.06] py-8 sm:border-b-0">
-                <p className="font-display text-2xl font-semibold tracking-tight text-accent-400 sm:text-3xl">
+              <Reveal key={m.label} className="min-w-0 border-b border-white/[0.06] py-8 sm:border-b-0">
+                <p className="font-display text-xl font-semibold tracking-tight text-accent-400 sm:text-3xl">
                   {m.value}
                 </p>
                 <p className="mt-1 font-mono text-[10px] tracking-[0.18em] text-fog-500 uppercase">
