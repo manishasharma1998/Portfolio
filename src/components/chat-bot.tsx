@@ -376,6 +376,23 @@ export function ChatBot({
 
   return (
     <>
+      {/* Backdrop blur behind chat */}
+      <AnimatePresence>
+        {open ? (
+          <motion.button
+            key="backdrop"
+            type="button"
+            aria-hidden
+            tabIndex={-1}
+            onClick={close}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[65] bg-ink-950/25 backdrop-blur-[3px] sm:bg-ink-950/20 sm:backdrop-blur-md"
+          />
+        ) : null}
+      </AnimatePresence>
       {/* Launcher */}
       <motion.button
         type="button"
