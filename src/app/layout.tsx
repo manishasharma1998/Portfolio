@@ -63,6 +63,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}
     >
       <body className="min-h-dvh bg-background font-sans text-bone-100 antialiased selection:bg-accent-500/40">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if (location.hash) history.replaceState(null, "", location.pathname + location.search); if (location.hash || window.scrollY > 0) scrollTo(0, 0);`,
+          }}
+        />
         {children}
       </body>
     </html>
