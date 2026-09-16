@@ -34,13 +34,6 @@ export function Footer() {
               {site.role}
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-fog-500">{site.location}</p>
-            <a
-              href={site.resume}
-              download
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-lens-400 px-5 py-2.5 text-sm font-medium text-ink-950 transition-colors hover:bg-lens-300"
-            >
-              Download resume <span aria-hidden>↓</span>
-            </a>
           </div>
 
           {/* Navigate */}
