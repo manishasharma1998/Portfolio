@@ -59,7 +59,7 @@ function Avatar({
         className="relative flex items-center justify-center rounded-full bg-ink-950 font-display font-semibold text-lens-300"
         style={{ width: size - 6, height: size - 6, fontSize: size * 0.3 }}
       >
-        {size >= 34 ? "MS" : "M"}
+        {size >= 34 ? "S" : "S"}
       </span>
       <span className="absolute -right-1 -bottom-0.5 rounded-md border border-white/15 bg-ink-900 px-1 font-mono text-[8px] leading-3 text-lens-300 uppercase">
         AI
@@ -169,7 +169,7 @@ export function ChatBot({
   function greet() {
     setStarted(true);
     setTyping(true);
-    const text = `Namaste, this is ${name.split(" ")[0]}, how can I help you?`;
+    const text = `Namaste, ${name.split(" ")[0]} is not here right now! I am Shree, her assistant. How can I help you?`;
     window.setTimeout(() => {
       setTyping(false);
       push("assistant", text, fallbackSeed());
@@ -351,7 +351,7 @@ export function ChatBot({
       const dt = now - last;
       last = now;
       if (performance.now() - lastScrollRef.current < 1500) acc += dt;
-      if (acc >= 30000) {
+      if (acc >= 10000) {
         setOpenOnce(true);
         return;
       }
@@ -452,12 +452,11 @@ export function ChatBot({
                     key="manisha-avatar"
                     className="h-full w-full object-cover"
                     src="/avatar/manisha.mp4"
-                    poster="/avatar/manisha.png"
                     autoPlay
                     muted
                     loop
                     playsInline
-                    preload="metadata"
+                    preload="auto"
                   />
                 </div>
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-900/95 via-ink-900/15 to-transparent" />
@@ -503,10 +502,10 @@ export function ChatBot({
                 </div>
                 <div className="absolute bottom-3 left-4 z-10">
                   <p className="font-display text-sm font-semibold text-bone-100">
-                    {name.split(" ")[0]} · AI
+                    Shree
                   </p>
                   <p className="font-mono text-[10px] tracking-[0.18em] text-fog-500 uppercase">
-                    {speaking ? "Speaking…" : "Greeting — female AI guide"}
+                    {speaking ? "Speaking…" : "Manisha’s AI assistant"}
                   </p>
                 </div>
               </div>
