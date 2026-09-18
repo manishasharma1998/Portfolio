@@ -1,0 +1,683 @@
+{
+  "ui": {
+    "announcement": {
+      "notice": "Estás viendo este portafolio en {language}.",
+      "change": "Cambia el idioma cuando quieras desde la navegación superior — o aquí mismo.",
+      "dismiss": "Descartar"
+    },
+    "language": { "label": "Idioma", "switcherAria": "Elegir idioma" },
+    "nav": {
+      "resume": "Currículum",
+      "downloadResume": "Descargar currículum",
+      "openMenu": "Abrir menú",
+      "closeMenu": "Cerrar menú",
+      "primaryAria": "Principal"
+    },
+    "footer": {
+      "navigate": "Navegar",
+      "connect": "Conectar",
+      "built": "Diseñado y desarrollado en Next.js · listo para reubicarse",
+      "avatarCredit": "Vídeo del avatar: Vecteezy",
+      "manage": "Gestionar contenido"
+    },
+    "contactLinks": {
+      "email": "Correo",
+      "linkedin": "LinkedIn",
+      "linkedinNote": "Historial listo para entrevistas",
+      "behance": "Behance",
+      "behanceNote": "Pantallas seleccionadas",
+      "whatsapp": "WhatsApp"
+    },
+    "caseCard": { "view": "Ver caso de estudio", "open": "Abrir proyecto" },
+    "caseVisuals": { "before": "Antes", "after": "Después", "imageAlt": "Visual del caso de estudio" },
+    "casePage": {
+      "backAllWork": "Todos los trabajos",
+      "metricsAria": "Métricas de resultados",
+      "labels": { "role": "Rol", "duration": "Duración", "platform": "Plataforma", "year": "Año" },
+      "reflection": "Qué haría de forma diferente",
+      "backToIndex": "← Volver al índice",
+      "backToIndexBody": "Tres casos de estudio son el propósito. Léelos como un solo cuerpo de trabajo.",
+      "nextLabel": "Siguiente caso de estudio",
+      "readIt": "Leerlo",
+      "twoThings": "Quedan dos cosas en esta página",
+      "ctaTitle": "El trabajo demuestra el pensamiento. Tu primer mensaje confirma el momento.",
+      "emailCta": "Escribir a Manisha",
+      "keepExploring": "Seguir explorando"
+    },
+    "chat": {
+      "title": "Shree",
+      "subtitle": "Asistente de IA de Manisha",
+      "speaking": "Hablando…",
+      "badge": "IA",
+      "greeting": "Namaste, ¡Manisha no está en este momento! Soy Shree, su asistente. ¿En qué puedo ayudarte?",
+      "openAria": "Abrir chat",
+      "closeAria": "Cerrar chat",
+      "panelAria": "Chat del portafolio de {name}",
+      "placeholder": "Escribe una pregunta…",
+      "askAria": "Haz una pregunta",
+      "send": "Enviar",
+      "voiceOn": "Apagar la voz",
+      "voiceOff": "Activar la voz",
+      "stopReading": "Dejar de leer la respuesta",
+      "readAloud": "Leer la respuesta en voz alta",
+      "noMatch": "Sin una coincidencia clara para eso — pero estas opciones te llevarán más rápido a donde quieres:",
+      "faq": [
+        {
+          "q": "Ver mi trabajo",
+          "keywords": ["trabajo", "proyecto", "caso", "portafolio", "ver"],
+          "a": "Tres análisis en profundidad que valen tu tiempo: un checkout que nadie puede culpar al precio, un sistema de diseño de 200 componentes y la construcción XR.",
+          "links": [
+            { "label": "Recuperación de checkout", "href": "/work/checkout-recovery" },
+            { "label": "Sistema de diseño", "href": "/work/saas-design-system" },
+            { "label": "Construcción XR", "href": "/work/iit-delhi-xr" }
+          ]
+        },
+        {
+          "q": "Habilidades y herramientas",
+          "keywords": ["habilidades", "herramientas", "stack", "software", "figma"],
+          "a": "Investigación, UI/UX, XR y sistemas de diseño — respaldados por Figma, Unity, Blender, Maze, GA4 y una negativa obstinada a diseñar por sensaciones.",
+          "links": [{ "label": "Ver habilidades", "href": "/#skills" }]
+        },
+        {
+          "q": "Contratar o colaborar",
+          "keywords": ["contratar", "colaborar", "contacto", "freelance", "disponible"],
+          "a": "La vía más rápida es el correo o WhatsApp — lee detenidamente, responde rápido, motivada para avanzar.",
+          "links": [
+            { "label": "Correo", "href": "mailto:{email}" },
+            { "label": "WhatsApp", "href": "{whatsapp}", "external": true },
+            { "label": "Sección de contacto", "href": "/#contact" }
+          ]
+        },
+        {
+          "q": "Descargar currículum",
+          "keywords": ["currículum", "cv", "descargar", "pdf"],
+          "a": "Un clic, directo al PDF.",
+          "links": [{ "label": "Descargar currículum", "href": "{resume}", "download": true }]
+        },
+        {
+          "q": "Experiencia en XR y VR",
+          "keywords": ["xr", "vr", "ar", "unity", "blender", "gafas"],
+          "a": "Lo auténtico — entornos en los que las personas caminan, construidos en Unity + Blender y recorridos con un Meta Quest. IIT Delhi, nota A.",
+          "links": [{ "label": "Explorar la sección XR", "href": "/#xr" }]
+        },
+        {
+          "q": "Experiencia y formación",
+          "keywords": ["experiencia", "formación", "trayectoria", "línea de tiempo", "estudios"],
+          "a": "El arco completo: Technoid Infusion (2024–26), freelance antes, XR en IIT Delhi, certificación de IA en Times Pro, diploma de UI/UX, IGNOU y DU detrás del telón.",
+          "links": [{ "label": "Ver la trayectoria", "href": "/#journey" }]
+        },
+        {
+          "q": "¿Puedes reubicarte?",
+          "keywords": ["reubicar", "reubicación", "remoto", "presencial", "mudanza"],
+          "a": "Sí — lista para reubicarme y comprometida con el cambio. Presencial o remoto, abierta a ambos.",
+          "links": [{ "label": "Más detalles", "href": "/#contact" }]
+        }
+      ]
+    }
+  },
+  "site": {
+    "name": "Manisha Sharma",
+    "role": "Diseñadora de UX y UI · Diseñadora XR",
+    "email": "maonishasharma@gmail.com",
+    "phone": "+91 97179 22464",
+    "whatsapp": "https://wa.me/919717922464",
+    "linkedin": "https://www.linkedin.com/in/manishasharmaa",
+    "behance": "https://www.behance.net/manishasharma78",
+    "resume": "/Manisha-Sharma-Resume.pdf",
+    "location": "Nueva Delhi, India · Disponible para reubicación inmediata",
+    "nav": [
+      { "label": "Inicio", "href": "/" },
+      { "label": "Trabajo", "href": "/work" },
+      { "label": "XR", "href": "/#xr" },
+      { "label": "Habilidades", "href": "/#skills" },
+      { "label": "Trayectoria", "href": "/#journey" },
+      { "label": "Contacto", "href": "/#contact" }
+    ],
+    "relocationBadge": "Disponible de inmediato para reubicación mundial",
+    "hero": {
+      "eyebrow": "Un portafolio diseñado para ahuyentar a los clientes equivocados",
+      "line1": "Diseñadora de UX con un cerebro que primero *investiga*.",
+      "line2": "Diseñadora de XR con las gafas puestas.",
+      "warning": "Aviso: no produzco «experiencias encantadoras» bajo demanda. Construyo interfaces que sobreviven al contacto con usuarios reales — y tengo los gráficos de abandono para demostrarlo, no un moodboard. Si eso no encaja contigo, la salida está justo ahí.",
+      "scrollHint": "Desplázate — lo interesante está debajo de esto",
+      "primaryCta": "Ver el trabajo",
+      "secondaryCta": "Descargar currículum",
+      "portraitCaption": "Lista para reubicarse · abierta a trabajar",
+      "portraitLabel": "Manisha · UX/UI y XR"
+    },
+    "metrics": [
+      { "value": 70, "suffix": "+", "label": "Proyectos publicados" },
+      { "value": 42, "suffix": "%", "label": "De abandono eliminado de los flujos" },
+      { "value": 200, "suffix": "+", "label": "Componentes del sistema de diseño" },
+      { "value": 3, "suffix": "×", "label": "Empleada del Mes" }
+    ],
+    "about": {
+      "kicker": "Historia de origen",
+      "titleBefore": "Leo a las personas antes",
+      "titleAccent": "de diseñar para ellas.",
+      "paragraphs": [
+        "Leo a las personas antes de diseñar para ellas. El instinto que más importa en UX — interrogar el sistema antes de proponer una solución — es la habilidad más difícil del oficio y no sale de un bootcamp ni de una herramienta. Sale de observar qué hacen los usuarios cuando chocan los incentivos, las limitaciones y la realidad.",
+        "UX no secuestró mi carrera. La investigación llegó antes que el título. Las preguntas son siempre las mismas — ¿quiénes son estas personas, qué intentan lograr, a quién beneficia el arreglo actual y por qué sigue fallando exactamente igual?",
+        "Así que cuando un checkout sigue perdiendo usuarios y todos culpan al precio, voy a mirar la pantalla. Cuando una app sigue confundiendo a usuarios nuevos, voy a verlos usarla. Cuando alguien me pide «hacerlo encantador», elijo hacerlo *defendible*."
+      ],
+      "polisciLabel": "Construido sobre · instinto de investigación",
+      "polisci": [
+        "Interrogar el brief, no obedecerlo",
+        "Observar qué hacen realmente los usuarios",
+        "Probar hipótesis contra evidencias",
+        "Fuentes primarias, no sensaciones"
+      ],
+      "bridge": "la misma habilidad, nueva superficie",
+      "uxLabel": "Ahora aplicado como · Investigación de UX",
+      "ux": [
+        "Cuestionar el brief, no obedecerlo",
+        "Mapas de viaje y entrevistas con usuarios",
+        "Evaluación heurística y pruebas A/B",
+        "Usuarios reales, no personas de adorno"
+      ],
+      "pivotLabel": "Y entonces, el giro",
+      "pivot": "Siempre me atrajo estudiar sistemas. XR me permite construirlos. Cuando la interfaz deja de ser un rectángulo y se convierte en un lugar al que entras, el ciclo investigar-construir se vuelve brutalmente honesto — entras dentro de lo que estás diseñando. Me formé en VR/AR en el IIT de Delhi porque las pantallas planas me enseñaron layout, y quiero estar dentro de la próxima década de interfaces, no mirándola desde fuera.",
+      "noVibe": "Si necesitabas una diseñadora que asienta, produzca doce opciones de logo y lo llame estrategia — habrías dejado de leer hace rato. Esta sección nunca fue para ti.",
+      "photos": [
+        { "src": "/images/profile.jpg", "alt": "Manisha Sharma — diseñadora UX y XR", "caption": "La persona que piensa", "hue": 232 },
+        { "src": "/images/working.jpg", "alt": "Manisha Sharma trabajando", "caption": "En ello. Sin cámaras, opiniones a raya.", "hue": 262 },
+        { "src": "/images/eom.jpg", "alt": "Manisha Sharma — Empleada del Mes", "caption": "Empleada del Mes. ×3, si llevas la cuenta.", "hue": 176 }
+      ]
+    },
+    "work": {
+      "kicker": "Trabajo seleccionado",
+      "titleBefore": "Tres casos de estudio.",
+      "titleBreak": "No diez.",
+      "blurb": "Esta sección es deliberadamente corta. Si necesitas una diseñadora que llene una cuadrícula de cantidad y lo llame obra, puedes cerrar esta pestaña con nuestra bendición más sincera.",
+      "closer": "Cada caso de estudio sigue la misma columna: contexto, investigación, limitaciones, proceso, resultado y la parte que la mayoría salta: lo que volvería a hacer. Lee uno y sabrás exactamente cómo pienso antes de sentarte jamás en una sala conmigo."
+    },
+    "xr": {
+      "kicker": "Parque XR",
+      "titleBefore": "Entra.",
+      "titleBreak": "No a un folleto.",
+      "blurb": "Aviso: nada de esto se hizo con plantillas. Las escenas están construidas en Unity y Blender y recorridas con un casco real. Si todavía piensas que el metaverso es un PowerPoint, no te lo pruebes — confundirás mi oficio tranquilo con tu hype.",
+      "caption": "Esta vista es la ranura en vivo de la construcción WebGL de Manisha o de la grabación en casco — cambia el artefacto real y la escena de paralaje se hace a un lado. El sonido está apagado por defecto, porque el buen diseño espacial nunca empieza gritándote."
+    },
+    "skills": {
+      "kicker": "Habilidades y herramientas",
+      "titleBefore": "No una nube de etiquetas.",
+      "titleBreak": "Un stack con estructura.",
+      "blurb": "Las herramientas son baratas. La toma de decisiones no. Esta agrupación existe para mostrarte cómo funciona el cerebro antes que el software.",
+      "columns": {
+        "research": {
+          "title": "Investigación y estrategia",
+          "note": "La parte que la mayoría de portafolios omite — la que evita el caro retrabajo.",
+          "items": [
+            "Investigación de usuarios",
+            "Pruebas de usabilidad",
+            "Mapas de viaje",
+            "Evaluación heurística",
+            "Pruebas A/B",
+            "Design Thinking",
+            "Investigación de UX asistida por IA"
+          ]
+        },
+        "design": {
+          "title": "Diseño y prototipado",
+          "note": "Las pantallas son la salida. Las decisiones son el entregable.",
+          "items": [
+            "Diseño de interacción",
+            "Sistemas de diseño",
+            "Wireframing",
+            "Prototipado",
+            "WCAG 2.1 AA",
+            "UI en árabe / RTL",
+            "UI conversacional"
+          ]
+        },
+        "xr": {
+          "title": "XR y herramientas emergentes",
+          "note": "Donde está el próximo capítulo — y donde ya trabajo.",
+          "items": [
+            "Unity · Prototipado AR/VR",
+            "Blender · 3D y entornos",
+            "UX espacial",
+            "Construcción de escenas y animación",
+            "Interacción humano-IA",
+            "Ideación con Midjourney"
+          ]
+        }
+      },
+      "toolkitLabel": "Herramientas diarias",
+      "toolkit": [
+        "Figma",
+        "Framer",
+        "Miro",
+        "InVision",
+        "Jira",
+        "Notion",
+        "Unity",
+        "Blender",
+        "ChatGPT / Claude",
+        "Midjourney",
+        "Uizard"
+      ]
+    },
+    "timeline": {
+      "kicker": "La trayectoria",
+      "titleBefore": "Calma, a propósito.",
+      "titleBreak": "Medida, y consta.",
+      "blurb": "Cada nodo se revela mientras te desplazas. Nada grita; las cosas emergen. Esa es toda la metáfora — y toda la persona.",
+      "overlapNote": "El freelance funcionó como estudio completo antes de que llegara el puesto en agencia — la misma disciplina de descubrimiento, el mismo estándar mobile-first, entregado para clientes que volvían una y otra vez.",
+      "items": [
+        {
+          "period": "Sept 2024 — Septiembre 2026",
+          "org": "Technoid Infusion Agency Pvt Ltd",
+          "role": "Diseñadora de UI y UX",
+          "body": "Productos web y móviles de principio a fin en SaaS, e-commerce e inmobiliaria — todos publicados. Flujos de checkout e incorporación mejorados con mapas de viaje y pruebas A/B, entregados en un solo sprint; hallazgos de usabilidad convertidos en correcciones aprobadas por los interesados. Construí un sistema de diseño escalable en Figma que recortó el tiempo de traspaso a desarrolladores; Agile/Scrum con PMs, desarrolladores y clientes, con traspaso a píxel perfecto en cada build."
+        },
+        {
+          "period": "2023 — Ago 2024",
+          "org": "Freelance",
+          "role": "Diseñadora de UI y UX",
+          "body": "Sistemas UI completos de principio a fin para clientes de e-commerce y retail, desde investigación de usuarios hasta traspaso al desarrollador. Descubrimiento completo — personas, mapas de viaje, wireframes — cada decisión anclada en necesidades reales. Mobile-first, WCAG 2.1 AA en web y móvil. El boca a boca y los clientes de repetición llegaron solos, porque los clientes volvieron."
+        }
+      ],
+      "education": {
+        "label": "Formación",
+        "items": [
+          { "period": "Ene 2026", "org": "Times Pro", "role": "Programa certificado en IA generativa para managers", "note": "Certificación" },
+          { "period": "Feb 2025", "org": "Times Pro", "role": "Programa certificado en fundamentos de IA generativa", "note": "Certificación" },
+          { "period": "Ene – Jul 2025", "org": "IIT Delhi", "role": "Programa ejecutivo en realidad virtual y aumentada", "note": "Nota A" },
+          { "period": "Ene – Ago 2024", "org": "Dice Academy, Nueva Delhi", "role": "Certificación en diseño UI/UX", "note": "Formación presencial" },
+          { "period": "Ago – Nov 2024", "org": "Coursera", "role": "Certificado profesional de diseño UX de Google" },
+          { "period": "2020 – 2022", "org": "IGNOU", "role": "Máster en Ciencias Políticas" },
+          { "period": "2016 – 2019", "org": "Universidad de Delhi", "role": "Licenciatura en Artes" }
+        ]
+      }
+    },
+    "contact": {
+      "kicker": "Contacto",
+      "titleBefore": "Responderé.",
+      "titleBreak": "Probablemente antes que tú.",
+      "blurb": "Si necesitas una diseñadora complaciente que responda «¡gran feedback!» en diecinueve minutos, te respeto lo suficiente como para no postularme. Pero si contratas por criterio, no solo por entregables — las puertas de abajo están abiertas.",
+      "relocationNote": "Lista para reubicarse: abierta a puestos remotos o presenciales en todo el mundo, con disponibilidad inmediata.",
+      "resumeLabel": "Descargar currículum",
+      "resumeNote": "PDF · una página · sin relleno"
+    }
+  },
+  "projects": [
+    {
+      "slug": "checkout-recovery",
+      "index": "01",
+      "published": true,
+      "title": "El checkout que seguía perdiendo gente",
+      "category": "E-commerce · Optimización de flujos",
+      "problem": "El 60% de los usuarios iniciaba el checkout y lo abandonaba. El negocio asumió que era el precio. No lo era.",
+      "year": "2025",
+      "role": "Diseñadora UX líder",
+      "duration": "6 semanas",
+      "platform": "Web",
+      "chips": ["−42% de abandono", "Basado en investigación", "Probado con A/B"],
+      "cover": {
+        "hue": 232,
+        "title": "60% → 35%",
+        "subtitle": "de abandono, eliminado al encontrar la causa real"
+      },
+      "metrics": [
+        { "value": "60% → 35%", "label": "de abandono en el checkout" },
+        { "value": "42 pts", "label": "de mejora, en un trimestre" },
+        { "value": "2", "label": "causas reales encontradas" },
+        { "value": "3", "label": "pruebas A/B antes de publicar" }
+      ],
+      "hero": "Un checkout que pierde al 60% de los usuarios parece un problema de negocio. Era un problema de confianza, de claridad y de fricción disfrazados de una sola página. Seis semanas de investigación y pruebas después, los números contaron una historia que el cliente dejó de adivinar.",
+      "intro": [
+        "Un checkout que pierde al 60% de los usuarios parece un problema de negocio. Era un problema de confianza, de claridad y de fricción disfrazados de una sola página. Seis semanas de investigación y pruebas después, los números contaron una historia que el cliente dejó de adivinar."
+      ],
+      "sections": [
+        {
+          "heading": "Contexto",
+          "kicker": "El encargo",
+          "body": [
+            "Todo interesado tenía una teoría. Precio. Competencia. Entrega lenta. Nadie había mirado la pantalla que el usuario miraba de verdad.",
+            "Una marca de e-commerce mediana sangraba ingresos en el último paso. Su embudo parecía sano hasta «Proceder al checkout», donde se derrumbaba. El brief que recibí era directo: «haz que convierta mejor».",
+            "Rechacé la versión tentadora del brief — la de subir un botón y llamarlo victoria — y fui a buscar el fallo real."
+          ]
+        },
+        {
+          "heading": "Investigación y descubrimiento",
+          "kicker": "Antes de un solo píxel",
+          "body": [
+            "Entrevisté a 12 usuarios que habían abandonado en los últimos 30 días, hice una evaluación heurística del flujo y tracé las grabaciones de sesión de cada recorrido completado.",
+            "Tres hechos sobrevivieron al interrogatorio:"
+          ],
+          "bullets": [
+            "El 65% de los abandonos ocurría en el paso de pago — no en el carrito ni en el envío.",
+            "Los usuarios confiaban en la marca pero no en la página: faltaban señales de seguridad, una pasarela de pago desconocida y una comisión sorpresa que aparecía solo tras introducir la tarjeta.",
+            "En móvil, el teclado se tragaba el botón «Pagar» en la clase de dispositivo más común."
+          ]
+        },
+        {
+          "heading": "Limitaciones",
+          "kicker": "Lo que no podía moverse",
+          "body": [
+            "La pasarela de pago era una línea roja contractual. La comisión sorpresa era una decisión de precios por encima de mi nivel — pero su posición en el flujo no lo era.",
+            "Tenía que arreglar la experiencia sin que me permitieran «arreglar» el modelo de ingresos. Eso significa que el diseño debía ser honesto sobre los costes que el usuario vería, temprano, en lugar de tenderle una emboscada."
+          ]
+        },
+        {
+          "heading": "Proceso",
+          "kicker": "Wireframes → prototipos → pruebas",
+          "body": [
+            "Tres flujos fueron a prueba: el control, una variante de confianza primero (señales, claridad, transparencia de comisiones arriba) y una variante de fricción primero (menos campos, autofoco, layout a prueba de teclados).",
+            "Probé con usuarios reales antes de escribir cualquier UI final, luego prototipé la estructura ganadora y la probé con A/B contra el sitio en vivo."
+          ]
+        },
+        {
+          "heading": "Solución",
+          "kicker": "Lo que se publicó",
+          "body": [
+            "Un checkout que dice «todo está claro» antes de pedir el dinero: comisiones declaradas por adelantado, marcadores de confianza donde el usuario mira, y un paso de pago que sobrevive al teclado móvil.",
+            "Luego — porque el buen diseño es una hipótesis — medí. El control se mantuvo en vivo a la par."
+          ]
+        },
+        {
+          "heading": "Resultado",
+          "kicker": "Lo que dijeron los números",
+          "body": [
+            "El abandono del checkout cayó del 60% al 35%. La empresa dejó de culpar al precio y el cambio sobrevivió a dos pruebas A/B y a una auditoría poslanzamiento.",
+            "La corrección tardó seis semanas. La teoría tardó seis días en desmontarse."
+          ]
+        }
+      ],
+      "reflection": {
+        "body": [
+          "Si lo hiciera de nuevo, empezaría la prueba A/B tres semanas antes y empaquetaría el «descubrimiento de la comisión sorpresa» como una decisión de producto y no solo de UX. El flujo está arreglado; la política de precios todavía se escurre.",
+          "La lección que conservo: los usuarios rara vez abandonan porque no les interesa. Abandonan porque algo en el sistema les dijo en silencio que no confiaran."
+        ]
+      },
+      "tools": ["Figma", "Maze", "GA4", "Hotjar"],
+      "visuals": [
+        {
+          "kind": "compare",
+          "title": "Abandono del checkout, antes y después",
+          "caption": "Una corrección basada en investigación en lugar de un recorte de precio. El abandono cayó casi a la mitad sin rediseñar una sola pantalla.",
+          "before": 60,
+          "after": 35,
+          "unit": "%",
+          "beforeLabel": "Antes · se culpó al precio",
+          "afterLabel": "Después · confianza restaurada"
+        },
+        {
+          "kind": "funnel",
+          "title": "Dónde se perdía el 60%",
+          "caption": "Las grabaciones de pruebas de usuario hicieron imposible seguir culpando al precio. Cada pérdida capturada apuntaba al mismo lugar: el paso de pago.",
+          "steps": [
+            { "label": "Abandono en el paso de pago", "value": "65%" },
+            { "label": "Abandono en carrito / envío", "value": "29%" },
+            { "label": "Otros puntos de fricción", "value": "6%" }
+          ]
+        }
+      ],
+      "figures": [
+        {
+          "after": "Investigación y descubrimiento",
+          "eyebrow": "Sesión seis, minuto dos",
+          "title": "El cursor se detuvo en el campo de la tarjeta",
+          "text": "Cinco de seis grabaciones se congelaron en el mismo campo. Ni un participante llamó sospechosa a la página — simplemente no se comprometían con ella. Ahí fue cuando «haz que convierta» dejó de sonar a problema de precios."
+        },
+        {
+          "after": "Solución",
+          "eyebrow": "Publicado, y luego medido",
+          "title": "−25 puntos en un trimestre",
+          "text": "Tres pruebas A/B, una variante publicada y la curva de abandono se aplanó. El mismo checkout, el mismo número de pantallas — menos las dudas que nunca se veían en el código."
+        }
+      ],
+      "mode": "deep"
+    },
+    {
+      "slug": "saas-design-system",
+      "index": "02",
+      "published": true,
+      "title": "Doscientos componentes, cero confusión",
+      "category": "SaaS · Sistema de diseño · Traspaso a desarrollo",
+      "problem": "Una plataforma SaaS que sumaba funciones más rápido de lo que su interfaz podía mantenerse consistente — en producción en Technoid Infusion.",
+      "year": "2024 — Presente",
+      "role": "Diseñadora UI/UX · Responsable del sistema",
+      "duration": "En curso",
+      "platform": "Aplicación web",
+      "chips": ["200+ componentes", "Adopción en toda la organización", "Traspaso ágil"],
+      "cover": {
+        "hue": 262,
+        "title": "200+",
+        "subtitle": "componentes, adoptados en toda la organización"
+      },
+      "metrics": [
+        { "value": "200+", "label": "componentes del sistema" },
+        { "value": "4×", "label": "reutilización de patrones más rápida" },
+        { "value": "0", "label": "debates de sprint de diseño" },
+        { "value": "1", "label": "fuente única de verdad" }
+      ],
+      "hero": "Cuando tres equipos construyen en la misma plataforma, «arregla esta pantalla» nunca es solo una pantalla. El sistema tenía que venir primero — o cada pantalla seguiría peleando en silencio con la anterior.",
+      "intro": [
+        "El modo de fallo de un SaaS en rápido crecimiento no es el mal diseño. Es el diseño inconsistente — el mismo botón haciendo cinco cosas.",
+        "Mi encargo en este producto no era diseñar pantallas. Era hacer que las pantallas dejaran de pelearse entre sí."
+      ],
+      "sections": [
+        {
+          "heading": "Contexto",
+          "kicker": "El encargo",
+          "body": [
+            "Una plataforma B2B SaaS, publicada a gran velocidad, había acumulado patrones en conflicto: tres variantes de la misma píldora de estado, dos estados vacíos distintos para el mismo tipo de datos, un botón que borraba en un lugar y guardaba en otro.",
+            "La deuda de diseño se convierte rápido en deuda de producto. La auditoría lo hizo innegable."
+          ]
+        },
+        {
+          "heading": "Investigación y descubrimiento",
+          "kicker": "La auditoría antes de construir",
+          "body": [
+            "Catalogué cada pantalla del producto, hice un análisis de frecuencia de patrones contra el código y me senté con dos desarrolladores front-end para mapear qué componentes existían en código contra cuáles existían solo en mi cabeza.",
+            "La brecha entre la biblioteca de Figma y la UI publicada era el entregable real — los componentes eran el subproducto."
+          ]
+        },
+        {
+          "heading": "Limitaciones",
+          "kicker": "Lo que no podía moverse",
+          "body": [
+            "Sin rediseño completo. Sin reescritura. Los equipos publicaban funciones cada semana y no podían esperar a que apareciera un sistema «perfecto» para migrar.",
+            "Así que el sistema se introdujo como se introducen los buenos sistemas: un token, un componente, un patrón deprecado a la vez — mientras la producción nunca se detuvo."
+          ]
+        },
+        {
+          "heading": "Proceso",
+          "kicker": "Primero los tokens de diseño, después los componentes",
+          "body": [
+            "Empecé por los tokens — las decisiones que todo lo demás hereda — y luego agrupé los componentes en una jerarquía consciente de dependencias para que nada referenciara algo que estuviera a punto de cambiar.",
+            "Cada componente salió con sus propias reglas de uso, notas de accesibilidad y un «cuándo no usar esto» documentado."
+          ]
+        },
+        {
+          "heading": "Solución",
+          "kicker": "Lo que se publicó",
+          "body": [
+            "Un sistema de diseño de más de 200 componentes con tokens semánticos, guía de patrones y un flujo de traspaso que hizo el ciclo semanal más rápido en lugar de más lento.",
+            "El traspaso no es «aquí están los frames». Es «aquí está la decisión, aquí está la lógica, aquí es donde se enchufa»."
+          ]
+        },
+        {
+          "heading": "Resultado",
+          "kicker": "Lo que cambió",
+          "body": [
+            "El sistema se adoptó en toda la organización. Los debates de patrones dejaron de reiniciar pantallas, los lanzamientos dejaron de enviar regresiones visuales y las funciones empezaron a aterrizar con la misma gramática visual.",
+            "Cuando normalizas la capa aburrida — tokens, estados, espaciado — el trabajo interesante de repente tiene una base sobre la que sostenerse."
+          ]
+        }
+      ],
+      "reflection": {
+        "body": [
+          "En retrospectiva, nombraría esta jugada de otra forma: se leyó como «sistema de diseño» pero era «alineación organizacional». Ese reencuadre habría conseguido el apoyo del equipo de producto semanas antes que el discurso técnico.",
+          "La gente de sistemas no construye tokens. Construye el acuerdo que hace baratas las decisiones."
+        ]
+      },
+      "tools": ["Figma", "Storybook", "Jira", "Miro"],
+      "visuals": [
+        {
+          "kind": "stack",
+          "title": "La pirámide del sistema",
+          "caption": "Cada capa hereda de la anterior, así las decisiones son baratas y las pantallas dejan de discutir entre sí.",
+          "layers": [
+            { "label": "Tokens de diseño", "detail": "color semántico · tipografía · espaciado · radio" },
+            { "label": "200+ componentes", "detail": "estados, reglas de uso, notas de accesibilidad" },
+            { "label": "Patrones", "detail": "estados vacíos, paginación, formularios" },
+            { "label": "Superficies de producto", "detail": "adoptadas en toda la organización, publicación semanal" }
+          ]
+        },
+        {
+          "kind": "compare",
+          "title": "Un componente, una creencia",
+          "caption": "Las variantes de la píldora de estado se redujeron de tres a una única fuente de verdad impulsada por tokens.",
+          "before": 3,
+          "after": 1,
+          "unit": " variantes",
+          "beforeLabel": "Antes · tres píldoras en conflicto",
+          "afterLabel": "Después · una fuente de verdad"
+        }
+      ],
+      "figures": [
+        {
+          "after": "Investigación y descubrimiento",
+          "eyebrow": "La auditoría, en una frase",
+          "title": "Cada pantalla ganaba su propia discusión",
+          "text": "Tres variantes de una misma píldora de estado. Dos estados vacíos para la misma información. Un botón que borraba en un lugar y guardaba en otro — el producto había dejado de discutir con los usuarios y empezaba a discutir consigo mismo."
+        },
+        {
+          "after": "Solución",
+          "eyebrow": "Lanzamientos semanales, cero regresiones",
+          "title": "La consistencia se volvió el estándar",
+          "text": "Los equipos adoptaron el sistema en toda la organización. Los debates de patrones dejaron de reiniciar pantallas y las funciones empezaron a llegar con la misma gramática visual — porque la capa aburrida por fin estaba normalizada."
+        }
+      ],
+      "mode": "deep"
+    },
+    {
+      "slug": "iit-delhi-xr",
+      "index": "03",
+      "published": true,
+      "title": "Caminar dentro de la interfaz",
+      "category": "XR · Unity · Blender",
+      "problem": "El «diseño espacial» de moda es diseño plano con sombras extra. Esto fue lo auténtico — construir entornos en los que la gente camina.",
+      "year": "2025",
+      "role": "Diseñadora XR · Prototipista",
+      "duration": "6 meses",
+      "platform": "VR · Unity · Blender",
+      "chips": ["Unity", "Blender", "IIT Delhi"],
+      "cover": {
+        "hue": 176,
+        "title": "Recorribles",
+        "subtitle": "entornos, no maquetas de superficie plana"
+      },
+      "metrics": [
+        { "value": "6", "label": "prototipos VR construidos" },
+        { "value": "0", "label": "assets de tutorial usados" },
+        { "value": "1", "label": "simulación completada con casco" },
+        { "value": "Nota A", "label": "en el IIT de Delhi" }
+      ],
+      "hero": "Una experiencia VR es un problema de UX con gravedad y escala. Aquí dejé de diseñar para un rectángulo y empecé a diseñar para un cuerpo — mecánica en Unity, entornos en Blender y las preguntas incómodas de qué debería significar el UX espacial.",
+      "intro": [
+        "Figma no tiene suelo. Blender sí. Los seis meses del Programa Ejecutivo en VR/AR del IIT de Delhi los dediqué a aprender qué cambia cuando la interfaz se convierte en un lugar en el que estás de pie.",
+        "Aviso: nada en este caso de estudio es una maqueta. Todo es una construcción real."
+      ],
+      "sections": [
+        {
+          "heading": "Contexto",
+          "kicker": "Por qué XR, y por qué ahora",
+          "body": [
+            "Las interfaces planas asumen una pantalla, un scroll, un pulgar. XR asume una persona — con memoria espacial, propiocepción y malestar genuino cuando la escala falla por medio metro.",
+            "Entré al programa menos a aprender herramientas y más a comprobar una hipótesis: que la habilidad de diseño que más importa en XR es la misma de la investigación de usuarios — leer cómo se comporta la gente en un sistema y luego construir para ese comportamiento, no para la demo."
+          ]
+        },
+        {
+          "heading": "Investigación y descubrimiento",
+          "kicker": "Las preguntas incómodas",
+          "body": [
+            "Antes de construir, interrogué qué significa «investigación de usuarios» dentro de un casco. ¿Mapas de calor? ¿Seguimiento de la mirada? Las respuestas eran escasas — exactamente por eso el diseño espacial es una frontera y no una plantilla.",
+            "Estudié marcos de interacción corporeizada, affordances en el espacio 3D y el fracaso de portar metáforas 2D (tarjetas, slides) a escenas donde su física no tiene sentido."
+          ]
+        },
+        {
+          "heading": "Limitaciones",
+          "kicker": "El hardware decidió",
+          "body": [
+            "Los presupuestos de rendimiento en cascos autónomos son brutales: draw calls, memoria de texturas, frame rate. Una escena bonita de Blender es una mentira hasta que corre a 90 fps en un casco.",
+            "Cada objeto necesitaba una razón para existir, porque cada uno costaba cómputo. Esta restricción es el mejor profesor de diseño que he tenido."
+          ]
+        },
+        {
+          "heading": "Proceso",
+          "kicker": "Bucle Unity + Blender",
+          "body": [
+            "El flujo alternaba entre Blender — modelado, materiales, entornos — y Unity — construcción de escenas, interacciones, animación e integración de assets.",
+            "Los prototipos se cargaban en un casco y personas reales los recorrían, no solo se admiraban en el viewport del editor. La escala, el alcance y la línea de mirada dictaban las revisiones."
+          ]
+        },
+        {
+          "heading": "Solución",
+          "kicker": "Lo que se construyó",
+          "body": [
+            "Seis prototipos VR y una simulación interactiva completa corrida en casco: construcción de escenas, animación, UI espacial y el pipeline completo de assets, del modelo al entorno a la interacción.",
+            "El entregable se ganó en un casco, no en una presentación."
+          ]
+        },
+        {
+          "heading": "Resultado",
+          "kicker": "Lo que demostró",
+          "body": [
+            "Completé el Programa Ejecutivo en VR/AR en el IIT de Delhi con nota A — y, más útil aún, salí sabiendo exactamente lo que no sé, que es cómo se construye en una frontera.",
+            "Los prototipos hoy son la columna interactiva de la sección XR de este portafolio. Las capturas no son el medio; la experiencia lo es."
+          ]
+        }
+      ],
+      "reflection": {
+        "body": [
+          "Invertí de más al principio en un entorno estrella y de menos en la profundidad de las interacciones. Una sala por la que la gente camina sin poder tocarla es decoración, no producto.",
+          "Próxima construcción: una experiencia XR con una pregunta de investigación adjunta. Porque incluso el diseño espacial debe ser una hipótesis comprobable — ese es todo el punto de la disciplina."
+        ]
+      },
+      "tools": ["Unity", "Blender", "Meta Quest", "Midjourney"],
+      "visuals": [
+        {
+          "kind": "stack",
+          "title": "El pipeline de assets",
+          "caption": "En un casco autónomo, cada objeto cuesta cómputo — nada entraba en una escena sin una razón.",
+          "layers": [
+            { "label": "Blender", "detail": "modelado · materiales · entornos" },
+            { "label": "Unity", "detail": "construcción de escenas · interacciones · animación" },
+            { "label": "Build", "detail": "listo para casco, mantenido a 90fps" },
+            { "label": "Verificación", "detail": "recorrido por personas reales" }
+          ]
+        },
+        {
+          "kind": "steps",
+          "title": "Construir → Caminar → Aprender → Repetir",
+          "caption": "Las revisiones las dictaban la escala, el alcance y la línea de mirada — nunca el viewport del editor.",
+          "steps": [
+            "Blender — modelar y texturizar cada objeto",
+            "Unity — montar la escena y sus interacciones",
+            "Casco — hacer recorrer a una persona real",
+            "Iterar — medir el alcance, ajustar la escala, rehacer"
+          ]
+        }
+      ],
+      "figures": [
+        {
+          "after": "Investigación y descubrimiento",
+          "eyebrow": "La pregunta de investigación más dura",
+          "title": "¿Cómo mides la atención dentro de un casco?",
+          "text": "Los mapas de calor asumen una pantalla plana. En una escena que recorres, «mirar» deja de ser una coordenada y se convierte en lenguaje corporal. Estudié marcos de interacción corporeizada porque ningún dashboard lo cubría."
+        },
+        {
+          "after": "Proceso",
+          "eyebrow": "El bucle de depuración",
+          "title": "La regla de los 90fps zanja todo debate",
+          "text": "Una escena bonita es una mentira hasta que corre en un casco. La escala, el alcance y la línea de mirada dictaban las revisiones — y «¿este objeto se gana su cómputo?» se convirtió en el argumento de diseño más rápido que he tenido."
+        }
+      ],
+      "mode": "deep"
+    }
+  ]
+}
