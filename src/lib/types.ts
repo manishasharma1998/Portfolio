@@ -79,6 +79,82 @@ export type ContactConfig = BlockConfig & {
   resumeNote: string;
 };
 
+export type UiLink = {
+  label: string;
+  href: string;
+  external?: boolean;
+  download?: boolean;
+};
+
+export type ChatFaq = {
+  q: string;
+  keywords: string[];
+  a: string;
+  links?: UiLink[];
+};
+
+export type UiStrings = {
+  announcement: { notice: string; change: string; dismiss: string };
+  language: { label: string; switcherAria: string };
+  nav: {
+    resume: string;
+    downloadResume: string;
+    openMenu: string;
+    closeMenu: string;
+    primaryAria: string;
+  };
+  footer: {
+    navigate: string;
+    connect: string;
+    built: string;
+    avatarCredit: string;
+    manage: string;
+  };
+  contactLinks: {
+    email: string;
+    linkedin: string;
+    linkedinNote: string;
+    behance: string;
+    behanceNote: string;
+    whatsapp: string;
+  };
+  caseCard: { view: string; open: string };
+  caseVisuals: { before: string; after: string; imageAlt: string };
+  casePage: {
+    backAllWork: string;
+    metricsAria: string;
+    labels: { role: string; duration: string; platform: string; year: string };
+    reflection: string;
+    backToIndex: string;
+    backToIndexBody: string;
+    nextLabel: string;
+    readIt: string;
+    twoThings: string;
+    ctaTitle: string;
+    emailCta: string;
+    keepExploring: string;
+  };
+  chat: {
+    title: string;
+    subtitle: string;
+    speaking: string;
+    badge: string;
+    greeting: string;
+    openAria: string;
+    closeAria: string;
+    panelAria: string;
+    placeholder: string;
+    askAria: string;
+    send: string;
+    voiceOn: string;
+    voiceOff: string;
+    stopReading: string;
+    readAloud: string;
+    noMatch: string;
+    faq: ChatFaq[];
+  };
+};
+
 export type SiteConfig = {
   name: string;
   role: string;
@@ -99,6 +175,15 @@ export type SiteConfig = {
   skills: SkillsConfig;
   timeline: TimelineConfig;
   contact: ContactConfig;
+  ui: UiStrings;
+};
+
+export type SiteContent = Omit<SiteConfig, "ui">;
+
+export type LocaleBundle = {
+  ui: UiStrings;
+  site: SiteContent;
+  projects: CaseStudy[];
 };
 
 export type CaseStudySection = {

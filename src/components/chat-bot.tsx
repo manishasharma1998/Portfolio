@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import type { Locale } from "@/lib/locales";
+import type { UiStrings } from "@/lib/types";
 
 type Action = {
   label: string;
@@ -73,11 +75,15 @@ export function ChatBot({
   email,
   whatsapp,
   resume,
+  locale,
+  chat,
 }: {
   name: string;
   email: string;
   whatsapp: string;
   resume: string;
+  locale: Locale;
+  chat: UiStrings["chat"];
 }) {
   const reduce = useReducedMotion();
   const [open, setOpen] = useState(false);
@@ -93,56 +99,36 @@ export function ChatBot({
   const lastScrollRef = useRef(performance.now());
   const msgId = () => idRef.current++;
 
-  const faqSeed: { q: string; a: string; actions?: Action[] }[] = [
-    {
-      q: "See my work",
-      a: "Three deep-dives worth your time: a checkout nobody could blame on price, a 200-component design system, and the XR build.",
-      actions: [
-        { label: "Checkout recovery", href: "/work/checkout-recovery" },
-        { label: "Design system", href: "/work/saas-design-system" },
-        { label: "XR build", href: "/work/iit-delhi-xr" },
-      ],
-    },
-    {
-      q: "Skills & tools",
-      a: "Research, UI/UX, XR and design systems — backed by Figma, Unity, Blender, Maze, GA4 and a stubborn refusal to design on vibes.",
-      actions: [{ label: "View skills", href: "/#skills" }],
-    },
-    {
-      q: "Hire or collaborate",
-      a: "The fastest path is email or WhatsApp — read carefully, replies quickly, motivated to move.",
-      actions: [
-        { label: "Email", href: `mailto:${email}` },
-        { label: "WhatsApp", href: whatsapp, external: true },
-        { label: "Contact section", href: "/#contact" },
-      ],
-    },
-    {
-      q: "Download resume",
-      a: "One click, straight to the PDF.",
-      actions: [{ label: "Download resume", href: resume, download: true }],
-    },
-    {
-      q: "XR & VR background",
-      a: "The real thing — environments people walk into, built in Unity + Blender, walked through in a Meta Quest. IIT Delhi, Grade A.",
-      actions: [{ label: "Explore the XR section", href: "/#xr" }],
-    },
-    {
-      q: "Experience & education",
-      a: "The full arc: Technoid Infusion (2024–26), freelancing before that, IIT Delhi XR, Times Pro AI certified, UI/UX diploma, IGNOU and DU behind the scenes.",
-      actions: [{ label: "View the journey", href: "/#journey" }],
-    },
-    {
-      q: "Can you relocate?",
-      a: "Yes — relocation-ready and committed to the move. On-site or remote, open either way.",
-      actions: [{ label: "More details", href: "/#contact" }],
-    },
-  ];
+  const fill = (s: string) =>
+    s
+      .replaceAll("{email}", email)
+      .replaceAll("{whatsapp}", whatsapp)
+      .replaceAll("{resume}", resume);
 
-  const faq: FaqEntry[] = faqSeed.map((f) => ({
-    ...f,
-    keywords: f.q.toLowerCase().split(" "),
-    answer: { text: f.a, actions: f.actions },
+  const faqSeed: { q: string; a: string; actions?: Action[] }[] = chat.faq.map(
+    (f) => ({
+      q: f.q,
+      a: f.a,
+      actions: (f.links ?? []).map((l) => ({
+        label: l.label,
+        href: fill(l.href),
+        external: l.external,
+        download: l.download,
+      })),
+    })
+  );
+    const faq: FaqEntry[] = chat.faq.map((f) => ({
+    q: f.q,
+    keywords: f.keywords,
+    answer: {
+      text: f.a,
+      actions: (f.links ?? []).map((l) => ({
+        label: l.label,
+        href: fill(l.href),
+        external: l.external,
+        download: l.download,
+      })),
+    },
   }));
 
   function match(text: string): FaqEntry | undefined {
@@ -169,7 +155,7 @@ export function ChatBot({
   function greet() {
     setStarted(true);
     setTyping(true);
-    const text = `Namaste, ${name.split(" ")[0]} is not here right now! I am Shree, her assistant. How can I help you?`;
+    const text = chat.greeting.replace("{name}", name.split(" ")[0]);
     window.setTimeout(() => {
       setTyping(false);
       push("assistant", text, fallbackSeed());
@@ -192,11 +178,7 @@ export function ChatBot({
       if (hit) {
         push("assistant", hit.answer.text, hit.answer.actions);
       } else {
-        push(
-          "assistant",
-          "No clean match for that one — but these will get you where you’re going faster:",
-          fallbackSeed()
-        );
+        push("assistant", chat.noMatch, fallbackSeed());
       }
     }, reduce ? 0 : 650);
   }
@@ -217,30 +199,24 @@ export function ChatBot({
     setOpen(v);
   }
 
-  function pickFemaleVoice(): SpeechSynthesisVoice | null {
+  function pickVoice(): SpeechSynthesisVoice | null {
     try {
       const voices = window.speechSynthesis?.getVoices() ?? [];
       if (!voices.length) return null;
-      const prefs = [
-        "Samantha",
-        "Google US English",
-        "Zira",
-        "Jenny",
-        "Aria",
-        "Allison",
-        "Ava",
-        "Victoria",
-        "Karen",
-        "Moira",
-        "Sonia",
-        "Libby",
-        "Female",
-      ];
-      for (const p of prefs) {
-        const v = voices.find((v) => v.lang.startsWith("en") && v.name.includes(p));
-        if (v) return v;
-      }
-      return voices.find((v) => v.lang.startsWith("en")) ?? null;
+      const wanted = locale === "en" ? "en" : locale;
+      const matched = voices.filter((v) =>
+        v.lang.toLowerCase().startsWith(wanted)
+      );
+      const femalePats =
+        /female|zira|jenny|samantha|susan|aria|heather|allison|ava|victoria|karen|moira|sonia|libby|ina|kyoko|nanami|ayumi|amelie|audrey|ilona|sara|helena|pau|marisol|paulina|emma/i;
+      const female = matched.find((v) => femalePats.test(v.name));
+      if (female) return female;
+      if (matched.length) return matched[0];
+      const enVoices = voices.filter((v) =>
+        v.lang.toLowerCase().startsWith("en")
+      );
+      const enFemale = enVoices.find((v) => femalePats.test(v.name));
+      return enFemale ?? enVoices[0] ?? null;
     } catch {
       return null;
     }
@@ -262,8 +238,13 @@ export function ChatBot({
       if (!synth) return;
       stop();
       const u = new SpeechSynthesisUtterance(text);
-      const voice = pickFemaleVoice();
-      if (voice) u.voice = voice;
+      const voice = pickVoice();
+      if (voice) {
+        u.voice = voice;
+        u.lang = voice.lang;
+      } else {
+        u.lang = locale;
+      }
       u.rate = 1.02;
       u.pitch = 1.05;
       u.onstart = () => setSpeaking(text);
@@ -396,7 +377,7 @@ export function ChatBot({
       {/* Launcher */}
       <motion.button
         type="button"
-        aria-label={open ? "Close chat" : "Open chat"}
+        aria-label={open ? chat.closeAria : chat.openAria}
         onClick={() => (open ? close() : setOpenOnce(true))}
         initial={false}
         animate={open ? { scale: 0 } : { scale: 1 }}
@@ -441,7 +422,7 @@ export function ChatBot({
             className="fixed right-3 bottom-24 z-[70] flex w-[min(24rem,calc(100vw-1.5rem))] flex-col overflow-hidden rounded-2xl border border-white/[0.09] bg-ink-900/95 shadow-[0_30px_90px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:right-6 sm:bottom-28 sm:w-[24rem]"
             style={{ height: "min(560px, 72vh)" }}
             role="dialog"
-            aria-label={`${name} portfolio chat`}
+            aria-label={chat.panelAria.replace("{name}", name)}
           >
             {/* 3D avatar banner */}
             <div className="relative overflow-hidden border-b border-white/[0.06]">
@@ -462,14 +443,14 @@ export function ChatBot({
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-900/95 via-ink-900/15 to-transparent" />
                 <div className="absolute top-3 left-4 z-10 flex items-center gap-1.5 rounded-full border border-lens-400/30 bg-ink-900/70 px-2.5 py-1 font-mono text-[9px] tracking-[0.22em] text-lens-300 uppercase backdrop-blur">
                   <span className={`h-1.5 w-1.5 rounded-full ${speaking ? "animate-pulse bg-lens-300" : "bg-lens-400"}`} />
-                  AI
+                  {chat.badge}
                 </div>
                 <div className="absolute top-3 right-4 z-10 flex items-center gap-2">
                   <button
                     type="button"
                     onClick={() => setVoiceOn((v) => !v)}
                     aria-pressed={voiceOn}
-                    aria-label={voiceOn ? "Turn voice off" : "Turn voice on"}
+                    aria-label={voiceOn ? chat.voiceOn : chat.voiceOff}
                     className={`flex h-8 w-8 items-center justify-center rounded-full border backdrop-blur transition-colors ${
                       voiceOn
                         ? "border-lens-400/40 bg-ink-900/50 text-lens-300 hover:bg-lens-400/10"
@@ -492,7 +473,7 @@ export function ChatBot({
                   <button
                     type="button"
                     onClick={close}
-                    aria-label="Close chat"
+                    aria-label={chat.closeAria}
                     className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-ink-900/50 text-fog-400 backdrop-blur transition-colors hover:border-white/20 hover:text-bone-100"
                   >
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden>
@@ -502,10 +483,10 @@ export function ChatBot({
                 </div>
                 <div className="absolute bottom-3 left-4 z-10">
                   <p className="font-display text-sm font-semibold text-bone-100">
-                    Shree
+                    {chat.title}
                   </p>
                   <p className="font-mono text-[10px] tracking-[0.18em] text-fog-500 uppercase">
-                    {speaking ? "Speaking…" : "Manisha’s AI assistant"}
+                    {speaking ? chat.speaking : chat.subtitle}
                   </p>
                 </div>
               </div>
@@ -575,7 +556,7 @@ export function ChatBot({
                     <button
                       type="button"
                       onClick={() => (speaking === m.text ? stop() : speakText(m.text))}
-                      aria-label={speaking === m.text ? "Stop reading answer" : "Read answer aloud"}
+                      aria-label={speaking === m.text ? chat.stopReading : chat.readAloud}
                       className={`mb-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border transition-colors ${
                         speaking === m.text
                           ? "border-lens-400/50 text-lens-300"
@@ -641,14 +622,14 @@ export function ChatBot({
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Type a question…"
-                aria-label="Ask a question"
+                placeholder={chat.placeholder}
+                aria-label={chat.askAria}
                 className="min-w-0 flex-1 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm text-bone-100 placeholder:text-fog-500 focus:border-lens-400/50 focus:outline-none"
               />
               <button
                 type="submit"
                 disabled={!input.trim()}
-                aria-label="Send"
+                aria-label={chat.send}
                 className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-lens-400 text-ink-950 transition-opacity disabled:opacity-40"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>

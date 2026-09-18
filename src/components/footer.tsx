@@ -1,15 +1,18 @@
 import { getSiteConfig } from "@/lib/content";
 
-export function Footer() {
-  const site = getSiteConfig();
+export async function Footer() {
+  const site = await getSiteConfig();
   const year = new Date().getFullYear();
 
+  const label = site.ui.contactLinks;
   const connect = [
-    { label: "Email", href: `mailto:${site.email}` },
-    { label: "LinkedIn", href: site.linkedin },
-    { label: "Behance", href: site.behance },
-    { label: "WhatsApp", href: site.whatsapp },
+    { label: label.email, href: `mailto:${site.email}` },
+    { label: label.linkedin, href: site.linkedin },
+    { label: label.behance, href: site.behance },
+    { label: label.whatsapp, href: site.whatsapp },
   ] as const;
+
+  const footerUi = site.ui.footer;
 
   const header = "font-mono text-[11px] tracking-[0.25em] text-fog-500 uppercase";
   const dash =
@@ -38,7 +41,7 @@ export function Footer() {
 
           {/* Navigate */}
           <div>
-            <p className={header}>Navigate</p>
+            <p className={header}>{footerUi.navigate}</p>
             <ul className="mt-4 space-y-2.5">
               {site.nav.map((l) => (
                 <li key={l.href}>
@@ -56,7 +59,7 @@ export function Footer() {
 
           {/* Connect */}
           <div>
-            <p className={header}>Connect</p>
+            <p className={header}>{footerUi.connect}</p>
             <ul className="mt-4 space-y-2.5">
               {connect.map((c) => (
                 <li key={c.label}>
@@ -81,16 +84,19 @@ export function Footer() {
             © {year} {site.name}
           </p>
           <p className="font-mono text-[11px] tracking-[0.15em] text-fog-500 uppercase">
-            Designed &amp; built in <span className="text-bone-100">Next.js</span> · relocation-ready
+            {footerUi.built}
           </p>
           <p className="font-mono text-[11px] tracking-[0.15em] text-fog-500 uppercase">
-            Avatar video: <span className="text-bone-100">Vecteezy</span>
+            {footerUi.avatarCredit.split(":")[0]}:{" "}
+            <span className="text-bone-100">
+              {footerUi.avatarCredit.split(":")[1]}
+            </span>
           </p>
           <a
             href="/admin/index.html"
             className="font-mono text-[11px] tracking-[0.15em] text-fog-500 uppercase transition-colors hover:text-lens-300"
           >
-            Manage content
+            {footerUi.manage}
           </a>
         </div>
       </div>

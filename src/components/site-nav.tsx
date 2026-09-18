@@ -2,14 +2,20 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import type { NavLink } from "@/lib/types";
+import type { NavLink, UiStrings } from "@/lib/types";
+import type { Locale } from "@/lib/locales";
+import { LanguageSelector } from "@/components/language-selector";
 
 export function SiteNav({
   links,
   resumeHref,
+  locale,
+  ui,
 }: {
   links: NavLink[];
   resumeHref: string;
+  locale: Locale;
+  ui: UiStrings;
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -33,7 +39,7 @@ export function SiteNav({
     >
       <nav
         className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8"
-        aria-label="Primary"
+        aria-label={ui.nav.primaryAria}
       >
         <a
           href="/"
@@ -57,13 +63,14 @@ export function SiteNav({
           ))}
         </ul>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-2 md:flex">
+          <LanguageSelector locale={locale} ariaLabel={ui.language.switcherAria} />
           <a
             href={resumeHref}
             download
             className="inline-flex h-9 items-center gap-2 rounded-full border border-lens-400/40 px-4 text-sm text-lens-300 transition-colors hover:border-lens-400 hover:bg-lens-400/10"
           >
-            Resume
+            {ui.nav.resume}
           </a>
         </div>
 
@@ -72,7 +79,7 @@ export function SiteNav({
           className="relative flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
-          aria-label={open ? "Close menu" : "Open menu"}
+          aria-label={open ? ui.nav.closeMenu : ui.nav.openMenu}
         >
           <span
             className={`block h-px w-5 bg-bone-100 transition-transform duration-300 ${
@@ -116,8 +123,11 @@ export function SiteNav({
                   onClick={close}
                   className="block rounded-lg border border-lens-400/40 px-3 py-2.5 text-center text-base text-lens-300"
                 >
-                  Download resume
+                  {ui.nav.downloadResume}
                 </a>
+              </li>
+              <li className="mt-2 flex justify-center">
+                <LanguageSelector locale={locale} ariaLabel={ui.language.switcherAria} />
               </li>
             </ul>
           </motion.div>

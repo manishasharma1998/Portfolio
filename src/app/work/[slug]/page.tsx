@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { notFound } from "next/navigation";
 import { getCaseStudy, getDeepProjects, getSiteConfig } from "@/lib/content";
+import { getLocale } from "@/lib/i18n";
 import { SiteNav } from "@/components/site-nav";
 import { Footer } from "@/components/footer";
 import { Reveal } from "@/components/primitives/reveal";
@@ -10,13 +11,13 @@ import { CaseGallery, CasePoster, CaseVisuals } from "@/components/case-visuals"
 
 type Props = PageProps<"/work/[slug]">;
 
-export function generateStaticParams() {
-  return getDeepProjects().map((c) => ({ slug: c.slug }));
+export async function generateStaticParams() {
+  return (await getDeepProjects("en")).map((c) => ({ slug: c.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const study = getCaseStudy(slug);
+  const study = await getCaseStudy(slug, "en");
   if (!study) return { title: "Case study not found" };
   return {
     title: study.title,
@@ -31,17 +32,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params;
-  const study = getCaseStudy(slug);
+  const study = await getCaseStudy(slug);
   if (!study) notFound();
 
-  const deepProjects = getDeepProjects();
+  const deepProjects = await getDeepProjects();
   const index = deepProjects.findIndex((c) => c.slug === slug);
   const next = deepProjects[(index + 1) % deepProjects.length];
-  const site = getSiteConfig();
+  const site = await getSiteConfig();
+  const caseUi = site.ui.casePage;
+  const locale = await getLocale();
 
   return (
     <main className="bg-background">
-      <SiteNav links={site.nav} resumeHref={site.resume} />
+      <SiteNav
+        links={site.nav}
+        resumeHref={site.resume}
+        locale={locale}
+        ui={site.ui}
+      />
 
       <article className="pt-16">
         {/* Header cover */}
@@ -61,7 +69,7 @@ export default async function CaseStudyPage({ params }: Props) {
                 href="/work"
                 className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.2em] text-fog-400 uppercase transition-colors hover:text-lens-300"
               >
-                <span aria-hidden>←</span> All work
+                <span aria-hidden>←</span> {caseUi.backAllWork}
               </Link>
             </Reveal>
 
@@ -84,10 +92,10 @@ export default async function CaseStudyPage({ params }: Props) {
             <Reveal delay={0.1} className="mt-10">
               <dl className="grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] sm:grid-cols-4">
                 {[
-                  ["Role", study.role],
-                  ["Duration", study.duration],
-                  ["Platform", study.platform],
-                  ["Year", study.year],
+                  [caseUi.labels.role, study.role],
+                  [caseUi.labels.duration, study.duration],
+                  [caseUi.labels.platform, study.platform],
+                  [caseUi.labels.year, study.year],
                 ].map(([k, v]) => (
                   <div key={k} className="bg-ink-900/70 p-4 backdrop-blur-sm">
                     <dt className="font-mono text-[10px] tracking-[0.2em] text-fog-500 uppercase">
@@ -104,7 +112,7 @@ export default async function CaseStudyPage({ params }: Props) {
         </header>
 
         {/* Metric strip */}
-        <section aria-label="Outcome metrics" className="border-b border-white/[0.06]">
+        <section aria-label={caseUi.metricsAria} className="border-b border-white/[0.06]">
           <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px px-5 sm:grid-cols-4 sm:px-8">
             {study.metrics.map((m) => (
               <Reveal key={m.label} className="min-w-0 border-b border-white/[0.06] py-8 sm:border-b-0">
@@ -131,13 +139,17 @@ export default async function CaseStudyPage({ params }: Props) {
 
           {study.visuals?.length ? (
             <div className="mb-16">
-              <CaseVisuals visuals={study.visuals} hue={study.cover.hue} />
+              <CaseVisuals
+                visuals={study.visuals}
+                hue={study.cover.hue}
+                labels={site.ui.caseVisuals}
+              />
             </div>
           ) : null}
 
           {study.images?.length ? (
             <div className="mb-16">
-              <CaseGallery images={study.images} />
+              <CaseGallery images={study.images} alt={site.ui.caseVisuals.imageAlt} />
             </div>
           ) : null}
 
@@ -197,7 +209,7 @@ export default async function CaseStudyPage({ params }: Props) {
           <Reveal className="mt-20">
             <div className="rounded-2xl border border-accent-400/20 bg-accent-400/[0.05] p-6 sm:p-8">
               <p className="font-mono text-[11px] tracking-[0.25em] text-accent-400 uppercase">
-                What I&rsquo;d do differently
+                {caseUi.reflection}
               </p>
               <div className="mt-4 space-y-3">
                 {study.reflection.body.map((p, i) => (
@@ -234,11 +246,10 @@ export default async function CaseStudyPage({ params }: Props) {
                 className="group flex h-full flex-col justify-between gap-6 rounded-2xl border border-white/[0.07] bg-ink-850 p-6 transition-colors hover:border-lens-400/30 sm:p-8"
               >
                 <p className="font-mono text-[11px] tracking-[0.2em] text-fog-500 uppercase">
-                  ← Back to index
+                  {caseUi.backToIndex}
                 </p>
                 <p className="font-display text-lg font-medium text-bone-100">
-                  Three case studies were the point. Read them as one body of
-                  work.
+                  {caseUi.backToIndexBody}
                 </p>
               </Link>
             </Reveal>
@@ -253,14 +264,14 @@ export default async function CaseStudyPage({ params }: Props) {
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:32px_32px]" />
                 <div className="relative">
                   <p className="font-mono text-[11px] tracking-[0.2em] text-bone-100/60 uppercase">
-                    Next case study
+                    {caseUi.nextLabel}
                   </p>
                   <h3 className="mt-3 font-display text-xl font-medium text-bone-100">
                     {next.title}
                   </h3>
                 </div>
                 <span className="relative inline-flex items-center gap-2 font-mono text-xs tracking-[0.15em] text-bone-100 uppercase">
-                  Read it
+                  {caseUi.readIt}
                   <span className="transition-transform duration-300 group-hover:translate-x-1.5">
                     →
                   </span>
@@ -271,24 +282,23 @@ export default async function CaseStudyPage({ params }: Props) {
 
           <Reveal delay={0.12} className="mt-14 text-center">
             <p className="font-mono text-[11px] tracking-[0.25em] text-fog-500 uppercase">
-              Two things left on this page
+              {caseUi.twoThings}
             </p>
             <h2 className="mx-auto mt-3 max-w-xl font-display text-2xl font-medium tracking-tight text-bone-100 sm:text-3xl">
-              The work proves the thinking. Your first message confirms the
-              timing.
+              {caseUi.ctaTitle}
             </h2>
             <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
               <a
                 href={`mailto:${site.email}`}
                 className="inline-flex items-center gap-2 rounded-full bg-lens-400 px-6 py-3 font-medium text-ink-950 transition-colors hover:bg-lens-300"
               >
-                Email Manisha
+                {caseUi.emailCta}
               </a>
               <Link
                 href="/work"
                 className="inline-flex items-center gap-2 rounded-full border border-white/12 px-6 py-3 font-medium text-bone-100 transition-colors hover:border-lens-400/60 hover:bg-lens-400/10"
               >
-                Keep exploring
+                {caseUi.keepExploring}
               </Link>
             </div>
           </Reveal>

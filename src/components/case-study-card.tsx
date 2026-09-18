@@ -4,7 +4,13 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import type { CaseStudy } from "@/lib/types";
 
-export function CaseStudyCard({ study }: { study: CaseStudy }) {
+export function CaseStudyCard({
+  study,
+  labels,
+}: {
+  study: CaseStudy;
+  labels?: { view: string; open: string };
+}) {
   const reduce = useReducedMotion();
   const outer = study.external ?? `/work/${study.slug}`;
   const isExternal = Boolean(study.external);
@@ -64,7 +70,7 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
         </div>
 
         <span className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.15em] text-bone-100 uppercase">
-          {isExternal ? "Open project" : "View case study"}
+          {isExternal ? labels?.open ?? "Open project" : labels?.view ?? "View case study"}
           <span className="transition-transform duration-300 group-hover:translate-x-1.5">
             →
           </span>

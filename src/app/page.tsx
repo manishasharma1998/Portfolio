@@ -1,4 +1,5 @@
 import { getSiteConfig } from "@/lib/content";
+import { getLocale } from "@/lib/i18n";
 import { SiteNav } from "@/components/site-nav";
 import { Hero } from "@/components/hero";
 import { SignalBar } from "@/components/signal-bar";
@@ -9,12 +10,18 @@ import { Timeline } from "@/components/timeline";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 
-export default function Home() {
-  const site = getSiteConfig();
+export default async function Home() {
+  const locale = await getLocale();
+  const site = await getSiteConfig(locale);
 
   return (
     <main>
-      <SiteNav links={site.nav} resumeHref={site.resume} />
+      <SiteNav
+        links={site.nav}
+        resumeHref={site.resume}
+        locale={locale}
+        ui={site.ui}
+      />
       <Hero site={site} />
       <SignalBar metrics={site.metrics} />
       <About />

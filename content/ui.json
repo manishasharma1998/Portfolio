@@ -1,0 +1,131 @@
+{
+  "announcement": {
+    "notice": "You're viewing this portfolio in {language}.",
+    "change": "Change the language any time from the top navigation — or right here.",
+    "dismiss": "Dismiss"
+  },
+  "language": {
+    "label": "Language",
+    "switcherAria": "Choose language"
+  },
+  "nav": {
+    "resume": "Resume",
+    "downloadResume": "Download resume",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "primaryAria": "Primary"
+  },
+  "footer": {
+    "navigate": "Navigate",
+    "connect": "Connect",
+    "built": "Designed & built in Next.js · relocation-ready",
+    "avatarCredit": "Avatar video: Vecteezy",
+    "manage": "Manage content"
+  },
+  "contactLinks": {
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "linkedinNote": "Resume-grade history",
+    "behance": "Behance",
+    "behanceNote": "Selected screens",
+    "whatsapp": "WhatsApp"
+  },
+  "caseCard": {
+    "view": "View case study",
+    "open": "Open project"
+  },
+  "caseVisuals": {
+    "before": "Before",
+    "after": "After",
+    "imageAlt": "Case study visual"
+  },
+  "casePage": {
+    "backAllWork": "All work",
+    "metricsAria": "Outcome metrics",
+    "labels": {
+      "role": "Role",
+      "duration": "Duration",
+      "platform": "Platform",
+      "year": "Year"
+    },
+    "reflection": "What I'd do differently",
+    "backToIndex": "← Back to index",
+    "backToIndexBody": "Three case studies were the point. Read them as one body of work.",
+    "nextLabel": "Next case study",
+    "readIt": "Read it",
+    "twoThings": "Two things left on this page",
+    "ctaTitle": "The work proves the thinking. Your first message confirms the timing.",
+    "emailCta": "Email Manisha",
+    "keepExploring": "Keep exploring"
+  },
+  "chat": {
+    "title": "Shree",
+    "subtitle": "Manisha’s AI assistant",
+    "speaking": "Speaking…",
+    "badge": "AI",
+    "greeting": "Namaste, {name} is not here right now! I am Shree, her assistant. How can I help you?",
+    "openAria": "Open chat",
+    "closeAria": "Close chat",
+    "panelAria": "{name} portfolio chat",
+    "placeholder": "Type a question…",
+    "askAria": "Ask a question",
+    "send": "Send",
+    "voiceOn": "Turn voice off",
+    "voiceOff": "Turn voice on",
+    "stopReading": "Stop reading answer",
+    "readAloud": "Read answer aloud",
+    "noMatch": "No clean match for that one — but these will get you where you’re going faster:",
+    "faq": [
+      {
+        "q": "See my work",
+        "keywords": ["work", "project", "case", "portfolio", "see"],
+        "a": "Three deep-dives worth your time: a checkout nobody could blame on price, a 200-component design system, and the XR build.",
+        "links": [
+          { "label": "Checkout recovery", "href": "/work/checkout-recovery" },
+          { "label": "Design system", "href": "/work/saas-design-system" },
+          { "label": "XR build", "href": "/work/iit-delhi-xr" }
+        ]
+      },
+      {
+        "q": "Skills & tools",
+        "keywords": ["skills", "tools", "stack", "software", "figma"],
+        "a": "Research, UI/UX, XR and design systems — backed by Figma, Unity, Blender, Maze, GA4 and a stubborn refusal to design on vibes.",
+        "links": [{ "label": "View skills", "href": "/#skills" }]
+      },
+      {
+        "q": "Hire or collaborate",
+        "keywords": ["hire", "collaborate", "contact", "freelance", "available"],
+        "a": "The fastest path is email or WhatsApp — read carefully, replies quickly, motivated to move.",
+        "links": [
+          { "label": "Email", "href": "mailto:{email}" },
+          { "label": "WhatsApp", "href": "{whatsapp}", "external": true },
+          { "label": "Contact section", "href": "/#contact" }
+        ]
+      },
+      {
+        "q": "Download resume",
+        "keywords": ["resume", "cv", "download", "pdf"],
+        "a": "One click, straight to the PDF.",
+        "links": [{ "label": "Download resume", "href": "{resume}", "download": true }]
+      },
+      {
+        "q": "XR & VR background",
+        "keywords": ["xr", "vr", "ar", "unity", "blender", "headset"],
+        "a": "The real thing — environments people walk into, built in Unity + Blender, walked through in a Meta Quest. IIT Delhi, Grade A.",
+        "links": [{ "label": "Explore the XR section", "href": "/#xr" }]
+      },
+      {
+        "q": "Experience & education",
+        "keywords": ["experience", "education", "journey", "timeline", "background"],
+        "a": "The full arc: Technoid Infusion (2024–26), freelancing before that, IIT Delhi XR, Times Pro AI certified, UI/UX diploma, IGNOU and DU behind the scenes.",
+        "links": [{ "label": "View the journey", "href": "/#journey" }]
+      },
+      {
+        "q": "Can you relocate?",
+        "keywords": ["relocate", "relocation", "remote", "onsite", "move"],
+        "a": "Yes — relocation-ready and committed to the move. On-site or remote, open either way.",
+        "links": [{ "label": "More details", "href": "/#contact" }]
+      }
+    ]
+  }
+}

@@ -4,8 +4,8 @@ import { Reveal } from "@/components/primitives/reveal";
 import { SectionHeading } from "@/components/primitives/section-heading";
 import { AccentText } from "@/components/primitives/accent-text";
 
-export function About() {
-  const about = getSiteConfig().about;
+export async function About() {
+  const about = (await getSiteConfig()).about;
   const { polisci, ux, photos } = about;
 
   return (

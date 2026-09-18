@@ -2,14 +2,15 @@ import { getSiteConfig } from "@/lib/content";
 import { Reveal } from "@/components/primitives/reveal";
 import { AccentText } from "@/components/primitives/accent-text";
 
-export function Contact() {
-  const site = getSiteConfig();
+export async function Contact() {
+  const site = await getSiteConfig();
+  const ui = site.ui.contactLinks;
 
   const links = [
-    { label: "Email", href: `mailto:${site.email}`, note: site.email },
-    { label: "LinkedIn", href: site.linkedin, note: "Resume-grade history" },
-    { label: "Behance", href: site.behance, note: "Selected screens" },
-    { label: "WhatsApp", href: site.whatsapp, note: site.phone },
+    { label: ui.email, href: `mailto:${site.email}`, note: site.email },
+    { label: ui.linkedin, href: site.linkedin, note: ui.linkedinNote },
+    { label: ui.behance, href: site.behance, note: ui.behanceNote },
+    { label: ui.whatsapp, href: site.whatsapp, note: site.phone },
   ] as const;
 
   return (

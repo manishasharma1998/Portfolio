@@ -6,9 +6,10 @@ import {
 } from "@/components/primitives/section-heading";
 import { Reveal } from "@/components/primitives/reveal";
 
-export function Work() {
-  const projects = getProjects();
-  const work = getSiteConfig().work;
+export async function Work() {
+  const site = await getSiteConfig();
+  const work = site.work;
+  const projects = await getProjects();
 
   return (
     <section id="work" className="relative border-t border-white/[0.05] py-24 sm:py-32">
@@ -39,7 +40,7 @@ export function Work() {
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {projects.map((study, i) => (
             <Reveal key={study.slug} delay={i * 0.1} className="h-full">
-              <CaseStudyCard study={study} />
+              <CaseStudyCard study={study} labels={site.ui.caseCard} />
             </Reveal>
           ))}
         </div>

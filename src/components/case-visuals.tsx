@@ -37,17 +37,19 @@ function CompareCard({
   hue,
   idx,
   reduce,
+  labels,
 }: {
   d: Extract<CaseVisual, { kind: "compare" }>;
   hue: number;
   idx: number;
   reduce: boolean | null;
+  labels: { before: string; after: string };
 }) {
   const max = Math.max(d.before, d.after, 1);
   const delta = d.before - d.after;
   const sign = delta >= 0 ? "−" : "+";
-  const before = d.beforeLabel ?? "Before";
-  const after = d.afterLabel ?? "After";
+  const before = d.beforeLabel ?? labels.before;
+  const after = d.afterLabel ?? labels.after;
   return (
     <div className="space-y-5">
       <div>
@@ -229,8 +231,18 @@ function StackCard({ d, hue }: { d: Extract<CaseVisual, { kind: "stack" }>; hue:
   );
 }
 
-export function CaseVisuals({ visuals, hue }: { visuals: CaseVisual[]; hue: number }) {
+export function CaseVisuals({
+  visuals,
+  hue,
+  labels,
+}: {
+  visuals: CaseVisual[];
+  hue: number;
+  labels?: { before: string; after: string };
+}) {
   const reduce = useReducedMotion();
+  const beforeLabel = labels?.before ?? "Before";
+  const afterLabel = labels?.after ?? "After";
   return (
     <div className="grid gap-6 lg:grid-cols-2">
       {visuals.map((v, i) => (
@@ -262,7 +274,9 @@ export function CaseVisuals({ visuals, hue }: { visuals: CaseVisual[]; hue: numb
             <p className="mt-3 text-sm leading-relaxed text-fog-500">{v.caption}</p>
           ) : null}
           <div className="mt-6">
-            {v.kind === "compare" && <CompareCard d={v} hue={hue} idx={i} reduce={reduce} />}
+            {v.kind === "compare" && (
+              <CompareCard d={v} hue={hue} idx={i} reduce={reduce} labels={{ before: beforeLabel, after: afterLabel }} />
+            )}
             {v.kind === "funnel" && <FunnelCard d={v} hue={hue} />}
             {v.kind === "bars" && <BarsCard d={v} hue={hue} idx={i} reduce={reduce} />}
             {v.kind === "steps" && <StepsCard d={v} hue={hue} />}
@@ -346,7 +360,7 @@ export function CasePoster({
   );
 }
 
-export function CaseGallery({ images }: { images: string[] }) {
+export function CaseGallery({ images, alt }: { images: string[]; alt?: string }) {
   return (
     <div className="grid gap-4 sm:grid-cols-2">
       {images.map((src, i) => (
@@ -356,7 +370,7 @@ export function CaseGallery({ images }: { images: string[] }) {
         >
           <Image
             src={src}
-            alt={`Case study visual ${i + 1}`}
+            alt={`${alt ?? "Case study visual"} ${i + 1}`}
             fill
             sizes="(max-width: 640px) 100vw, 50vw"
             className="object-cover"

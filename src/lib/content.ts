@@ -1,13 +1,18 @@
 import fs from "node:fs";
 import path from "node:path";
 import { load as yamlLoad } from "js-yaml";
+import { getLocale } from "./i18n";
+import type { Locale } from "./locales";
 import type {
   BehanceConfig,
   CaseFigure,
   CaseStudy,
   CaseStudySection,
   CaseVisual,
+  LocaleBundle,
   SiteConfig,
+  SiteContent,
+  UiStrings,
 } from "./types";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
@@ -182,13 +187,50 @@ function orderOf(study: CaseStudy): number {
   return Number.isFinite(n) ? n : 99;
 }
 
-let cachedSite: SiteConfig | null = null;
 let cachedBehance: BehanceConfig | null = null;
-let cachedProjects: CaseStudy[] | null = null;
+let cachedEnglishProjects: CaseStudy[] | null = null;
+const bundleCache = new Map<Locale, LocaleBundle>();
 
-export function getSiteConfig(): SiteConfig {
-  if (!cachedSite) cachedSite = readJsonFile<SiteConfig>("site.json");
-  return cachedSite;
+function readEnglishProjects(): CaseStudy[] {
+  if (cachedEnglishProjects) return cachedEnglishProjects;
+  const files = fs
+    .readdirSync(PROJECTS_DIR)
+    .filter((f) => f.endsWith(".md") && !f.startsWith("_"));
+  cachedEnglishProjects = files
+    .map((f) => {
+      const text = fs.readFileSync(path.join(PROJECTS_DIR, f), "utf8");
+      return parseProjectMarkdown(text, f);
+    })
+    .filter((p) => p.published)
+    .sort((a, b) => orderOf(a) - orderOf(b));
+  return cachedEnglishProjects;
+}
+
+async function getBundle(locale?: Locale): Promise<LocaleBundle> {
+  const loc = locale ?? (await getLocale());
+  const cached = bundleCache.get(loc);
+  if (cached) return cached;
+
+  const bundle: LocaleBundle =
+    loc === "en"
+      ? {
+          ui: readJsonFile<UiStrings>("ui.json"),
+          site: readJsonFile<SiteContent>("site.json"),
+          projects: readEnglishProjects(),
+        }
+      : readJsonFile<LocaleBundle>(`locales/${loc}.json`);
+
+  bundleCache.set(loc, bundle);
+  return bundle;
+}
+
+export async function getSiteConfig(locale?: Locale): Promise<SiteConfig> {
+  const bundle = await getBundle(locale);
+  return { ...bundle.site, ui: bundle.ui };
+}
+
+export async function getUi(locale?: Locale): Promise<UiStrings> {
+  return (await getBundle(locale)).ui;
 }
 
 export function getBehanceProjects(): BehanceConfig {
@@ -196,25 +238,17 @@ export function getBehanceProjects(): BehanceConfig {
   return cachedBehance;
 }
 
-export function getProjects(): CaseStudy[] {
-  if (cachedProjects) return cachedProjects;
-  const files = fs
-    .readdirSync(PROJECTS_DIR)
-    .filter((f) => f.endsWith(".md") && !f.startsWith("_"));
-  cachedProjects = files
-    .map((f) => {
-      const text = fs.readFileSync(path.join(PROJECTS_DIR, f), "utf8");
-      return parseProjectMarkdown(text, f);
-    })
-    .filter((p) => p.published)
-    .sort((a, b) => orderOf(a) - orderOf(b));
-  return cachedProjects;
+export async function getProjects(locale?: Locale): Promise<CaseStudy[]> {
+  return (await getBundle(locale)).projects;
 }
 
-export function getCaseStudy(slug: string): CaseStudy | undefined {
-  return getProjects().find((p) => p.slug === slug);
+export async function getCaseStudy(
+  slug: string,
+  locale?: Locale
+): Promise<CaseStudy | undefined> {
+  return (await getProjects(locale)).find((p) => p.slug === slug);
 }
 
-export function getDeepProjects(): CaseStudy[] {
-  return getProjects().filter((p) => p.mode === "deep");
+export async function getDeepProjects(locale?: Locale): Promise<CaseStudy[]> {
+  return (await getProjects(locale)).filter((p) => p.mode === "deep");
 }

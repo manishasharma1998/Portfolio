@@ -3,8 +3,8 @@ import { SectionHeading } from "@/components/primitives/section-heading";
 import { Reveal, RevealItem, RevealStagger } from "@/components/primitives/reveal";
 import { AccentText } from "@/components/primitives/accent-text";
 
-export function Skills() {
-  const skills = getSiteConfig().skills;
+export async function Skills() {
+  const skills = (await getSiteConfig()).skills;
   const toolkit = skills.toolkit;
   const columns = [
     { key: "research", data: skills.columns.research, accent: "lens" },
