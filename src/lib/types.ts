@@ -119,6 +119,8 @@ export type UiStrings = {
     whatsapp: string;
   };
   caseCard: { view: string; open: string };
+  workTabs: { caseStudies: string; designs: string };
+  behance: { open: string; views: string; appreciations: string };
   caseVisuals: { before: string; after: string; imageAlt: string };
   casePage: {
     backAllWork: string;

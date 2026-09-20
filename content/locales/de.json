@@ -29,6 +29,8 @@
       "whatsapp": "WhatsApp"
     },
     "caseCard": { "view": "Fallstudie lesen", "open": "Projekt öffnen" },
+    "workTabs": { "caseStudies": "Fallstudien", "designs": "Designs" },
+    "behance": { "open": "Öffnen", "views": "Aufrufe", "appreciations": "♥" },
     "caseVisuals": { "before": "Vorher", "after": "Nachher", "imageAlt": "Fallstudien-Visual" },
     "casePage": {
       "backAllWork": "Alle Arbeiten",

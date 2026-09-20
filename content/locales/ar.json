@@ -29,6 +29,8 @@
       "whatsapp": "WhatsApp"
     },
     "caseCard": { "view": "قراءة دراسة الحالة", "open": "فتح المشروع" },
+    "workTabs": { "caseStudies": "دراسات الحالة", "designs": "تصاميم" },
+    "behance": { "open": "فتح", "views": "مشاهدة", "appreciations": "♥" },
     "caseVisuals": { "before": "قبل", "after": "بعد", "imageAlt": "عنصر بصري لدراسة الحالة" },
     "casePage": {
       "backAllWork": "كل الأعمال",

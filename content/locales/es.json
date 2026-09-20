@@ -29,6 +29,8 @@
       "whatsapp": "WhatsApp"
     },
     "caseCard": { "view": "Ver caso de estudio", "open": "Abrir proyecto" },
+    "workTabs": { "caseStudies": "Estudios de caso", "designs": "Diseños" },
+    "behance": { "open": "Abrir", "views": "vistas", "appreciations": "♥" },
     "caseVisuals": { "before": "Antes", "after": "Después", "imageAlt": "Visual del caso de estudio" },
     "casePage": {
       "backAllWork": "Todos los trabajos",

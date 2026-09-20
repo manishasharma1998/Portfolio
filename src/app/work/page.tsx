@@ -4,6 +4,7 @@ import { getLocale } from "@/lib/i18n";
 import { SiteNav } from "@/components/site-nav";
 import { Work } from "@/components/work-section";
 import { BehanceGallery } from "@/components/behance-gallery";
+import { WorkTabs } from "@/components/work-tabs";
 import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
@@ -25,8 +26,11 @@ export default async function WorkPage() {
         ui={site.ui}
       />
       <div className="pt-16">
-        <Work />
-        <BehanceGallery />
+        <WorkTabs
+          labels={site.ui.workTabs}
+          caseStudies={<Work />}
+          designs={<BehanceGallery labels={site.ui.behance} />}
+        />
       </div>
       <Footer />
     </main>

@@ -3,7 +3,11 @@ import { getBehanceProjects } from "@/lib/content";
 import { SectionHeading } from "@/components/primitives/section-heading";
 import { RevealItem, RevealStagger } from "@/components/primitives/reveal";
 
-export function BehanceGallery() {
+export function BehanceGallery({
+  labels,
+}: {
+  labels?: { open: string; views: string; appreciations: string };
+}) {
   const config = getBehanceProjects();
   const { projects, profileUrl } = config;
 
@@ -57,10 +61,11 @@ export function BehanceGallery() {
                   </div>
                   <div className="mt-auto flex items-center justify-between pt-2">
                     <span className="font-mono text-[11px] text-fog-500">
-                      {p.views} views · {p.appreciations} ♥
+                      {p.views} {labels?.views ?? "views"} · {p.appreciations}{" "}
+                      {labels?.appreciations ?? "♥"}
                     </span>
                     <span className="font-mono text-xs tracking-[0.15em] text-bone-100 uppercase">
-                      Open →
+                      {labels?.open ?? "Open"} →
                     </span>
                   </div>
                 </div>

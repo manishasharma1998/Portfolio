@@ -29,6 +29,8 @@
       "whatsapp": "WhatsApp"
     },
     "caseCard": { "view": "ケーススタディを読む", "open": "プロジェクトを開く" },
+    "workTabs": { "caseStudies": "ケーススタディ", "designs": "デザイン" },
+    "behance": { "open": "開く", "views": "閲覧", "appreciations": "♥" },
     "caseVisuals": { "before": "改善前", "after": "改善後", "imageAlt": "ケーススタディ画像" },
     "casePage": {
       "backAllWork": "すべての作品",

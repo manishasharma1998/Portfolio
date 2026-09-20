@@ -34,6 +34,15 @@
     "view": "View case study",
     "open": "Open project"
   },
+  "workTabs": {
+    "caseStudies": "Case Studies",
+    "designs": "Designs"
+  },
+  "behance": {
+    "open": "Open",
+    "views": "views",
+    "appreciations": "♥"
+  },
   "caseVisuals": {
     "before": "Before",
     "after": "After",
