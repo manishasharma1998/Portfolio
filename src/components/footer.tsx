@@ -86,18 +86,6 @@ export async function Footer() {
           <p className="font-mono text-[11px] tracking-[0.15em] text-fog-500 uppercase">
             {footerUi.built}
           </p>
-          <p className="font-mono text-[11px] tracking-[0.15em] text-fog-500 uppercase">
-            {footerUi.avatarCredit.split(":")[0]}:{" "}
-            <span className="text-bone-100">
-              {footerUi.avatarCredit.split(":")[1]}
-            </span>
-          </p>
-          <a
-            href="/admin/index.html"
-            className="font-mono text-[11px] tracking-[0.15em] text-fog-500 uppercase transition-colors hover:text-lens-300"
-          >
-            {footerUi.manage}
-          </a>
         </div>
       </div>
     </footer>
