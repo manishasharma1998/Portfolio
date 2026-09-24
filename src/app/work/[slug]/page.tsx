@@ -8,6 +8,7 @@ import { SiteNav } from "@/components/site-nav";
 import { Footer } from "@/components/footer";
 import { Reveal } from "@/components/primitives/reveal";
 import { CaseGallery, CasePoster, CaseVisuals } from "@/components/case-visuals";
+import { StoryPlayer } from "@/components/story/story-player";
 
 type Props = PageProps<"/work/[slug]">;
 
@@ -128,6 +129,13 @@ export default async function CaseStudyPage({ params }: Props) {
         </section>
 
         {/* Body */}
+        {study.story?.length ? (
+          <StoryPlayer
+            story={study.story}
+            hue={study.cover.hue}
+            ui={caseUi.story}
+          />
+        ) : (
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
           <div className="mb-14 max-w-2xl space-y-4">
             {study.intro.map((p, i) => (
@@ -233,7 +241,8 @@ export default async function CaseStudyPage({ params }: Props) {
               </div>
             </div>
           </Reveal>
-        </div>
+          </div>
+        )}
       </article>
 
       {/* Next project */}

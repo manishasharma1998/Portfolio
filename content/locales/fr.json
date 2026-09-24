@@ -42,6 +42,12 @@
       "nextLabel": "Étude de cas suivante",
       "readIt": "Lire",
       "twoThings": "Il reste deux choses sur cette page",
+      "story": {
+        "label": "Histoire",
+        "steps": "étapes",
+        "prev": "Étape précédente",
+        "next": "Étape suivante"
+      },
       "ctaTitle": "Le travail prouve la réflexion. Votre premier message confirme le moment.",
       "emailCta": "Écrire à Manisha",
       "keepExploring": "Continuer à explorer"
@@ -430,7 +436,83 @@
           "text": "Trois tests A/B, une variante livrée, et la courbe d'abandon s'est aplatie. Même checkout, même nombre d'écrans — moins les doutes qui n'étaient jamais visibles dans le code."
         }
       ],
-      "mode": "deep"
+      "mode": "deep",
+      "story": [
+        {
+          "screen": "cart-before",
+          "chapter": "La mission",
+          "title": "L'entonnoir semble sain — jusqu'à la dernière étape.",
+          "body": "Chaque partie prenante avait une théorie — prix, concurrence, livraison. Personne n'avait regardé l'écran que l'utilisateur regardait vraiment. Le brief disait « fais mieux convertir », et c'est un piège quand on ne sait pas quelle étape saigne.",
+          "quote": "Ça semble bien jusqu'à ce que je doive m'engager.",
+          "notes": [
+            { "n": 1, "text": "L'entonnoir semble sain jusqu'à « Procéder au paiement ».", "spot": { "x": 72, "y": 20 } },
+            { "n": 2, "text": "Aucun signal de sécurité — la page demande de l'argent avant de dire un seul mot rassurant.", "spot": { "x": 16, "y": 56 } },
+            { "n": 3, "text": "Le prix est partout. La confiance nulle part.", "spot": { "x": 60, "y": 78 } }
+          ]
+        },
+        {
+          "screen": "payment-reveal",
+          "chapter": "Recherche · Session six, minute deux",
+          "title": "Cinq enregistrements sur six se sont figés sur le même champ.",
+          "body": "Aucun participant n'a trouvé la page suspecte — ils refusaient simplement de s'engager. J'ai interrogé douze personnes ayant abandonné dans les trente derniers jours et mené une évaluation heuristique du parcours.",
+          "quote": "Rien ne cloche sur cette page. Je ne veux juste pas donner ma carte.",
+          "notes": [
+            { "n": 1, "text": "65 % des abandons ont lieu ici — pas au panier, pas à la livraison.", "spot": { "x": 16, "y": 12 } },
+            { "n": 2, "text": "Les frais n'apparaissent qu'après le numéro de carte.", "spot": { "x": 70, "y": 38 } },
+            { "n": 3, "text": "« PaySecure+ » — un nom de passerelle que personne ne reconnaît.", "spot": { "x": 18, "y": 58 } },
+            { "n": 4, "text": "Aucune mention PCI ni « sécurisé par ».", "spot": { "x": 64, "y": 70 } }
+          ]
+        },
+        {
+          "screen": "mobile-keyboard",
+          "chapter": "Recherche · Le tueur silencieux",
+          "title": "Sur la taille de téléphone la plus courante, le bouton payer n'existe pas.",
+          "body": "Le clavier avale l'action principale. Les utilisateurs parvenus au paiement devaient défiler, deviner et prier pour que le bouton apparaisse.",
+          "quote": "Où est passé le bouton payer ?",
+          "notes": [
+            { "n": 1, "text": "Le clavier pousse le CTA hors de l'écran.", "spot": { "x": 16, "y": 22 } },
+            { "n": 2, "text": "La classe d'appareils la plus courante — c'est-à-dire vos vrais utilisateurs.", "spot": { "x": 62, "y": 78 } }
+          ]
+        },
+        {
+          "screen": "text",
+          "chapter": "Contraintes · Ce qui ne pouvait pas bouger",
+          "title": "La passerelle est une ligne rouge contractuelle. Le piège qu'elle crée, non.",
+          "body": "Je ne pouvais ni changer le modèle tarifaire ni le fournisseur de paiement. Je pouvais déplacer chaque coût que l'utilisateur verrait jamais en haut de l'écran, et cesser de tendre un piège où le prix final n'apparaît qu'après l'engagement. Réparer l'expérience, signaler le problème de politique, et ne jamais concevoir autour.",
+          "notes": []
+        },
+        {
+          "screen": "checkout-after",
+          "chapter": "La solution · Livrée",
+          "title": "Un paiement qui dit « tout est clair » avant de demander de l'argent.",
+          "body": "Frais déclarés d'avance. Marqueurs de confiance placés exactement là où le regard se pose. Une étape de paiement qui survit au clavier mobile. Ensuite j'ai mesuré — car un bon design est une hypothèse pas encore testée.",
+          "quote": "OK — 1 299 ₹ tout compris. Ça, c'est honnête.",
+          "notes": [
+            { "n": 1, "text": "Frais déclarés d'avance — pas de surprise ensuite.", "spot": { "x": 16, "y": 18 } },
+            { "n": 2, "text": "Marqueurs de confiance là où le regard se pose.", "spot": { "x": 70, "y": 42 } },
+            { "n": 3, "text": "Le bouton payer survit au clavier.", "spot": { "x": 16, "y": 60 } },
+            { "n": 4, "text": "Une seule action principale claire.", "spot": { "x": 58, "y": 80 } }
+          ]
+        },
+        {
+          "screen": "curve",
+          "chapter": "Résultats · Six semaines",
+          "title": "60 % → 35 %. L'entreprise a arrêté de blâmer le prix.",
+          "body": "La courbe d'abandon s'est aplatie après trois tests A/B et une seule variante publiée. La réparation a pris six semaines. La théorie a mis six jours à s'effondrer.",
+          "quote": "Ce n'était pas le prix. Personne n'avait regardé l'écran.",
+          "notes": [
+            { "n": 1, "text": "42 points récupérés en un trimestre.", "spot": { "x": 16, "y": 16 } },
+            { "n": 2, "text": "Le changement a survécu à deux tests A/B et un audit post-lancement.", "spot": { "x": 64, "y": 78 } }
+          ]
+        },
+        {
+          "screen": "end",
+          "chapter": "Ce que je ferais différemment",
+          "title": "Le parcours est réparé. La politique tarifaire reste cachée.",
+          "body": "Je lancerais le test A/B trois semaines plus tôt — et traiterais la « découverte des frais surprise » comme une décision produit, pas seulement UX. Les utilisateurs n'abandonnent pas parce qu'ils ne sont pas intéressés. Ils abandonnent parce que quelque chose dans le système leur a dit, discrètement, de ne pas faire confiance.",
+          "notes": []
+        }
+      ]
     },
     {
       "slug": "saas-design-system",

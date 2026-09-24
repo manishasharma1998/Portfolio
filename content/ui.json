@@ -63,6 +63,12 @@
     "nextLabel": "Next case study",
     "readIt": "Read it",
     "twoThings": "Two things left on this page",
+    "story": {
+      "label": "Story",
+      "steps": "steps",
+      "prev": "Previous step",
+      "next": "Next step"
+    },
     "ctaTitle": "The work proves the thinking. Your first message confirms the timing.",
     "emailCta": "Email Manisha",
     "keepExploring": "Keep exploring"

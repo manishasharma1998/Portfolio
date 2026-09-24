@@ -42,6 +42,12 @@
       "nextLabel": "Siguiente caso de estudio",
       "readIt": "Leerlo",
       "twoThings": "Quedan dos cosas en esta página",
+      "story": {
+        "label": "Historia",
+        "steps": "pasos",
+        "prev": "Paso anterior",
+        "next": "Paso siguiente"
+      },
       "ctaTitle": "El trabajo demuestra el pensamiento. Tu primer mensaje confirma el momento.",
       "emailCta": "Escribir a Manisha",
       "keepExploring": "Seguir explorando"
@@ -430,7 +436,83 @@
           "text": "Tres pruebas A/B, una variante publicada y la curva de abandono se aplanó. El mismo checkout, el mismo número de pantallas — menos las dudas que nunca se veían en el código."
         }
       ],
-      "mode": "deep"
+      "mode": "deep",
+      "story": [
+        {
+          "screen": "cart-before",
+          "chapter": "La misión",
+          "title": "El embudo parece sano — hasta el último paso.",
+          "body": "Todo interesado tenía una teoría — precio, competencia, envío. Nadie había mirado la pantalla que el usuario miraba de verdad. El brief decía «haz que convierta», y eso es una trampa cuando no sabes qué paso está sangrando.",
+          "quote": "Se siente bien hasta que tengo que comprometerme.",
+          "notes": [
+            { "n": 1, "text": "El embudo parece sano hasta «Proceder al checkout».", "spot": { "x": 72, "y": 20 } },
+            { "n": 2, "text": "Sin señales de seguridad: la página pide dinero antes de decir una palabra tranquilizadora.", "spot": { "x": 16, "y": 56 } },
+            { "n": 3, "text": "El precio está por todas partes. La confianza, en ninguna.", "spot": { "x": 60, "y": 78 } }
+          ]
+        },
+        {
+          "screen": "payment-reveal",
+          "chapter": "Investigación · Sesión seis, minuto dos",
+          "title": "Cinco de seis grabaciones se congelaron en el mismo campo.",
+          "body": "Ningún participante consideró sospechosa la página — simplemente se negaban a comprometerse. Entrevisté a doce personas que habían abandonado en los últimos treinta días e hice un recorrido heurístico del flujo.",
+          "quote": "Esta página no tiene nada malo. Simplemente no quiero darle mi tarjeta.",
+          "notes": [
+            { "n": 1, "text": "El 65% de los abandonos ocurre aquí — no en el carrito ni en el envío.", "spot": { "x": 16, "y": 12 } },
+            { "n": 2, "text": "La comisión solo aparece después del número de tarjeta.", "spot": { "x": 70, "y": 38 } },
+            { "n": 3, "text": "«PaySecure+» — un nombre de pasarela que nadie reconoce.", "spot": { "x": 18, "y": 58 } },
+            { "n": 4, "text": "Sin pistas PCI ni de «asegurado por».", "spot": { "x": 64, "y": 70 } }
+          ]
+        },
+        {
+          "screen": "mobile-keyboard",
+          "chapter": "Investigación · El asesino silencioso",
+          "title": "En el tamaño de teléfono más común, el botón de pagar no existe.",
+          "body": "El teclado se traga la acción principal. Los usuarios que llegaban al pago tenían que desplazarse, adivinar y rezar para que el botón apareciera.",
+          "quote": "¿A dónde fue el botón de pagar?",
+          "notes": [
+            { "n": 1, "text": "El teclado empuja el CTA fuera de la pantalla.", "spot": { "x": 16, "y": 22 } },
+            { "n": 2, "text": "La clase de dispositivo más común — o sea, tus usuarios reales.", "spot": { "x": 62, "y": 78 } }
+          ]
+        },
+        {
+          "screen": "text",
+          "chapter": "Limitaciones · Lo que no podía moverse",
+          "title": "La pasarela es una línea roja contractual. La trampa que crea no lo es.",
+          "body": "No podía cambiar el modelo de precios ni el proveedor de pagos. Sí podía mover cada coste que el usuario llegaría a ver al inicio de la pantalla, y dejar de construir una trampa donde el precio final solo aparece tras el compromiso. Arregla la experiencia, informa del problema de políticas y nunca diseñes para rodearlo.",
+          "notes": []
+        },
+        {
+          "screen": "checkout-after",
+          "chapter": "La solución · Entregada",
+          "title": "Un checkout que dice «todo está claro» antes de pedir el dinero.",
+          "body": "Comisiones declaradas por adelantado. Marcadores de confianza exactamente donde aterriza la mirada. Un paso de pago que sobrevive al teclado móvil. Luego medí — porque el buen diseño es una hipótesis aún no probada.",
+          "quote": "Vale — ₹1.299 todo incluido. Eso es honesto.",
+          "notes": [
+            { "n": 1, "text": "Comisiones declaradas por adelantado — sin pasos sorpresa después.", "spot": { "x": 16, "y": 18 } },
+            { "n": 2, "text": "Marcadores de confianza donde aterriza la mirada.", "spot": { "x": 70, "y": 42 } },
+            { "n": 3, "text": "El botón de pagar sobrevive al teclado.", "spot": { "x": 16, "y": 60 } },
+            { "n": 4, "text": "Una única acción clara y principal.", "spot": { "x": 58, "y": 80 } }
+          ]
+        },
+        {
+          "screen": "curve",
+          "chapter": "Resultados · Seis semanas",
+          "title": "60% → 35%. La empresa dejó de culpar al precio.",
+          "body": "La curva de abandono se aplanó tras tres pruebas A/B y una sola variante publicada. La corrección tardó seis semanas. La teoría tardó seis días en desmontarse.",
+          "quote": "No era el precio. Nadie había mirado la pantalla.",
+          "notes": [
+            { "n": 1, "text": "42 puntos recuperados en un trimestre.", "spot": { "x": 16, "y": 16 } },
+            { "n": 2, "text": "El cambio sobrevivió a dos pruebas A/B y una auditoría poslanzamiento.", "spot": { "x": 64, "y": 78 } }
+          ]
+        },
+        {
+          "screen": "end",
+          "chapter": "Lo que haría diferente",
+          "title": "El flujo está arreglado. La política de precios sigue escondida.",
+          "body": "Empezaría la prueba A/B tres semanas antes — y trataría el «descubrimiento de la comisión sorpresa» como una decisión de producto, y no solo de UX. Los usuarios no abandonan porque no les interesa. Abandonan porque algo en el sistema les dijo en silencio que no confiaran.",
+          "notes": []
+        }
+      ]
     },
     {
       "slug": "saas-design-system",

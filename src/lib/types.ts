@@ -132,6 +132,12 @@ export type UiStrings = {
     nextLabel: string;
     readIt: string;
     twoThings: string;
+    story: {
+      label: string;
+      steps: string;
+      prev: string;
+      next: string;
+    };
     ctaTitle: string;
     emailCta: string;
     keepExploring: string;
@@ -239,6 +245,21 @@ export type CaseFigure = {
   after: string;
 };
 
+export type StoryNote = {
+  n: number;
+  text: string;
+  spot?: { x: number; y: number };
+};
+
+export type CaseStoryStep = {
+  screen: string;
+  chapter: string;
+  title: string;
+  body: string;
+  quote?: string;
+  notes?: StoryNote[];
+};
+
 export type CaseStudy = {
   slug: string;
   index: string;
@@ -261,6 +282,7 @@ export type CaseStudy = {
   visuals?: CaseVisual[];
   images?: string[];
   figures?: CaseFigure[];
+  story?: CaseStoryStep[];
   mode: "deep" | "card";
   external?: string;
 };

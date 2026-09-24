@@ -6,6 +6,7 @@ import type { Locale } from "./locales";
 import type {
   BehanceConfig,
   CaseFigure,
+  CaseStoryStep,
   CaseStudy,
   CaseStudySection,
   CaseVisual,
@@ -17,6 +18,7 @@ import type {
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const PROJECTS_DIR = path.join(CONTENT_DIR, "projects");
+const STORIES_DIR = path.join(CONTENT_DIR, "stories");
 
 function readJsonFile<T>(rel: string): T {
   const file = path.join(CONTENT_DIR, rel);
@@ -191,6 +193,12 @@ let cachedBehance: BehanceConfig | null = null;
 let cachedEnglishProjects: CaseStudy[] | null = null;
 const bundleCache = new Map<Locale, LocaleBundle>();
 
+function readEnglishStory(slug: string): CaseStoryStep[] | undefined {
+  const file = path.join(STORIES_DIR, `${slug}.json`);
+  if (!fs.existsSync(file)) return undefined;
+  return JSON.parse(fs.readFileSync(file, "utf8")) as CaseStoryStep[];
+}
+
 function readEnglishProjects(): CaseStudy[] {
   if (cachedEnglishProjects) return cachedEnglishProjects;
   const files = fs
@@ -199,7 +207,10 @@ function readEnglishProjects(): CaseStudy[] {
   cachedEnglishProjects = files
     .map((f) => {
       const text = fs.readFileSync(path.join(PROJECTS_DIR, f), "utf8");
-      return parseProjectMarkdown(text, f);
+      const slug = f.replace(/\.md$/, "");
+      const parsed = parseProjectMarkdown(text, f);
+      const story = readEnglishStory(slug);
+      return story?.length ? { ...parsed, story } : parsed;
     })
     .filter((p) => p.published)
     .sort((a, b) => orderOf(a) - orderOf(b));

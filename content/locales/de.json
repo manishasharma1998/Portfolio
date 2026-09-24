@@ -42,6 +42,12 @@
       "nextLabel": "Nächste Fallstudie",
       "readIt": "Lesen",
       "twoThings": "Auf dieser Seite fehlen noch zwei Dinge",
+      "story": {
+        "label": "Story",
+        "steps": "Schritte",
+        "prev": "Vorheriger Schritt",
+        "next": "Nächster Schritt"
+      },
       "ctaTitle": "Arbeit beweist Denken. Ihre erste Nachricht bestätigt den Moment.",
       "emailCta": "Manisha schreiben",
       "keepExploring": "Weiter erkunden"
@@ -430,7 +436,83 @@
           "text": "Drei A/B-Tests, eine gelieferte Variante, und die Abbruchkurve flachte ab. Derselbe Checkout, dieselbe Anzahl Screens – minus der Zweifel, die nie im Code sichtbar waren."
         }
       ],
-      "mode": "deep"
+      "mode": "deep",
+      "story": [
+        {
+          "screen": "cart-before",
+          "chapter": "Der Auftrag",
+          "title": "Der Trichter sieht gesund aus — bis zum letzten Schritt.",
+          "body": "Jeder Beteiligte hatte eine Theorie — Preis, Wettbewerb, Versand. Niemand hatte auf den Bildschirm geschaut, den die User tatsächlich sahen. Das Briefing lautete „mach, dass es besser konvertiert“, und das ist eine Falle, wenn man nicht weiß, welcher Schritt blutet.",
+          "quote": "Fühlt sich gut an, bis ich mich festlegen muss.",
+          "notes": [
+            { "n": 1, "text": "Der Trichter sieht bis „Zur Kasse“ gesund aus.", "spot": { "x": 72, "y": 20 } },
+            { "n": 2, "text": "Keine Sicherheitssignale — die Seite verlangt Geld, bevor sie ein beruhigendes Wort sagt.", "spot": { "x": 16, "y": 56 } },
+            { "n": 3, "text": "Der Preis ist überall. Vertrauen nirgends.", "spot": { "x": 60, "y": 78 } }
+          ]
+        },
+        {
+          "screen": "payment-reveal",
+          "chapter": "Recherche · Sitzung sechs, Minute zwei",
+          "title": "Fünf von sechs Aufnahmen blieben exakt beim selben Feld hängen.",
+          "body": "Kein Teilnehmer fand die Seite verdächtig — sie weigerten sich einfach, sich festzulegen. Ich interviewte zwölf Personen, die in den letzten dreißig Tagen abgesprungen waren, und führte eine heuristische Bewertung des Ablaufs durch.",
+          "quote": "An dieser Seite stimmt nichts nicht. Ich will ihr nur meine Karte nicht geben.",
+          "notes": [
+            { "n": 1, "text": "65% der Abbrüche passieren hier — nicht im Warenkorb, nicht beim Versand.", "spot": { "x": 16, "y": 12 } },
+            { "n": 2, "text": "Gebühren erscheinen erst nach der Kartennummer.", "spot": { "x": 70, "y": 38 } },
+            { "n": 3, "text": "„PaySecure+“ — ein Gateway-Name, den niemand kennt.", "spot": { "x": 18, "y": 58 } },
+            { "n": 4, "text": "Keine PCI- oder „gesichert durch“-Hinweise.", "spot": { "x": 64, "y": 70 } }
+          ]
+        },
+        {
+          "screen": "mobile-keyboard",
+          "chapter": "Recherche · Der stille Killer",
+          "title": "Auf der häufigsten Handygröße existiert der Bezahl-Button nicht.",
+          "body": "Die Tastatur verschluckt die Hauptaktion. Nutzer, die es bis zur Zahlung schafften, mussten scrollen, raten und hoffen, dass der Button auftaucht.",
+          "quote": "Wo ist der Bezahl-Button hin?",
+          "notes": [
+            { "n": 1, "text": "Die Tastatur schiebt den CTA aus dem Bild.", "spot": { "x": 16, "y": 22 } },
+            { "n": 2, "text": "Die häufigste Geräteklasse — also deine echten Nutzer.", "spot": { "x": 62, "y": 78 } }
+          ]
+        },
+        {
+          "screen": "text",
+          "chapter": "Einschränkungen · Was sich nicht bewegen durfte",
+          "title": "Das Gateway ist eine vertragliche rote Linie. Die Falle, die es schafft, nicht.",
+          "body": "Ich konnte weder das Preismodell noch den Zahlungsanbieter ändern. Ich konnte jeden Kostenpunkt, den der Nutzer je sehen würde, nach oben auf den Bildschirm holen und aufhören, eine Falle zu bauen, in der der Endpreis erst nach dem Commitment auftaucht. Erlebnis reparieren, das Policy-Problem melden und nie darum herum entwerfen.",
+          "notes": []
+        },
+        {
+          "screen": "checkout-after",
+          "chapter": "Die Lösung · Ausgeliefert",
+          "title": "Ein Checkout, der „alles ist klar“ sagt, bevor er nach Geld fragt.",
+          "body": "Gebühren vorab deklariert. Vertrauenssignale genau dort, wo der Blick landet. Ein Zahlungsschritt, der die mobile Tastatur übersteht. Dann habe ich gemessen — denn gutes Design ist eine Hypothese, die noch nicht getestet wurde.",
+          "quote": "Okay — ₹1.299 alles inklusive. Das ist ehrlich.",
+          "notes": [
+            { "n": 1, "text": "Gebühren vorab deklariert — keine Überraschung später.", "spot": { "x": 16, "y": 18 } },
+            { "n": 2, "text": "Vertrauenssignale genau wo der Blick landet.", "spot": { "x": 70, "y": 42 } },
+            { "n": 3, "text": "Der Bezahl-Button übersteht die Tastatur.", "spot": { "x": 16, "y": 60 } },
+            { "n": 4, "text": "Eine klare Hauptaktion.", "spot": { "x": 58, "y": 80 } }
+          ]
+        },
+        {
+          "screen": "curve",
+          "chapter": "Ergebnisse · Sechs Wochen",
+          "title": "60% → 35%. Das Unternehmen hörte auf, dem Preis die Schuld zu geben.",
+          "body": "Nach drei A/B-Tests und einer einzigen veröffentlichten Variante flachte die Abbruchkurve ab. Die Reparatur dauerte sechs Wochen. Die Theorie brauchte sechs Tage, um zu zerfallen.",
+          "quote": "Es war nicht der Preis. Niemand hatte auf den Bildschirm geschaut.",
+          "notes": [
+            { "n": 1, "text": "42 Punkte in einem Quartal zurückgeholt.", "spot": { "x": 16, "y": 16 } },
+            { "n": 2, "text": "Die Änderung überstand zwei A/B-Tests und ein Post-Launch-Audit.", "spot": { "x": 64, "y": 78 } }
+          ]
+        },
+        {
+          "screen": "end",
+          "chapter": "Was ich anders machen würde",
+          "title": "Der Ablauf ist repariert. Die Preisgestaltung versteckt sich immer noch.",
+          "body": "Ich würde den A/B-Test drei Wochen früher starten — und die „Entdeckung der Überraschungsgebühr“ als Produktentscheidung behandeln, nicht nur als UX-Problem. Nutzer brechen nicht ab, weil sie kein Interesse haben. Sie brechen ab, weil etwas im System ihnen leise gesagt hat, nicht zu vertrauen.",
+          "notes": []
+        }
+      ]
     },
     {
       "slug": "saas-design-system",

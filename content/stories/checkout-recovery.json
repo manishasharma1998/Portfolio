@@ -1,0 +1,136 @@
+[
+  {
+    "screen": "cart-before",
+    "chapter": "The mission",
+    "title": "The funnel looks healthy — right up until the last step.",
+    "body": "Every stakeholder had a theory — price, competition, shipping. Nobody had looked at the screen the user was actually looking at. The brief said \"make it convert\", and that is a trap when you don't know which step is bleeding.",
+    "quote": "Feels fine until I have to commit.",
+    "notes": [
+      {
+        "n": 1,
+        "text": "The funnel looks healthy until \"Proceed to checkout\".",
+        "spot": { "x": 72, "y": 20 }
+      },
+      {
+        "n": 2,
+        "text": "No security signals — the page asks for money before it says one reassuring word.",
+        "spot": { "x": 16, "y": 56 }
+      },
+      {
+        "n": 3,
+        "text": "The price is everywhere. Trust is nowhere.",
+        "spot": { "x": 60, "y": 78 }
+      }
+    ]
+  },
+  {
+    "screen": "payment-reveal",
+    "chapter": "Research · Session six, minute two",
+    "title": "Five of six recordings froze on the very same field.",
+    "body": "No participant found the page suspicious — they simply refused to commit. I interviewed twelve people who had dropped off in the last thirty days and ran a heuristic walkthrough of the flow.",
+    "quote": "Nothing's wrong with this page. I just don't want to give it my card.",
+    "notes": [
+      {
+        "n": 1,
+        "text": "65% of drop-offs happen here — not in cart, not in shipping.",
+        "spot": { "x": 16, "y": 12 }
+      },
+      {
+        "n": 2,
+        "text": "Fees only appear after the card number.",
+        "spot": { "x": 70, "y": 38 }
+      },
+      {
+        "n": 3,
+        "text": "\"PaySecure+\" — a gateway name nobody recognizes.",
+        "spot": { "x": 18, "y": 58 }
+      },
+      {
+        "n": 4,
+        "text": "No PCI or \"secured by\" cue anywhere.",
+        "spot": { "x": 64, "y": 70 }
+      }
+    ]
+  },
+  {
+    "screen": "mobile-keyboard",
+    "chapter": "Research · The silent killer",
+    "title": "On the most common phone size, the Pay button does not exist.",
+    "body": "The keyboard swallows the primary action. Users who made it to payment had to scroll, guess, and pray the button would surface.",
+    "quote": "Where did the pay button go?",
+    "notes": [
+      {
+        "n": 1,
+        "text": "The keyboard pushes the CTA off-screen.",
+        "spot": { "x": 16, "y": 22 }
+      },
+      {
+        "n": 2,
+        "text": "The most common device class — that is, your actual users.",
+        "spot": { "x": 62, "y": 78 }
+      }
+    ]
+  },
+  {
+    "screen": "text",
+    "chapter": "Constraints · What couldn't budge",
+    "title": "The gateway is a contractual red line. The trap it creates is not.",
+    "body": "I could not change the pricing model or the payment provider. I could move every cost the user would ever see to the top of the screen, and stop building a trap where the final price appears only after commitment. Fix the experience, report the policy problem, and never design around it.",
+    "notes": []
+  },
+  {
+    "screen": "checkout-after",
+    "chapter": "The fix · Delivered",
+    "title": "A checkout that says \"everything is clear\" before it asks for money.",
+    "body": "Fees declared up front. Trust markers placed exactly where the eye lands. A payment step that survives the mobile keyboard. Then I measured — because a good design is a hypothesis that has not been tested yet.",
+    "quote": "Okay — ₹1,299 all in. That's honest.",
+    "notes": [
+      {
+        "n": 1,
+        "text": "Fees declared up front — no surprise step later.",
+        "spot": { "x": 16, "y": 18 }
+      },
+      {
+        "n": 2,
+        "text": "Trust markers exactly where the eye lands.",
+        "spot": { "x": 70, "y": 42 }
+      },
+      {
+        "n": 3,
+        "text": "The Pay button survives the keyboard.",
+        "spot": { "x": 16, "y": 60 }
+      },
+      {
+        "n": 4,
+        "text": "One clear primary action.",
+        "spot": { "x": 58, "y": 80 }
+      }
+    ]
+  },
+  {
+    "screen": "curve",
+    "chapter": "Results · Six weeks",
+    "title": "60% → 35%. The company stopped blaming the price.",
+    "body": "The drop-off curve flattened after three A/B tests and one shipped variant. The fix took six weeks. The theory took six days to dismantle.",
+    "quote": "It wasn't the price. Nobody had looked at the screen.",
+    "notes": [
+      {
+        "n": 1,
+        "text": "42 points recovered in one quarter.",
+        "spot": { "x": 16, "y": 16 }
+      },
+      {
+        "n": 2,
+        "text": "The change survived two A/B tests and a post-launch audit.",
+        "spot": { "x": 64, "y": 78 }
+      }
+    ]
+  },
+  {
+    "screen": "end",
+    "chapter": "What I'd do differently",
+    "title": "The flow is fixed. The pricing policy is still hiding.",
+    "body": "I would run the A/B test three weeks earlier — and treat \"surprise fee discovery\" as a product decision, not just a UX one. Users do not abandon a checkout because they are uninterested. They abandon because something in the system told them, quietly, not to trust.",
+    "notes": []
+  }
+]
