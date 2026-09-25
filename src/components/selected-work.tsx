@@ -16,9 +16,7 @@ export async function SelectedWork() {
             kicker={selected.kicker}
             title={
               <>
-                {selected.titleBefore}
-                <br />
-                {selected.titleBreak}
+                {selected.titleBefore} {selected.titleBreak}
               </>
             }
           />
