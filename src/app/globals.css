@@ -28,6 +28,7 @@
   --line: rgba(255, 255, 255, 0.08);
   --line-strong: rgba(255, 255, 255, 0.16);
   --wash: rgba(255, 255, 255, 0.04);
+  --xr-bg: #07080c;
 }
 
 :root[data-theme="light"] {
@@ -58,6 +59,7 @@
   --line: rgba(20, 24, 32, 0.1);
   --line-strong: rgba(20, 24, 32, 0.2);
   --wash: rgba(20, 24, 32, 0.04);
+  --xr-bg: #f6f3ec;
 }
 
 @theme inline {
@@ -91,6 +93,7 @@
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
   --color-wash: var(--wash);
+  --color-xr-bg: var(--xr-bg);
 
   --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;

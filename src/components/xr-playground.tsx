@@ -140,7 +140,7 @@ export function XRPlayground({ copy }: { copy: SiteConfig["xr"] }) {
   return (
     <section
       id="xr"
-      className="relative overflow-hidden border-y border-line bg-[#07080c]"
+      className="relative overflow-hidden border-y border-line bg-xr-bg"
     >
       <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
         <Reveal>
@@ -161,7 +161,7 @@ export function XRPlayground({ copy }: { copy: SiteConfig["xr"] }) {
           <div
             ref={rootRef}
             onMouseMove={onMove}
-            className="group relative overflow-hidden rounded-3xl border border-white/[0.09] bg-black shadow-[0_0_80px_-20px_rgba(108,140,255,0.25)]"
+            className="group relative overflow-hidden rounded-3xl border border-line bg-black shadow-[0_0_80px_-20px_rgba(108,140,255,0.25)]"
           >
             {/* scene */}
             <div className="relative aspect-[4/3] w-full [perspective:1200px] sm:aspect-[16/9]">
