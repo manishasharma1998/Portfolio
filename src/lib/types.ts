@@ -291,8 +291,8 @@ export type BehanceProject = {
   title: string;
   url: string;
   cover: string;
-  views: number;
-  appreciations: number;
+  views?: number;
+  appreciations?: number;
   tags: string[];
 };
 
