@@ -19,35 +19,21 @@ export function SectionHeading({
 
   return (
     <Reveal
-      className={`flex max-w-2xl flex-col gap-4 ${alignCls} ${
+      className={`flex max-w-2xl flex-col gap-3 ${alignCls} ${
         align === "center" ? "mx-auto" : ""
       }`}
     >
-      <span className="font-mono text-xs tracking-[0.3em] text-lens-400 uppercase">
+      <span className="font-mono text-[11px] tracking-[0.25em] text-fog-500 uppercase">
         {kicker}
       </span>
-      <h2 className="font-display text-3xl font-medium tracking-tight text-bone-100 sm:text-4xl md:text-5xl">
+      <h2 className="font-display text-4xl leading-[1.05] font-normal tracking-tight text-bone-100 sm:text-5xl">
         {title}
       </h2>
       {content ? (
-        <div className="text-base leading-relaxed text-fog-400">{content}</div>
+        <div className="mt-2 max-w-xl text-base leading-relaxed text-fog-500">
+          {content}
+        </div>
       ) : null}
     </Reveal>
-  );
-}
-
-export function Pill({
-  children,
-  className = "",
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
-  return (
-    <span
-      className={`inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 font-mono text-xs tracking-wide text-fog-300 ${className}`}
-    >
-      {children}
-    </span>
   );
 }

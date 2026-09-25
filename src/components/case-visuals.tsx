@@ -4,9 +4,6 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import type { CaseFigure, CaseVisual } from "@/lib/types";
 
-const col = (h: number, s: number, l: number, a?: number) =>
-  a === undefined ? `hsl(${h} ${s}% ${l}%)` : `hsl(${h} ${s}% ${l}% / ${a})`;
-
 function Track({
   pct,
   color,
@@ -19,12 +16,12 @@ function Track({
   reduce: boolean | null;
 }) {
   return (
-    <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-white/[0.07]">
+    <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-line">
       <motion.div
         initial={reduce ? false : { width: "0%" }}
         whileInView={{ width: `${pct}%` }}
         viewport={{ once: true, amount: 0.6 }}
-        transition={{ duration: 0.9, ease: "easeOut", delay }}
+        transition={{ duration: 0.7, ease: "easeOut", delay }}
         className="h-full rounded-full"
         style={{ backgroundColor: color }}
       />
@@ -34,13 +31,11 @@ function Track({
 
 function CompareCard({
   d,
-  hue,
   idx,
   reduce,
   labels,
 }: {
   d: Extract<CaseVisual, { kind: "compare" }>;
-  hue: number;
   idx: number;
   reduce: boolean | null;
   labels: { before: string; after: string };
@@ -54,51 +49,39 @@ function CompareCard({
     <div className="space-y-5">
       <div>
         <div className="flex items-center justify-between gap-3">
-          <span className="font-mono text-[10px] tracking-[0.18em] text-fog-400 uppercase">
+          <span className="font-mono text-[10px] tracking-[0.18em] text-fog-500 uppercase">
             {before}
           </span>
-          <span className="font-display text-xl font-semibold text-bone-100">
+          <span className="font-display text-xl font-normal text-bone-100 tnum">
             {d.before}
             {d.unit ?? ""}
           </span>
         </div>
         <Track
           pct={(d.before / max) * 100}
-          color="#81889e"
+          color="var(--fog-500)"
           delay={idx * 0.1}
           reduce={reduce}
         />
       </div>
       <div>
         <div className="flex items-center justify-between gap-3">
-          <span
-            className="font-mono text-[10px] tracking-[0.18em] uppercase"
-            style={{ color: col(hue, 80, 72) }}
-          >
+          <span className="font-mono text-[10px] tracking-[0.18em] text-accent-400 uppercase">
             {after}
           </span>
-          <span
-            className="font-display text-xl font-semibold"
-            style={{ color: col(hue, 85, 65) }}
-          >
+          <span className="font-display text-xl font-normal text-accent-400 tnum">
             {d.after}
             {d.unit ?? ""}
           </span>
         </div>
         <Track
           pct={(d.after / max) * 100}
-          color={col(hue, 88, 62)}
-          delay={idx * 0.1 + 0.15}
+          color="var(--c-accent)"
+          delay={idx * 0.1 + 0.12}
           reduce={reduce}
         />
       </div>
-      <p
-        className="inline-block rounded-full px-3 py-1 font-mono text-[11px] tracking-[0.18em] uppercase"
-        style={{
-          backgroundColor: col(hue, 80, 55, 0.14),
-          color: col(hue, 85, 70),
-        }}
-      >
+      <p className="font-mono text-[11px] tracking-[0.15em] text-accent-400 tnum">
         Δ {sign}
         {Math.abs(delta)}
         {d.unit ?? ""}
@@ -107,37 +90,29 @@ function CompareCard({
   );
 }
 
-function FunnelCard({ d, hue }: { d: Extract<CaseVisual, { kind: "funnel" }>; hue: number }) {
+function FunnelCard({ d }: { d: Extract<CaseVisual, { kind: "funnel" }> }) {
   const n = d.steps.length;
   return (
     <ol className="flex flex-col">
       {d.steps.map((s, i) => (
         <li key={s.label} style={{ width: `${Math.max(50, 100 - i * 14)}%` }}>
           <div
-            className="flex items-center justify-between gap-3 rounded-xl border px-4 py-3"
-            style={
+            className={`flex items-center justify-between gap-3 rounded-md border px-4 py-3 ${
               i === 0
-                ? {
-                    borderColor: col(hue, 90, 62, 0.35),
-                    backgroundColor: col(hue, 85, 55, 0.12),
-                  }
-                : {
-                    borderColor: "rgba(255,255,255,0.08)",
-                    backgroundColor: "rgba(255,255,255,0.03)",
-                  }
-            }
+                ? "border-accent-400/40 bg-accent-soft"
+                : "border-line bg-wash"
+            }`}
           >
-            <span className="text-sm leading-snug text-fog-300">{s.label}</span>
+            <span className="text-sm leading-snug text-fog-500">{s.label}</span>
             <span
-              className="font-display text-base font-semibold whitespace-nowrap"
-              style={{
-                color: i === 0 ? col(hue, 85, 68) : "#f4f1ec",
-              }}
+              className={`font-display text-base font-normal whitespace-nowrap tnum ${
+                i === 0 ? "text-accent-400" : "text-bone-100"
+              }`}
             >
               {s.value}
             </span>
           </div>
-          {i < n - 1 ? <div className="h-3 w-px bg-white/[0.12]" /> : null}
+          {i < n - 1 ? <div className="h-3 w-px bg-line" /> : null}
         </li>
       ))}
     </ol>
@@ -146,12 +121,10 @@ function FunnelCard({ d, hue }: { d: Extract<CaseVisual, { kind: "funnel" }>; hu
 
 function BarsCard({
   d,
-  hue,
   idx,
   reduce,
 }: {
   d: Extract<CaseVisual, { kind: "bars" }>;
-  hue: number;
   idx: number;
   reduce: boolean | null;
 }) {
@@ -161,16 +134,16 @@ function BarsCard({
       {d.bars.map((b, i) => (
         <div key={b.label}>
           <div className="flex items-center justify-between gap-3">
-            <span className="text-sm leading-snug text-fog-300">{b.label}</span>
-            <span className="font-display text-base font-semibold whitespace-nowrap text-bone-100">
+            <span className="text-sm leading-snug text-fog-500">{b.label}</span>
+            <span className="font-display text-base font-normal whitespace-nowrap text-bone-100 tnum">
               {b.value}
               {b.suffix ?? ""}
             </span>
           </div>
           <Track
             pct={(b.value / max) * 100}
-            color={col(hue + i * 45, 88, 62)}
-            delay={idx * 0.08 + i * 0.06}
+            color="var(--c-accent)"
+            delay={idx * 0.06 + i * 0.05}
             reduce={reduce}
           />
         </div>
@@ -179,45 +152,35 @@ function BarsCard({
   );
 }
 
-function StepsCard({ d, hue }: { d: Extract<CaseVisual, { kind: "steps" }>; hue: number }) {
+function StepsCard({ d }: { d: Extract<CaseVisual, { kind: "steps" }> }) {
   return (
     <ol className="space-y-3">
       {d.steps.map((s, i) => (
         <li
           key={s}
-          className="flex items-start gap-3 rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3"
+          className="flex items-start gap-3 rounded-md border border-line bg-wash px-4 py-3"
         >
-          <span
-            className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg font-mono text-[11px]"
-            style={{
-              backgroundColor: col(hue, 80, 55, 0.14),
-              color: col(hue, 85, 72),
-              border: `1px solid ${col(hue, 80, 62, 0.35)}`,
-            }}
-          >
+          <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-line bg-ink-850 font-mono text-[10px] text-accent-400 tnum">
             {i + 1}
           </span>
-          <span className="text-sm leading-relaxed text-fog-300">{s}</span>
+          <span className="text-sm leading-relaxed text-fog-500">{s}</span>
         </li>
       ))}
     </ol>
   );
 }
 
-function StackCard({ d, hue }: { d: Extract<CaseVisual, { kind: "stack" }>; hue: number }) {
+function StackCard({ d }: { d: Extract<CaseVisual, { kind: "stack" }> }) {
   return (
     <ol className="space-y-3">
       {d.layers.map((l, i) => (
         <li
           key={l.label}
           style={{ marginLeft: i * 16 }}
-          className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-3"
+          className="rounded-md border border-line bg-wash px-4 py-3"
         >
           <p className="flex items-center gap-2 text-sm font-medium text-bone-100">
-            <span
-              className="h-2 w-2 shrink-0 rounded-full"
-              style={{ backgroundColor: col(hue + i * 30, 90, 60) }}
-            />
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent-400" />
             {l.label}
           </p>
           {l.detail ? (
@@ -248,25 +211,15 @@ export function CaseVisuals({
       {visuals.map((v, i) => (
         <div
           key={`${v.kind}-${i}`}
-          className={`rounded-2xl border border-white/[0.07] bg-ink-850 p-6 sm:p-7 ${
+          className={`rounded-md border border-line bg-ink-850 p-6 sm:p-7 ${
             visuals.length === 1 ? "lg:col-span-2" : ""
           }`}
         >
           <div className="flex items-center gap-3">
-            <span
-              className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md font-mono text-[10px] font-semibold"
-              style={{
-                backgroundColor: col(hue, 80, 55, 0.14),
-                color: col(hue, 85, 72),
-                border: `1px solid ${col(hue, 80, 62, 0.3)}`,
-              }}
-            >
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-line bg-wash font-mono text-[10px] text-accent-400 tnum">
               {i + 1}
             </span>
-            <p
-              className="font-mono text-[11px] tracking-[0.2em] uppercase"
-              style={{ color: col(hue, 75, 72) }}
-            >
+            <p className="font-mono text-[11px] tracking-[0.2em] text-bone-100 uppercase">
               {v.title}
             </p>
           </div>
@@ -275,12 +228,17 @@ export function CaseVisuals({
           ) : null}
           <div className="mt-6">
             {v.kind === "compare" && (
-              <CompareCard d={v} hue={hue} idx={i} reduce={reduce} labels={{ before: beforeLabel, after: afterLabel }} />
+              <CompareCard
+                d={v}
+                idx={i}
+                reduce={reduce}
+                labels={{ before: beforeLabel, after: afterLabel }}
+              />
             )}
-            {v.kind === "funnel" && <FunnelCard d={v} hue={hue} />}
-            {v.kind === "bars" && <BarsCard d={v} hue={hue} idx={i} reduce={reduce} />}
-            {v.kind === "steps" && <StepsCard d={v} hue={hue} />}
-            {v.kind === "stack" && <StackCard d={v} hue={hue} />}
+            {v.kind === "funnel" && <FunnelCard d={v} />}
+            {v.kind === "bars" && <BarsCard d={v} idx={i} reduce={reduce} />}
+            {v.kind === "steps" && <StepsCard d={v} />}
+            {v.kind === "stack" && <StackCard d={v} />}
           </div>
         </div>
       ))}
@@ -297,64 +255,33 @@ export function CasePoster({
   hue: number;
   index: number;
 }) {
-  const h = figure.hue ?? hue;
   return (
-    <div
-      className="relative overflow-hidden rounded-2xl border border-white/[0.08]"
-      style={{
-        background: `linear-gradient(135deg, ${col(h, 85, 32)}, ${col(h + 50, 90, 16)})`,
-      }}
-    >
-      <div
-        className="pointer-events-none absolute -top-16 -right-16 h-64 w-64 rounded-full opacity-50"
-        style={{
-          background: `radial-gradient(circle, ${col(h, 95, 60, 0.9)}, transparent 70%)`,
-        }}
-      />
-      <div
-        className="pointer-events-none absolute -bottom-24 -left-10 h-72 w-72 rounded-full opacity-40"
-        style={{
-          background: `radial-gradient(circle, ${col(h + 70, 95, 65, 0.7)}, transparent 70%)`,
-        }}
-      />
-      <div className="relative z-10 grid gap-8 p-7 sm:p-10 md:grid-cols-[1fr_auto] md:items-center">
+    <div className="relative overflow-hidden rounded-md border border-line bg-ink-850">
+      <div className="grid gap-6 p-7 sm:p-10 md:grid-cols-[1fr_auto] md:items-end">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/30 px-3 py-1 font-mono text-[10px] tracking-[0.2em] text-white uppercase backdrop-blur-sm">
-            <span
-              className="h-1.5 w-1.5 rounded-full"
-              style={{ backgroundColor: col(h, 95, 70) }}
-            />
-            {figure.eyebrow}
-          </span>
-          <h3 className="mt-4 font-display text-2xl font-medium tracking-tight text-white sm:text-3xl">
-            {figure.title}
-          </h3>
+          {figure.eyebrow ? (
+            <p className="font-mono text-[11px] tracking-[0.2em] text-accent-400 uppercase">
+              {figure.eyebrow}
+            </p>
+          ) : null}
+          {figure.title ? (
+            <h3 className="mt-2 font-display text-2xl font-normal tracking-tight text-bone-100 sm:text-3xl">
+              {figure.title}
+            </h3>
+          ) : null}
           {figure.text ? (
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/85 sm:text-base">
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-fog-500 sm:text-base">
               {figure.text}
             </p>
           ) : null}
         </div>
-        <div className="hidden items-center gap-5 pr-4 md:flex">
-          <span
-            className="font-display text-6xl font-bold leading-none"
-            style={{ color: col(h + 65, 95, 72, 0.35) }}
-          >
-            {String(index).padStart(2, "0")}
-          </span>
-          <div className="flex flex-col gap-2">
-            {[0, 1, 2].map((r) => (
-              <span
-                key={r}
-                className="block h-1.5 w-16 rounded-full"
-                style={{
-                  backgroundColor: col(h + 30, 90, 65, 0.45 - r * 0.12),
-                  width: `${[68, 48, 30][r]}px`,
-                }}
-              />
-            ))}
-          </div>
-        </div>
+        <span
+          aria-hidden
+          className="hidden font-display text-7xl leading-none font-normal md:block"
+          style={{ color: `hsl(${hue} 55% 45%)` }}
+        >
+          {String(index).padStart(2, "0")}
+        </span>
       </div>
     </div>
   );
@@ -366,14 +293,14 @@ export function CaseGallery({ images, alt }: { images: string[]; alt?: string })
       {images.map((src, i) => (
         <figure
           key={src}
-          className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/[0.07] bg-ink-850"
+          className="relative aspect-[16/10] overflow-hidden rounded-md border border-line bg-ink-850"
         >
           <Image
             src={src}
             alt={`${alt ?? "Case study visual"} ${i + 1}`}
             fill
             sizes="(max-width: 640px) 100vw, 50vw"
-            className="object-cover"
+            className="object-cover [filter:saturate(0.88)]"
           />
         </figure>
       ))}

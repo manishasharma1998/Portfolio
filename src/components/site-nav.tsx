@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import type { NavLink, UiStrings } from "@/lib/types";
 import type { Locale } from "@/lib/locales";
 import { LanguageSelector } from "@/components/language-selector";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function SiteNav({
   links,
@@ -21,7 +22,7 @@ export function SiteNav({
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -31,9 +32,9 @@ export function SiteNav({
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background,border-color,backdrop-filter] duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-[background,border-color] duration-300 ${
         scrolled || open
-          ? "border-b border-white/[0.06] bg-ink-900/80 backdrop-blur-xl"
+          ? "border-b border-line bg-background/90 backdrop-blur-sm"
           : "border-b border-transparent bg-transparent"
       }`}
     >
@@ -44,9 +45,9 @@ export function SiteNav({
         <a
           href="/"
           onClick={close}
-          className="font-display text-base font-semibold tracking-tight text-bone-100"
+          className="font-display text-xl font-normal tracking-tight text-bone-100"
         >
-          Manisha<span className="text-lens-400">.</span>
+          Manisha<span className="text-accent-400">.</span>
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">
@@ -54,10 +55,9 @@ export function SiteNav({
             <li key={l.href}>
               <a
                 href={l.href}
-                className="group relative rounded-full px-3.5 py-2 text-sm text-fog-400 transition-colors hover:text-bone-100"
+                className="rounded-full px-3.5 py-2 text-sm text-fog-400 transition-colors hover:text-bone-100"
               >
                 {l.label}
-                <span className="absolute inset-x-3.5 -bottom-px h-px origin-left scale-x-0 bg-lens-400 transition-transform duration-300 group-hover:scale-x-100" />
               </a>
             </li>
           ))}
@@ -65,10 +65,11 @@ export function SiteNav({
 
         <div className="hidden items-center gap-2 md:flex">
           <LanguageSelector locale={locale} ariaLabel={ui.language.switcherAria} />
+          <ThemeToggle />
           <a
             href={resumeHref}
             download
-            className="inline-flex h-9 items-center gap-2 rounded-full border border-lens-400/40 px-4 text-sm text-lens-300 transition-colors hover:border-lens-400 hover:bg-lens-400/10"
+            className="inline-flex h-9 items-center gap-2 rounded-full border border-line-strong px-4 text-sm text-bone-100 transition-colors hover:border-accent-400 hover:text-accent-400"
           >
             {ui.nav.resume}
           </a>
@@ -102,7 +103,7 @@ export function SiteNav({
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden border-t border-white/[0.06] bg-ink-900/95 backdrop-blur-xl md:hidden"
+            className="overflow-hidden border-t border-line bg-background/95 backdrop-blur-sm md:hidden"
           >
             <ul className="flex flex-col gap-1 px-5 py-4">
               {links.map((l) => (
@@ -110,24 +111,23 @@ export function SiteNav({
                   <a
                     href={l.href}
                     onClick={close}
-                    className="block rounded-lg px-3 py-2.5 text-base text-fog-300 transition-colors hover:bg-white/[0.04] hover:text-bone-100"
+                    className="block rounded-lg px-3 py-2.5 text-base text-fog-300 transition-colors hover:bg-wash hover:text-bone-100"
                   >
                     {l.label}
                   </a>
                 </li>
               ))}
-              <li className="mt-2">
+              <li className="mt-2 flex items-center justify-between gap-3 px-3">
+                <LanguageSelector locale={locale} ariaLabel={ui.language.switcherAria} />
+                <ThemeToggle />
                 <a
                   href={resumeHref}
                   download
                   onClick={close}
-                  className="block rounded-lg border border-lens-400/40 px-3 py-2.5 text-center text-base text-lens-300"
+                  className="flex-1 rounded-full border border-line-strong px-3 py-2 text-center text-sm text-bone-100 transition-colors hover:border-accent-400 hover:text-accent-400"
                 >
                   {ui.nav.downloadResume}
                 </a>
-              </li>
-              <li className="mt-2 flex justify-center">
-                <LanguageSelector locale={locale} ariaLabel={ui.language.switcherAria} />
               </li>
             </ul>
           </motion.div>

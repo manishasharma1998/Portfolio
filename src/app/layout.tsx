@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Instrument_Serif, JetBrains_Mono, Manrope } from "next/font/google";
 import { getSiteConfig } from "@/lib/content";
 import { getLocale } from "@/lib/i18n";
 import { dirOf } from "@/lib/locales";
 import { ChatBot } from "@/components/chat-bot";
 import { AnnouncementBar } from "@/components/announcement-bar";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  weight: "400",
+  style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
   display: "swap",
 });
@@ -69,30 +72,39 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang={locale}
       dir={dirOf(locale)}
-      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}
+      className={`${instrumentSerif.variable} ${manrope.variable} ${jetbrainsMono.variable} scroll-smooth`}
     >
-      <body className="min-h-dvh bg-background font-sans text-bone-100 antialiased selection:bg-accent-500/40">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=localStorage.getItem('theme');var t=(s==='light'||s==='dark')?s:(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.dataset.theme=t;}catch(e){document.documentElement.dataset.theme='dark';}})();`,
+          }}
+        />
+      </head>
+      <body className="min-h-dvh bg-background font-sans text-bone-100 antialiased">
         <script
           dangerouslySetInnerHTML={{
             __html: `if (location.hash) history.replaceState(null, "", location.pathname + location.search); if (location.hash || window.scrollY > 0) scrollTo(0, 0);`,
           }}
         />
-        <AnnouncementBar
-          locale={locale}
-          notice={site.ui.announcement.notice}
-          change={site.ui.announcement.change}
-          dismiss={site.ui.announcement.dismiss}
-          switcherAria={site.ui.language.switcherAria}
-        />
-        {children}
-        <ChatBot
-          name={site.name}
-          email={site.email}
-          whatsapp={site.whatsapp}
-          resume={site.resume}
-          locale={locale}
-          chat={site.ui.chat}
-        />
+        <ThemeProvider>
+          <AnnouncementBar
+            locale={locale}
+            notice={site.ui.announcement.notice}
+            change={site.ui.announcement.change}
+            dismiss={site.ui.announcement.dismiss}
+            switcherAria={site.ui.language.switcherAria}
+          />
+          {children}
+          <ChatBot
+            name={site.name}
+            email={site.email}
+            whatsapp={site.whatsapp}
+            resume={site.resume}
+            locale={locale}
+            chat={site.ui.chat}
+          />
+        </ThemeProvider>
       </body>
     </html>
   );

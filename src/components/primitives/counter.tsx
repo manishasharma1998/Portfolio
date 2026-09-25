@@ -1,12 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { useInView, useMotionValue, useSpring } from "framer-motion";
-
-function prefersReduced(): boolean {
-  if (typeof window === "undefined") return false;
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useInView } from "framer-motion";
 
 type CounterProps = {
   value: number;
@@ -17,28 +12,33 @@ type CounterProps = {
 export function Counter({ value, suffix = "", className }: CounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.6 });
-  const reduced = prefersReduced();
-  const motionValue = useMotionValue(0);
-  const spring = useSpring(motionValue, {
-    damping: 45,
-    stiffness: 55,
-    mass: 1,
-    restDelta: 0.5,
-  });
-  const [display, setDisplay] = useState(reduced ? value : 0);
+  const [display, setDisplay] = useState(0);
+  const reduced =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
 
   useEffect(() => {
     if (!inView) return;
-    if (reduced) return;
-    const unsub = spring.on("change", (latest) => {
-      setDisplay(Math.round(latest));
-    });
-    motionValue.set(value);
-    return unsub;
-  }, [inView, value, reduced, spring, motionValue]);
+    if (reduced) {
+      setDisplay(value);
+      return;
+    }
+    const duration = 800;
+    let raf: number;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const p = Math.min(1, (now - start) / duration);
+      setDisplay(Math.round(value * easeOut(p)));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [inView, value, reduced]);
 
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={`tnum ${className ?? ""}`}>
       {display}
       {suffix}
     </span>

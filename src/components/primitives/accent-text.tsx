@@ -6,9 +6,12 @@ function renderStarred(text: string, keyPrefix = "a"): ReactNode[] {
     if (!part) return null;
     if (part.startsWith("*") && part.endsWith("*") && part.length > 2) {
       return (
-        <span key={`${keyPrefix}-${i}`} className="text-accent-400">
+        <em
+          key={`${keyPrefix}-${i}`}
+          className="font-display font-normal text-accent-400 italic"
+        >
           {part.slice(1, -1)}
-        </span>
+        </em>
       );
     }
     return <Fragment key={`${keyPrefix}-${i}`}>{part}</Fragment>;

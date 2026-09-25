@@ -24,12 +24,12 @@ export function WorkTabs({
   ];
 
   return (
-    <div className="border-t border-white/[0.05]">
+    <div className="border-t border-line">
       <div className="mx-auto max-w-6xl px-5 pt-14 sm:px-8">
         <div
           role="tablist"
           aria-label={`${labels.caseStudies} · ${labels.designs}`}
-          className="inline-flex rounded-full border border-white/10 bg-ink-900 p-1"
+          className="inline-grid grid-cols-2 rounded-full border border-line p-1"
         >
           {tabs.map((t) => {
             const active = tab === t.key;
@@ -42,13 +42,13 @@ export function WorkTabs({
                 aria-controls={`work-panel-${t.key}`}
                 onClick={() => setTab(t.key)}
                 className={`relative rounded-full px-5 py-2 font-mono text-xs tracking-[0.2em] uppercase transition-colors duration-300 ${
-                  active ? "text-bone-100" : "text-fog-500 hover:text-bone-100/80"
+                  active ? "text-accent-400" : "text-fog-500 hover:text-bone-100/80"
                 }`}
               >
                 {active && (
                   <motion.span
                     layoutId="work-tab-pill"
-                    className="absolute inset-0 rounded-full bg-lens-400/15 ring-1 ring-lens-400/40"
+                    className="absolute inset-0 rounded-full bg-accent-soft"
                     transition={{ duration: 0.35, ease: [0.21, 0.6, 0.26, 1] }}
                   />
                 )}
@@ -65,10 +65,10 @@ export function WorkTabs({
           role="tabpanel"
           id={`work-panel-${tab}`}
           aria-labelledby={`work-tab-${tab}`}
-          initial={reduce ? false : { opacity: 0, y: 12 }}
+          initial={reduce ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={reduce ? undefined : { opacity: 0, y: -8 }}
-          transition={{ duration: 0.3, ease: [0.21, 0.6, 0.26, 1] }}
+          exit={reduce ? undefined : { opacity: 0, y: -6 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
         >
           {tab === "caseStudies" ? caseStudies : designs}
         </motion.div>

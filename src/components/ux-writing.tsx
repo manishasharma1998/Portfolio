@@ -1,6 +1,6 @@
 import { getSiteConfig } from "@/lib/content";
-import { Reveal } from "@/components/primitives/reveal";
 import { SectionHeading } from "@/components/primitives/section-heading";
+import { Reveal } from "@/components/primitives/reveal";
 
 export async function UxWriting() {
   const site = await getSiteConfig();
@@ -14,7 +14,7 @@ export async function UxWriting() {
   };
 
   return (
-    <section id="ux-writing" className="border-t border-white/[0.05] py-24 sm:py-32">
+    <section id="ux-writing" className="border-t border-line py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
           kicker={uxw.kicker}
@@ -28,39 +28,41 @@ export async function UxWriting() {
           content={<p>{uxw.body}</p>}
         />
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 border-t border-line">
           {uxw.examples.map((ex, i) => (
-            <Reveal key={ex.label} delay={i * 0.1} className="h-full">
-              <article className="flex h-full flex-col gap-5 rounded-2xl border border-white/[0.07] bg-ink-850 p-6 sm:p-7">
-                <p className="font-mono text-[11px] tracking-[0.2em] text-lens-300 uppercase">
+            <Reveal key={ex.label} className="h-full">
+              <article className="grid gap-3 border-b border-line py-8 sm:grid-cols-12 sm:gap-8">
+                <p className="font-mono text-[11px] tracking-[0.2em] text-bone-100 uppercase sm:col-span-3">
                   {ex.label}
                 </p>
-
-                <div className="space-y-2">
-                  <span className="inline-block rounded-full border border-white/10 px-2.5 py-0.5 font-mono text-[10px] tracking-[0.18em] text-fog-500 uppercase">
-                    {ui.before}
-                  </span>
-                  <p className="text-sm leading-relaxed text-fog-500 line-through decoration-fog-500/40">
-                    {ex.before}
-                  </p>
-                </div>
-
-                <div className="space-y-2">
-                  <span className="inline-block rounded-full border border-lens-400/30 bg-lens-400/[0.08] px-2.5 py-0.5 font-mono text-[10px] tracking-[0.18em] text-lens-300 uppercase">
-                    {ui.after}
-                  </span>
-                  <p className="text-sm leading-relaxed font-medium text-bone-100">
-                    {ex.after}
-                  </p>
-                </div>
-
-                <div className="mt-auto border-t border-white/[0.06] pt-4">
-                  <span className="font-mono text-[10px] tracking-[0.18em] text-fog-500 uppercase">
-                    {ui.why}
-                  </span>
-                  <p className="mt-1.5 text-sm leading-relaxed text-fog-400">
+                <div className="sm:col-span-9">
+                  <div className="grid gap-6 sm:grid-cols-2">
+                    <div>
+                      <span className="font-mono text-[10px] tracking-[0.18em] text-fog-500 uppercase">
+                        {ui.before}
+                      </span>
+                      <p className="mt-1.5 text-[15px] leading-relaxed text-fog-500 line-through decoration-fog-500/40">
+                        {ex.before}
+                      </p>
+                    </div>
+                    <div>
+                      <span className="font-mono text-[10px] tracking-[0.18em] text-accent-400 uppercase">
+                        {ui.after}
+                      </span>
+                      <p className="mt-1.5 text-[15px] leading-relaxed font-medium text-bone-100">
+                        {ex.after}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="mt-4 text-sm leading-relaxed text-fog-500">
+                    <span className="font-mono text-[10px] tracking-[0.18em] text-bone-100 uppercase">
+                      {ui.why}
+                    </span>{" "}
                     {ex.why}
                   </p>
+                  <span aria-hidden className="mt-5 hidden font-mono text-[10px] text-fog-500 tnum sm:block">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                 </div>
               </article>
             </Reveal>

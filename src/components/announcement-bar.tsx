@@ -51,7 +51,7 @@ export function AnnouncementBar({
           transition={{ duration: 0.25 }}
           className="pointer-events-none fixed inset-x-0 top-16 z-40 flex justify-center px-4 pt-2"
         >
-          <div className="pointer-events-auto flex max-w-3xl flex-wrap items-center justify-center gap-x-3 gap-y-2 rounded-2xl border border-white/10 bg-ink-900/90 px-4 py-2.5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl">
+          <div className="pointer-events-auto flex max-w-3xl flex-wrap items-center justify-center gap-x-3 gap-y-2 rounded-lg border border-line bg-background/95 px-4 py-2.5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.25)] backdrop-blur-sm">
             <p className="text-center text-xs leading-relaxed text-fog-300">
               {text} <span className="text-fog-500">{change}</span>
             </p>

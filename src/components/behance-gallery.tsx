@@ -12,7 +12,7 @@ export function BehanceGallery({
   const { projects, profileUrl } = config;
 
   return (
-    <section id="behance" className="border-t border-white/[0.05] py-24 sm:py-32">
+    <section id="behance" className="border-t border-line py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
           kicker={config.kicker}
@@ -26,69 +26,53 @@ export function BehanceGallery({
           content={<p>{config.blurb}</p>}
         />
 
-        <RevealStagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <RevealStagger className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((p) => (
-            <RevealItem key={p.url}>
+            <RevealItem key={p.url} className="h-full">
               <a
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.07] bg-ink-850 transition-colors duration-300 hover:border-lens-400/30"
+                className="group flex h-full flex-col overflow-hidden rounded-md border border-line bg-ink-850 transition-colors duration-300 hover:border-accent-400/50"
               >
-                <div className="relative aspect-[16/10] overflow-hidden">
+                <div className="overflow-hidden border-b border-line bg-ink-800">
                   {p.cover ? (
                     <Image
                       src={p.cover}
                       alt={p.title}
-                      fill
+                      width={1280}
+                      height={800}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                      className="aspect-[16/10] w-full object-cover [filter:saturate(0.88)]"
                     />
                   ) : (
-                    <div className="absolute inset-0 flex items-end overflow-hidden bg-ink-800">
-                      <div className="absolute -right-6 -top-10 font-display text-[7rem] font-bold leading-none tracking-tight text-white/[0.06]">
-                        {p.tags[0]?.[0] ?? "N"}
-                      </div>
-                      <div className="relative flex flex-wrap gap-1.5 p-5">
-                        {p.tags.map((t) => (
-                          <span
-                            key={t}
-                            className="rounded-full border border-white/10 bg-ink-900/80 px-2.5 py-0.5 font-mono text-[10px] tracking-wide text-fog-300"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
+                    <div className="flex aspect-[16/10] flex-col justify-end p-5">
+                      <p className="font-display text-5xl font-normal tracking-tight text-bone-100/40">
+                        {p.tags[0]?.[0] ?? "N"}.
+                      </p>
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink-900/70 via-transparent to-transparent" />
                 </div>
-                <div className="flex flex-1 flex-col gap-3 p-5">
-                  <h3 className="font-display text-base font-medium leading-snug text-bone-100">
+                <div className="flex flex-1 flex-col gap-3 p-6">
+                  <h3 className="font-display text-xl font-normal tracking-tight text-bone-100">
                     {p.title}
                   </h3>
-                  <div className="flex flex-wrap gap-1.5">
-                    {p.tags.map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-full border border-white/10 px-2.5 py-0.5 font-mono text-[10px] tracking-wide text-fog-400"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
+                  <p className="font-mono text-[11px] tracking-[0.12em] text-fog-500 uppercase">
+                    {p.tags.join(" · ")}
+                  </p>
                   <div className="mt-auto flex items-center justify-between pt-2">
                     {typeof p.views === "number" ? (
-                      <span className="font-mono text-[11px] text-fog-500">
-                        {p.views} {labels?.views ?? "views"}
+                      <span className="font-mono text-[11px] text-fog-500 tnum">
+                        {p.views.toLocaleString()}{" "}
+                        {labels?.views ?? "views"}
                         {typeof p.appreciations === "number"
-                          ? ` · ${p.appreciations} ${labels?.appreciations ?? "♥"}`
+                          ? ` · ${p.appreciations.toLocaleString()} ${labels?.appreciations ?? "appreciations"}`
                           : ""}
                       </span>
                     ) : (
                       <span />
                     )}
-                    <span className="font-mono text-xs tracking-[0.15em] text-bone-100 uppercase">
+                    <span className="font-mono text-xs tracking-[0.15em] text-bone-100 uppercase transition-colors group-hover:text-accent-400">
                       {labels?.open ?? "Open"} →
                     </span>
                   </div>
@@ -97,20 +81,20 @@ export function BehanceGallery({
             </RevealItem>
           ))}
 
-          <RevealItem>
+          <RevealItem className="h-full">
             <a
               href={profileUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-full min-h-[180px] flex-col items-start justify-between gap-4 rounded-2xl border border-dashed border-white/12 bg-white/[0.02] p-5 transition-colors duration-300 hover:border-lens-400/40 hover:bg-lens-400/[0.04]"
+              className="group flex h-full min-h-[180px] flex-col items-start justify-between gap-4 rounded-md border border-dashed border-line-strong bg-wash p-6 transition-colors duration-300 hover:border-accent-400/50"
             >
-              <p className="font-mono text-[11px] tracking-[0.2em] text-lens-300 uppercase">
+              <p className="font-mono text-[11px] tracking-[0.2em] text-accent-400 uppercase">
                 {config.profileLabel}
               </p>
-              <p className="text-sm leading-relaxed text-fog-400">
+              <p className="text-sm leading-relaxed text-fog-500">
                 {config.profileBlurb}
               </p>
-              <p className="font-mono text-xs tracking-[0.15em] text-bone-100 uppercase">
+              <p className="font-mono text-xs tracking-[0.15em] text-bone-100 uppercase transition-colors group-hover:text-accent-400">
                 {profileUrl.replace("https://", "")} →
               </p>
             </a>
