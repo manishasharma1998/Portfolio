@@ -148,9 +148,7 @@ export function XRPlayground({ copy }: { copy: SiteConfig["xr"] }) {
             {copy.kicker}
           </p>
           <h2 className="mt-4 max-w-2xl font-display text-3xl font-medium tracking-tight text-bone-100 sm:text-4xl md:text-5xl">
-            {copy.titleBefore}
-            <br />
-            <AccentText text={copy.titleBreak ?? ""} />
+            {copy.titleBefore} <AccentText text={copy.titleBreak ?? ""} />
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-fog-400 sm:text-lg">
             {copy.blurb}

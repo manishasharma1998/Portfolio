@@ -15,9 +15,7 @@ export async function Work() {
           kicker={work.kicker}
           title={
             <>
-              {work.titleBefore}
-              <br />
-              {work.titleBreak}
+              {work.titleBefore} {work.titleBreak}
             </>
           }
           content={
