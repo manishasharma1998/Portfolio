@@ -42,7 +42,7 @@
   --ink-700: #eeeadd;
   --ink-600: #e2dccc;
 
-  --fog-500: #6b7387;
+  --fog-500: #5b6280;
   --fog-400: #4c5369;
   --fog-300: #2d3347;
 
@@ -92,8 +92,8 @@
   --color-line-strong: var(--line-strong);
   --color-wash: var(--wash);
 
-  --font-display: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
-  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 

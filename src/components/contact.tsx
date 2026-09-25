@@ -70,7 +70,7 @@ export async function Contact() {
           <a
             href={site.resume}
             download
-            className="inline-flex items-center gap-2 rounded-full bg-accent-400 px-7 py-3.5 font-medium text-accent-fg transition-colors hover:bg-accent-500"
+            className="inline-flex items-center gap-2 rounded-full bg-accent-400 px-6 py-3 font-medium text-accent-fg transition-colors hover:bg-accent-500"
           >
             {site.contact.resumeLabel}
             <span aria-hidden>↓</span>

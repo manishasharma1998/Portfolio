@@ -55,7 +55,7 @@ export function SiteNav({
             <li key={l.href}>
               <a
                 href={l.href}
-                className="rounded-full px-3.5 py-2 text-sm text-fog-400 transition-colors hover:text-bone-100"
+                className="rounded-full px-3.5 py-2.5 text-sm text-fog-400 transition-colors hover:text-bone-100"
               >
                 {l.label}
               </a>
@@ -69,7 +69,7 @@ export function SiteNav({
           <a
             href={resumeHref}
             download
-            className="inline-flex h-9 items-center gap-2 rounded-full border border-line-strong px-4 text-sm text-bone-100 transition-colors hover:border-accent-400 hover:text-accent-400"
+            className="inline-flex h-10 items-center gap-2 rounded-full border border-line-strong px-4 text-sm text-bone-100 transition-colors hover:border-accent-400 hover:text-accent-400"
           >
             {ui.nav.resume}
           </a>
@@ -124,7 +124,7 @@ export function SiteNav({
                   href={resumeHref}
                   download
                   onClick={close}
-                  className="flex-1 rounded-full border border-line-strong px-3 py-2 text-center text-sm text-bone-100 transition-colors hover:border-accent-400 hover:text-accent-400"
+                  className="flex-1 rounded-full border border-line-strong px-3 py-2.5 text-center text-sm text-bone-100 transition-colors hover:border-accent-400 hover:text-accent-400"
                 >
                   {ui.nav.downloadResume}
                 </a>

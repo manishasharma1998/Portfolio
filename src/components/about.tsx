@@ -83,7 +83,7 @@ export async function About() {
               <p className="mt-3 max-w-2xl font-display text-xl leading-snug font-normal text-bone-100 sm:text-2xl">
                 {about.pivot}
               </p>
-              <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-fog-500 italic">
+              <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-fog-500">
                 {about.noVibe}
               </p>
             </aside>

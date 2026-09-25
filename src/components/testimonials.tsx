@@ -33,7 +33,7 @@ export async function Testimonials() {
                   >
                     "
                   </span>
-                  <p className="font-display text-xl leading-snug font-normal text-bone-100 italic">
+                  <p className="font-display text-xl leading-snug font-normal text-bone-100 sm:text-2xl">
                     {item.quote}
                   </p>
                 </blockquote>

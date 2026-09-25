@@ -146,7 +146,7 @@ export function XRPlayground({ copy }: { copy: SiteConfig["xr"] }) {
               {copy.caption}
             </p>
             {copy.soundNote ? (
-              <p className="mt-2 text-[15px] leading-relaxed text-fog-500 italic">
+              <p className="mt-2 text-[15px] leading-relaxed text-fog-500">
                 {copy.soundNote}
               </p>
             ) : null}

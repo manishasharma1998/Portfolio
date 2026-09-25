@@ -65,7 +65,7 @@ export function Timeline({ copy }: { copy: TimelineConfig }) {
             </p>
 
             {copy.educationIntro ? (
-              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-fog-500 italic">
+              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-fog-500">
                 {copy.educationIntro}
               </p>
             ) : null}
@@ -100,7 +100,7 @@ export function Timeline({ copy }: { copy: TimelineConfig }) {
 
         {copy.overlapNote ? (
           <Reveal delay={0.1}>
-            <p className="mt-12 max-w-2xl text-xs leading-relaxed text-fog-500 italic">
+            <p className="mt-12 max-w-2xl text-xs leading-relaxed text-fog-500">
               {copy.overlapNote}
             </p>
           </Reveal>

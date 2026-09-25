@@ -130,7 +130,7 @@ export function StoryPlayer({
                     <p className="font-mono text-[10px] tracking-[0.15em] text-zinc-400 uppercase">
                       {step.chapter}
                     </p>
-                    <p className="mt-2 text-sm leading-relaxed italic text-zinc-100">
+                    <p className="mt-2 text-sm leading-relaxed text-zinc-100">
                       {"\u201c"}{step.quote ?? step.title}{"\u201d"}
                     </p>
                   </div>
@@ -166,7 +166,7 @@ export function StoryPlayer({
                 <p className="mt-3 text-zinc-300">{step.body}</p>
                 {step.quote ? (
                   <blockquote
-                    className="mt-4 rounded-lg rounded-bl-none border p-4 italic text-zinc-100"
+                    className="mt-4 rounded-lg rounded-bl-none border p-4 text-zinc-100"
                     style={{
                       borderColor: `hsla(${hue} 85% 70% / 0.35)`,
                       backgroundColor: `hsla(${hue} 85% 60% / 0.08)`,

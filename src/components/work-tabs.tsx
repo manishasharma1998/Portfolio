@@ -41,7 +41,7 @@ export function WorkTabs({
                 aria-selected={active}
                 aria-controls={`work-panel-${t.key}`}
                 onClick={() => setTab(t.key)}
-                className={`relative rounded-full px-5 py-2 font-mono text-xs tracking-[0.2em] uppercase transition-colors duration-300 ${
+                className={`relative rounded-full px-5 py-2.5 font-mono text-xs tracking-[0.2em] uppercase transition-colors duration-300 ${
                   active ? "text-accent-400" : "text-fog-500 hover:text-bone-100/80"
                 }`}
               >

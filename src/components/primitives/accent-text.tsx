@@ -8,7 +8,7 @@ function renderStarred(text: string, keyPrefix = "a"): ReactNode[] {
       return (
         <em
           key={`${keyPrefix}-${i}`}
-          className="font-display font-normal text-accent-400 italic"
+          className="font-display font-medium text-accent-400"
         >
           {part.slice(1, -1)}
         </em>

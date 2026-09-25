@@ -226,7 +226,7 @@ export default async function CaseStudyPage({ params }: Props) {
                   {study.reflection.body.map((p, i) => (
                     <p
                       key={i}
-                      className="font-display text-xl leading-snug font-normal text-bone-100 italic sm:text-2xl"
+                      className="font-display text-xl leading-snug font-normal text-bone-100 sm:text-2xl"
                     >
                       {p}
                     </p>
@@ -236,7 +236,7 @@ export default async function CaseStudyPage({ params }: Props) {
                       {study.reflection.bullets.map((b) => (
                         <li
                           key={b}
-                          className="flex items-start gap-3 text-sm leading-relaxed text-fog-500 italic"
+                          className="flex items-start gap-3 text-sm leading-relaxed text-fog-500"
                         >
                           <span
                             aria-hidden
