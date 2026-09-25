@@ -96,18 +96,6 @@ export type SelectedWorkConfig = BlockConfig & {
   cards: SelectedWorkCard[];
 };
 
-export type UxWritingExample = {
-  label: string;
-  before: string;
-  after: string;
-  why: string;
-};
-
-export type UxWritingConfig = BlockConfig & {
-  body: string;
-  examples: UxWritingExample[];
-};
-
 export type Testimonial = {
   quote: string;
   name: string;
@@ -162,7 +150,6 @@ export type UiStrings = {
   caseCard: { view: string; open: string };
   workTabs: { caseStudies: string; designs: string };
   behance: { open: string; views: string; appreciations: string };
-  uxWriting?: { before: string; after: string; why: string };
   caseVisuals: { before: string; after: string; imageAlt: string };
   casePage: {
     backAllWork: string;
@@ -227,7 +214,6 @@ export type SiteConfig = {
   timeline: TimelineConfig;
   contact: ContactConfig;
   selectedWork?: SelectedWorkConfig;
-  uxWriting?: UxWritingConfig;
   testimonials?: TestimonialsConfig;
   ui: UiStrings;
 };

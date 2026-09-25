@@ -7,7 +7,6 @@ import { SelectedWork } from "@/components/selected-work";
 import { About } from "@/components/about";
 import { XRPlayground } from "@/components/xr-playground";
 import { Skills } from "@/components/skills";
-import { UxWriting } from "@/components/ux-writing";
 import { Timeline } from "@/components/timeline";
 import { Testimonials } from "@/components/testimonials";
 import { Contact } from "@/components/contact";
@@ -31,7 +30,6 @@ export default async function Home() {
       <About />
       <XRPlayground copy={site.xr} />
       <Skills />
-      <UxWriting />
       <Timeline copy={site.timeline} />
       <Testimonials />
       <Contact />

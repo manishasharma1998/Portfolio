@@ -244,32 +244,6 @@
       }
     ]
   },
-  "uxWriting": {
-    "kicker": "UX Writing",
-    "titleBefore": "Words are",
-    "titleBreak": "interface *too*.",
-    "body": "The right sentence removes a support ticket. The wrong one loses a customer at the exact moment they were ready to commit. I write microcopy the way I design flows: for the user's next decision, not the brand's next adjective.",
-    "examples": [
-      {
-        "label": "Checkout fee disclosure",
-        "before": "Payment details — then, only after the card number, the fee appears.",
-        "after": "₹1,299 all in — no surprises later.",
-        "why": "The fee stops being a betrayal and becomes part of the agreement."
-      },
-      {
-        "label": "Error message",
-        "before": "Payment failed. Try again.",
-        "after": "We couldn't charge this card. Check the number, or try another one.",
-        "why": "It names what happened and what to do next, instead of dead-ending."
-      },
-      {
-        "label": "Empty state",
-        "before": "No saved addresses.",
-        "after": "No addresses yet. Add one and it'll be here when you check out.",
-        "why": "The context turns a dead end into a promise."
-      }
-    ]
-  },
   "testimonials": {
     "kicker": "In their words",
     "titleBefore": "What it's like",
