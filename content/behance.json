@@ -2,7 +2,7 @@
   "kicker": "More on Behance",
   "titleBefore": "The projects that keep",
   "titleBreak": "the case studies honest.",
-  "blurb": "Three deep-dives live on this site. These five live on Behance, with the process left visible and the covers unretouched. If you wanted a designer whose entire output fits one glowing case study, you'd have closed this by now.",
+  "blurb": "Three deep-dives live on this site. These six live on Behance, with the process left visible and the covers unretouched. If you wanted a designer whose entire output fits one glowing case study, you'd have closed this by now.",
   "profileLabel": "The rest of the shelf",
   "profileBlurb": "The full Behance archive — older process shots, experimental work and projects that predate this site's curation.",
   "profileUrl": "https://www.behance.net/manishasharma78",
@@ -11,7 +11,7 @@
       "title": "UX Case Study — Health and Wellness App",
       "url": "https://www.behance.net/gallery/206789871/UX-Case-Study-Health-and-Wellness-App",
       "cover": "/images/bh-health-wellness.png",
-      "views": 151,
+      "views": 155,
       "appreciations": 11,
       "tags": ["UX", "Case Study", "Mobile"]
     },
@@ -19,7 +19,7 @@
       "title": "Redesign — Makeup Artist & Academy Website",
       "url": "https://www.behance.net/gallery/205133881/Redesign-Website-Makeup-Artist-Academy",
       "cover": "/images/bh-makeup-academy.jpg",
-      "views": 126,
+      "views": 128,
       "appreciations": 10,
       "tags": ["Web", "Redesign", "UI"]
     },
@@ -27,7 +27,7 @@
       "title": "Emailer Design",
       "url": "https://www.behance.net/gallery/205133377/Emailer-Design",
       "cover": "/images/bh-emailer.jpg",
-      "views": 49,
+      "views": 50,
       "appreciations": 5,
       "tags": ["Email", "Marketing", "UI"]
     },
@@ -35,7 +35,7 @@
       "title": "Travel Booking Website",
       "url": "https://www.behance.net/gallery/203625255/Travel-Booking-Website",
       "cover": "/images/bh-travel.jpg",
-      "views": 119,
+      "views": 122,
       "appreciations": 4,
       "tags": ["Web", "Booking", "UX"]
     },
@@ -43,13 +43,16 @@
       "title": "BlaBlaCar — Heuristic Evaluation",
       "url": "https://www.behance.net/gallery/204607361/Bla-Bla-Car-Carpooling-Service-(Heuristic-Evaluation)",
       "cover": "/images/bh-blablacar.jpg",
-      "views": 116,
+      "views": 117,
       "appreciations": 3,
       "tags": ["UX", "Heuristic Eval", "Transport"]
     },
     {
       "title": "Nuvra — SaaS Landing Page Case Study (Arabic RTL)",
       "url": "https://www.behance.net/gallery/256240721/Nuvra-SaaS-Landing-Page-Case-Study-Arabic-%28RTL%29-UIUX",
+      "cover": "/images/bh-nuvra.jpg",
+      "views": 3,
+      "appreciations": 1,
       "tags": ["SaaS", "Landing Page", "RTL", "Case Study"]
     }
   ]
