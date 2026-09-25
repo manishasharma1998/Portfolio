@@ -36,6 +36,11 @@ export async function Footer() {
             <p className="mt-1.5 font-mono text-[11px] tracking-[0.2em] text-lens-300 uppercase">
               {site.role}
             </p>
+            {site.tagline ? (
+              <p className="mt-1 max-w-xs text-sm leading-relaxed text-fog-400">
+                {site.tagline}
+              </p>
+            ) : null}
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-fog-500">{site.location}</p>
           </div>
 

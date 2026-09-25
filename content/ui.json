@@ -18,7 +18,7 @@
   "footer": {
     "navigate": "Navigate",
     "connect": "Connect",
-    "built": "Designed & built in Next.js · relocation-ready",
+    "built": "Designed & built in Next.js",
     "avatarCredit": "Avatar video: Vecteezy",
     "manage": "Manage content"
   },
@@ -42,6 +42,11 @@
     "open": "Open",
     "views": "views",
     "appreciations": "♥"
+  },
+  "uxWriting": {
+    "before": "Before",
+    "after": "After",
+    "why": "Why"
   },
   "caseVisuals": {
     "before": "Before",

@@ -116,7 +116,7 @@ export function Hero({ site }: { site: SiteConfig }) {
           </div>
 
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-fog-400 sm:text-lg">
-            {site.hero.warning}
+            {site.hero.body ?? site.hero.warning}
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">

@@ -3,10 +3,13 @@ import { getLocale } from "@/lib/i18n";
 import { SiteNav } from "@/components/site-nav";
 import { Hero } from "@/components/hero";
 import { SignalBar } from "@/components/signal-bar";
+import { SelectedWork } from "@/components/selected-work";
 import { About } from "@/components/about";
 import { XRPlayground } from "@/components/xr-playground";
 import { Skills } from "@/components/skills";
+import { UxWriting } from "@/components/ux-writing";
 import { Timeline } from "@/components/timeline";
+import { Testimonials } from "@/components/testimonials";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 
@@ -24,10 +27,13 @@ export default async function Home() {
       />
       <Hero site={site} />
       <SignalBar metrics={site.metrics} />
+      <SelectedWork />
       <About />
       <XRPlayground copy={site.xr} />
       <Skills />
+      <UxWriting />
       <Timeline copy={site.timeline} />
+      <Testimonials />
       <Contact />
       <Footer />
     </main>

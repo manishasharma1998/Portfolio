@@ -27,11 +27,11 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Manisha Sharma — UX & XR Designer",
+    default: "Manisha Sharma — UX, UI & XR Designer",
     template: "%s · Manisha Sharma",
   },
   description:
-    "UX Designer with a research-first brain. XR Designer with a headset on. 70+ projects shipped, 42% drop-off reduced, IIT Delhi certified. Instantly available to relocate.",
+    "UX & XR designer who turns user research into measurable results: 70+ products shipped, 42% less checkout drop-off, a 200+ component design system. Arabic–English RTL experience. IIT Delhi-certified in VR/AR. Available immediately.",
   keywords: [
     "UX Designer",
     "XR Designer",
@@ -42,17 +42,17 @@ export const metadata: Metadata = {
     "Design systems",
   ],
   openGraph: {
-    title: "Manisha Sharma — UX & XR Designer",
+    title: "Manisha Sharma — UX, UI & XR Designer",
     description:
-      "UX Designer with a research-first brain. XR Designer with a headset on. Instantly available to relocate.",
+      "I design products people finish, and spaces people step into.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manisha Sharma — UX & XR Designer",
+    title: "Manisha Sharma — UX, UI & XR Designer",
     description:
-      "UX Designer with a research-first brain. XR Designer with a headset on.",
+      "I design products people finish, and spaces people step into.",
   },
   metadataBase: new URL("https://manishasharma.design"),
   robots: {

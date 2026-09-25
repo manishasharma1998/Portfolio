@@ -77,9 +77,23 @@ export function Timeline({ copy }: { copy: TimelineConfig }) {
                         {node.role}
                       </h3>
                       <p className="text-sm font-medium text-fog-300">{node.org}</p>
-                      <p className="mt-2 max-w-2xl text-sm leading-relaxed text-fog-500">
-                        {node.body}
-                      </p>
+                      {node.bullets?.length ? (
+                        <ul className="mt-2 max-w-2xl space-y-2">
+                          {node.bullets.map((b) => (
+                            <li
+                              key={b}
+                              className="flex items-start gap-2 text-sm leading-relaxed text-fog-500"
+                            >
+                              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-lens-400" />
+                              {b}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : node.body ? (
+                        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-fog-500">
+                          {node.body}
+                        </p>
+                      ) : null}
                     </div>
                   </RevealItem>
                 ))}
@@ -93,8 +107,14 @@ export function Timeline({ copy }: { copy: TimelineConfig }) {
               {copy.education.label}
             </p>
 
+            {copy.educationIntro ? (
+              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-fog-500 italic">
+                {copy.educationIntro}
+              </p>
+            ) : null}
+
             <RevealStagger
-              className="mt-8 flex flex-col gap-3"
+              className="mt-6 flex flex-col gap-3"
               stagger={0.07}
               delayChildren={0.05}
             >
@@ -130,11 +150,13 @@ export function Timeline({ copy }: { copy: TimelineConfig }) {
           </div>
         </div>
 
-        <Reveal delay={0.1}>
-          <p className="mt-12 max-w-2xl text-xs leading-relaxed text-fog-500 italic">
-            {copy.overlapNote}
-          </p>
-        </Reveal>
+        {copy.overlapNote ? (
+          <Reveal delay={0.1}>
+            <p className="mt-12 max-w-2xl text-xs leading-relaxed text-fog-500 italic">
+              {copy.overlapNote}
+            </p>
+          </Reveal>
+        ) : null}
       </div>
     </section>
   );

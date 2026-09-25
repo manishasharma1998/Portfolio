@@ -1,13 +1,14 @@
 {
   "name": "Manisha Sharma",
-  "role": "UX & UI Designer · XR Designer",
+  "role": "UX, UI & XR Designer",
+  "tagline": "Designing products people finish, and spaces they step into.",
   "email": "maonishasharma@gmail.com",
   "phone": "+91 97179 22464",
   "whatsapp": "https://wa.me/919717922464",
   "linkedin": "https://www.linkedin.com/in/manishasharmaa",
   "behance": "https://www.behance.net/manishasharma78",
   "resume": "/Manisha-Sharma-Resume.pdf",
-  "location": "New Delhi, India · Instantly available to relocate",
+  "location": "Based in New Delhi · Available to relocate immediately",
   "nav": [
     { "label": "Home", "href": "/" },
     { "label": "Work", "href": "/work" },
@@ -16,95 +17,97 @@
     { "label": "Journey", "href": "/#journey" },
     { "label": "Contact", "href": "/#contact" }
   ],
-  "relocationBadge": "Instantly available to relocate worldwide",
+  "relocationBadge": "Open to roles in the UAE and worldwide. Ready to relocate now.",
   "hero": {
-    "eyebrow": "A portfolio designed to repel the wrong clients",
-    "line1": "UX Designer with a *research-first* brain.",
-    "line2": "XR Designer with a headset on.",
-    "warning": "Warning: I don’t produce “delightful experiences” on schedule. I build interfaces that survive contact with real users — and I have the drop-off charts to prove it, not a moodboard. If that sounds wrong for you, the exit is right there.",
-    "scrollHint": "Scroll — the interesting part is below this",
+    "eyebrow": "UX · XR · UX Writing, designing for how people actually behave",
+    "line1": "I design products people *finish*.",
+    "line2": "And spaces people *step* into.",
+    "body": "Most products don't fail at launch. They fail quietly: at step three of checkout, on the second screen of onboarding, in the moment a user hesitates and leaves. I find that moment, work out why it happens, and design it away. I've shipped 70+ products across SaaS, e-commerce and real estate, in English and Arabic, on screens and in headsets.",
+    "warning": "",
+    "scrollHint": "The reasoning is below. So is the proof.",
     "primaryCta": "See the work",
-    "secondaryCta": "Download resume",
-    "portraitCaption": "Relocation-ready · open to work",
+    "secondaryCta": "Download résumé",
+    "portraitCaption": "Open to work · Available immediately",
     "portraitLabel": "Manisha · UX/UI & XR"
   },
   "metrics": [
-    { "value": 70, "suffix": "+", "label": "Projects shipped live" },
-    { "value": 42, "suffix": "%", "label": "Drop-off removed from flows" },
-    { "value": 200, "suffix": "+", "label": "Design system components" },
+    { "value": 70, "suffix": "+", "label": "Products shipped live" },
+    { "value": 42, "suffix": "%", "label": "Less checkout drop-off" },
+    { "value": 200, "suffix": "+", "label": "Design-system components" },
     { "value": 3, "suffix": "×", "label": "Employee of the Month" }
   ],
   "about": {
-    "kicker": "Origin story",
-    "titleBefore": "I read people before",
-    "titleAccent": "for them.",
+    "kicker": "How I think",
+    "titleBefore": "I study people before",
+    "titleAccent": "I design for them.",
     "paragraphs": [
-      "I read people before I design for them. The instinct that matters most in UX — interrogate the system before proposing a solution — is the hardest skill in the job, and it does not come from a bootcamp or a tool. It comes from watching what users actually do when incentives, constraints and reality collide.",
-      "UX didn’t hijack my career. Research arrived before the title did. The questions are always the same — who are these people, what are they trying to do, who benefits from the current arrangement, and why does it keep failing the exact same way?",
-      "So when a checkout keeps dropping users and every stakeholder blames price, I go look at the screen. When an app keeps confusing new users, I go watch them use it. When someone asks me to “make it delightful,” I default to making it *defensible* instead."
+      "Good design starts before the first frame in Figma. It starts with a question most teams skip: what is actually happening here?",
+      "When a checkout loses 60% of its users and everyone blames price, I watch the sessions. When new users get lost, I sit beside them and see exactly where they stall. When a brief says *make it delightful*, I ask what it needs to achieve, then design something I can defend with evidence.",
+      "My background in political science taught me to read systems: incentives, constraints, and why well-meant plans fail the same way twice. UX turned out to be the same discipline on a different surface."
     ],
-    "polisciLabel": "Built on · Research instinct",
+    "polisciLabel": "The foundation",
     "polisci": [
-      "Interrogating the brief, not obeying it",
-      "Watching what users actually do",
-      "Testing hypotheses against evidence",
-      "Primary sources, not vibes"
+      "Question the brief before answering it",
+      "Observe behaviour, not opinions",
+      "Test assumptions against evidence",
+      "Decide from primary sources"
     ],
-    "bridge": "same skill, new surface",
-    "uxLabel": "Now applied as · UX Research",
+    "bridge": "Same instinct, sharper tools",
+    "uxLabel": "Applied as UX practice",
     "ux": [
-      "Challenging the brief, not obeying it",
-      "Journey maps & user interviews",
-      "Heuristic evaluation & A/B tests",
-      "Real users, not personas-as-decor"
+      "Stakeholder and user interviews",
+      "Journey mapping and heuristic reviews",
+      "A/B testing and usability studies",
+      "Personas built from data, not decoration"
     ],
     "pivotLabel": "Then the pivot",
-    "pivot": "I’ve always been drawn to studying systems. XR lets me build them. When the interface stops being a rectangle and becomes a place you walk into, the research-to-build loop gets brutally honest — you step inside the thing you’re designing. I trained in VR/AR at IIT Delhi because flat screens taught me layout, and I want to be inside the next decade of interfaces, not watching it from outside.",
-    "noVibe": "If you needed a designer who nods, produces twelve logo options and calls it strategy — you’d have stopped reading this by now. This section was never for you.",
+    "pivot": "Flat screens taught me hierarchy, rhythm and restraint. XR asks for all of that, plus depth, distance and the human body. I completed IIT Delhi's Executive Programme in VR & AR (Grade A) because the next decade of interfaces won't sit inside a rectangle, and I intend to help design it.",
+    "noVibe": "Teams bring me in for judgment as much as for screens. The work looks good, and the reasoning holds up in review.",
     "photos": [
       {
         "src": "/images/profile.jpg",
         "alt": "Manisha Sharma — UX & XR designer",
-        "caption": "The person doing the thinking",
+        "caption": "The person behind the process.",
         "hue": 232
       },
       {
         "src": "/images/working.jpg",
         "alt": "Manisha Sharma at work",
-        "caption": "At it. Cameras out, opinions checked.",
+        "caption": "Where the thinking happens.",
         "hue": 262
       },
       {
         "src": "/images/eom.jpg",
         "alt": "Manisha Sharma — Employee of the Month",
-        "caption": "Employee of the Month. ×3, if you're counting.",
+        "caption": "Employee of the Month, three times.",
         "hue": 176
       }
     ]
   },
   "work": {
     "kicker": "Selected work",
-    "titleBefore": "Three case studies.",
-    "titleBreak": "Not ten.",
-    "blurb": "This section is kept deliberately short. If you need a designer who fills a grid with quantity and calls it a body of work, you can close this tab with our sincere blessing.",
-    "closer": "Every case study follows the same spine — context, research, constraints, process, outcome, and the part most designers skip: what I’d redo. Read one, and you’ll know exactly how I think before you ever sit in a room with me."
+    "titleBefore": "Proof, not",
+    "titleBreak": "promises.",
+    "blurb": "Three projects, each told from problem to result.",
+    "closer": "Every case study follows the same spine — context, research, constraints, process, outcome, and the part most designers skip: what I'd redo. Read one, and you'll know exactly how I think before you ever sit in a room with me."
   },
   "xr": {
     "kicker": "XR Playground",
-    "titleBefore": "Step inside.",
-    "titleBreak": "Not into a brochure.",
-    "blurb": "Warning: none of this was made with templates. The scenes below were built in Unity and Blender, and walked through in a real headset. If you still think the metaverse is a PowerPoint, don't try this on — you'll confuse my quiet craft with your hype.",
-    "caption": "This viewport is the live slot for Manisha’s WebGL build or headset walkthrough recording — swap in the real artifact and the parallax scene steps aside. Sound is off by default, because good spatial design never starts by yelling at you."
+    "titleBefore": "Step inside",
+    "titleBreak": "the *work*.",
+    "blurb": "Every scene here was built from scratch in Unity and Blender and tested in a real headset. In spatial design, you only know something works once you're standing inside it. Comfort, scale, wayfinding and ambient UI are what separate an experience from a demo.",
+    "caption": "Final simulation, recorded in-headset. Unity · Blender · Meta Quest.",
+    "soundNote": "Sound is off by default. Good spatial design invites you in; it never startles."
   },
   "skills": {
     "kicker": "Skills & toolkit",
-    "titleBefore": "Not a tag cloud.",
-    "titleBreak": "A stack with a spine.",
-    "blurb": "Tools are cheap. Decision-making isn’t. This grouping exists to show you how the brain works before the software does.",
+    "titleBefore": "Tools change.",
+    "titleBreak": "Judgment *compounds*.",
+    "blurb": "Grouped by how I work, not by what I've installed.",
     "columns": {
       "research": {
         "title": "Research & Strategy",
-        "note": "The part most portfolios skip — the part that stops expensive rework.",
+        "note": "Where expensive mistakes get caught while they're still cheap.",
         "items": [
           "User Research",
           "Usability Testing",
@@ -116,24 +119,26 @@
         ]
       },
       "design": {
-        "title": "Design & Prototyping",
-        "note": "Screens are the output. Decisions are the deliverable.",
+        "title": "Design & Writing",
+        "note": "Screens are the output. Clear decisions, and clear words, are the deliverable.",
         "items": [
           "Interaction Design",
           "Design Systems",
           "Wireframing",
           "Prototyping",
+          "UX Writing & Microcopy",
           "WCAG 2.1 AA",
-          "RTL / Arabic UI",
+          "Arabic–English (RTL) Interfaces",
           "Conversational UI"
         ]
       },
       "xr": {
-        "title": "XR & Emerging Tools",
-        "note": "Where the next chapter is — and where I already work.",
+        "title": "XR & Emerging Tech",
+        "note": "The next interface layer, and I'm already building in it.",
         "items": [
-          "Unity · AR/VR Prototyping",
-          "Blender · 3D & Environments",
+          "Unity",
+          "AR/VR Prototyping",
+          "Blender · 3D Environments",
           "Spatial UX",
           "Scene Building & Animation",
           "Human-AI Interaction",
@@ -141,7 +146,7 @@
         ]
       }
     },
-    "toolkitLabel": "Daily drivers",
+    "toolkitLabel": "Daily toolkit",
     "toolkit": [
       "Figma",
       "Framer",
@@ -158,30 +163,41 @@
   },
   "timeline": {
     "kicker": "The journey",
-    "titleBefore": "Calm, on purpose.",
-    "titleBreak": "Measured, on record.",
-    "blurb": "Each node reveals itself as you scroll. Nothing shouts; things surface. That’s the whole metaphor — and the whole person.",
-    "overlapNote": "Freelance ran as a full shop before the agency seat opened — same discovery discipline, same mobile-first standard, shipped for clients who kept coming back.",
+    "titleBefore": "A steady climb,",
+    "titleBreak": "on the record.",
+    "blurb": "Each role raised the stakes. Each one left a measurable result.",
+    "educationIntro": "A continuous learner. IIT Delhi, Google and Gen AI programmes, because the tools are changing faster than the job titles.",
     "items": [
       {
-        "period": "Sept 2024 — Sept 2026",
+        "period": "Sept 2024 — Present",
         "org": "Technoid Infusion Agency Pvt Ltd",
         "role": "UI & UX Designer",
-        "body": "End-to-end web & mobile products across SaaS, e-commerce & real estate — all shipped live. Checkout & onboarding flows improved via journey mapping & A/B testing, delivered within a single sprint; usability findings converted into stakeholder-approved fixes. Built a scalable Figma design system that cut developer handoff time; Agile/Scrum with PMs, devs & clients, with pixel-accurate handoff on every build."
+        "bullets": [
+          "Designed end-to-end web and mobile products across SaaS, e-commerce and real estate, all shipped live.",
+          "Cut checkout drop-off from 60% to 35% by tracing the real cause through journey mapping and A/B testing.",
+          "Built a 200+ component Figma design system, adopted org-wide, that shortened developer handoff and kept a fast-growing product consistent.",
+          "Turned usability findings into stakeholder-approved fixes in Agile/Scrum with PMs, engineers and clients.",
+          "Named Employee of the Month three times."
+        ]
       },
       {
         "period": "2023 — Aug 2024",
         "org": "Freelance",
         "role": "UI & UX Designer",
-        "body": "Complete end-to-end UI systems for e-commerce & retail clients, from user research to developer handoff. Full discovery — personas, journey mapping, wireframes — every decision grounded in real user needs. Mobile-first, WCAG 2.1 AA across web & mobile. Repeat business & referrals followed, because the clients came back."
+        "bullets": [
+          "Ran an independent design practice for e-commerce and retail brands, from discovery to developer handoff.",
+          "Grounded every decision in research: personas, journey maps, wireframes, testing.",
+          "Delivered mobile-first, WCAG 2.1 AA-accessible interfaces across web and mobile.",
+          "Most clients returned or referred others, which is the most honest metric a freelancer has."
+        ]
       }
     ],
     "education": {
       "label": "Education",
       "items": [
+        { "period": "Jan – Jul 2025", "org": "IIT Delhi", "role": "Executive Programme in Virtual & Augmented Reality", "note": "Grade A" },
         { "period": "Jan 2026", "org": "Times Pro", "role": "Certificate Programme in Gen AI for Managers", "note": "Certification" },
         { "period": "Feb 2025", "org": "Times Pro", "role": "Certificate Programme in Gen AI Fundamentals", "note": "Certification" },
-        { "period": "Jan – Jul 2025", "org": "IIT Delhi", "role": "Executive Programme in Virtual & Augmented Reality", "note": "Grade A" },
         { "period": "Jan – Aug 2024", "org": "Dice Academy, New Delhi", "role": "UI/UX Design Certification", "note": "On-site training" },
         { "period": "Aug – Nov 2024", "org": "Coursera", "role": "Google UX Design Professional Certificate" },
         { "period": "2020 – 2022", "org": "IGNOU", "role": "Master's in Political Science" },
@@ -191,11 +207,74 @@
   },
   "contact": {
     "kicker": "Contact",
-    "titleBefore": "I’ll respond.",
-    "titleBreak": "Probably before you do.",
-    "blurb": "If you need a design yes-man who replies “great feedback!” in nineteen minutes, I respect you enough not to apply. But if you’re hiring for judgment, not just output — the doors below are open.",
-    "relocationNote": "Relocation-ready: open to remote or on-site roles globally, with immediate availability.",
-    "resumeLabel": "Download resume",
-    "resumeNote": "PDF · one page · no fluff"
+    "titleBefore": "Let's build something",
+    "titleBreak": "people *finish*.",
+    "blurb": "If you're hiring for judgment as well as craft, someone who asks the right question before drawing the first screen, I'd like to hear what you're working on. I usually reply within 24 hours.",
+    "relocationNote": "Availability: Available immediately. Open to on-site roles in the UAE and remote roles worldwide.",
+    "resumeLabel": "Download résumé",
+    "resumeNote": "One page. Every line earns its place."
+  },
+  "selectedWork": {
+    "kicker": "Selected work",
+    "titleBefore": "Proof, not",
+    "titleBreak": "*promises*.",
+    "sub": "Three projects, each told from problem to result.",
+    "seeAll": "See all work",
+    "cards": [
+      {
+        "slug": "checkout-recovery",
+        "category": "E-commerce · Flow optimisation",
+        "title": "The Checkout That Kept Losing People",
+        "body": "60% of shoppers abandoned checkout, and the business blamed price. The research pointed somewhere else.",
+        "result": "60% → 35% abandonment"
+      },
+      {
+        "slug": "saas-design-system",
+        "category": "SaaS · Design system",
+        "title": "200 Components, One Language",
+        "body": "A product shipping faster than its interface could stay consistent. I built the system that let three teams speak one design language.",
+        "result": "200+ components · adopted org-wide"
+      },
+      {
+        "slug": "iit-delhi-xr",
+        "category": "XR · Unity · Blender",
+        "title": "Walking Inside the Interface",
+        "body": "Environments built from scratch and tested in-headset at IIT Delhi, where scale and comfort matter more than pixels.",
+        "result": "6 VR prototypes · Grade A"
+      }
+    ]
+  },
+  "uxWriting": {
+    "kicker": "UX Writing",
+    "titleBefore": "Words are",
+    "titleBreak": "interface *too*.",
+    "body": "The right sentence removes a support ticket. The wrong one loses a customer at the exact moment they were ready to commit. I write microcopy the way I design flows: for the user's next decision, not the brand's next adjective.",
+    "examples": [
+      {
+        "label": "Checkout fee disclosure",
+        "before": "Payment details — then, only after the card number, the fee appears.",
+        "after": "₹1,299 all in — no surprises later.",
+        "why": "The fee stops being a betrayal and becomes part of the agreement."
+      },
+      {
+        "label": "Error message",
+        "before": "Payment failed. Try again.",
+        "after": "We couldn't charge this card. Check the number, or try another one.",
+        "why": "It names what happened and what to do next, instead of dead-ending."
+      },
+      {
+        "label": "Empty state",
+        "before": "No saved addresses.",
+        "after": "No addresses yet. Add one and it'll be here when you check out.",
+        "why": "The context turns a dead end into a promise."
+      }
+    ]
+  },
+  "testimonials": {
+    "kicker": "In their words",
+    "titleBefore": "What it's like",
+    "titleBreak": "to work with me",
+    "sub": "From the people who've reviewed my work, built from my files, and signed off on the results.",
+    "items": []
   }
 }

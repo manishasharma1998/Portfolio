@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Manisha Sharma — UX & XR Designer";
+export const alt = "Manisha Sharma — UX, UI & XR Designer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -39,7 +39,7 @@ export default function OpenGraphImage() {
               display: "flex",
             }}
           />
-          UX Designer · XR Designer
+          UX · UI & XR Designer
         </div>
         <div
           style={{
@@ -62,8 +62,7 @@ export default function OpenGraphImage() {
             maxWidth: 900,
           }}
         >
-          UX Designer with a research-first brain. XR Designer with a
-          headset on.
+          I design products people finish, and spaces people step into.
         </div>
         <div
           style={{
@@ -77,7 +76,7 @@ export default function OpenGraphImage() {
             fontSize: 22,
           }}
         >
-          Instantly available to relocate
+          Available immediately · Open to the UAE & worldwide
         </div>
       </div>
     ),

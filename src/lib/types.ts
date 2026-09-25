@@ -5,6 +5,7 @@ export type HeroConfig = {
   eyebrow: string;
   line1: string;
   line2: string;
+  body?: string;
   warning: string;
   scrollHint: string;
   primaryCta: string;
@@ -54,7 +55,8 @@ export type TimelineItem = {
   period: string;
   org: string;
   role: string;
-  body: string;
+  body?: string;
+  bullets?: string[];
 };
 
 export type EducationItem = {
@@ -65,7 +67,8 @@ export type EducationItem = {
 };
 
 export type TimelineConfig = BlockConfig & {
-  overlapNote: string;
+  overlapNote?: string;
+  educationIntro?: string;
   items: TimelineItem[];
   education: {
     label: string;
@@ -77,6 +80,44 @@ export type ContactConfig = BlockConfig & {
   relocationNote: string;
   resumeLabel: string;
   resumeNote: string;
+};
+
+export type SelectedWorkCard = {
+  slug: string;
+  category: string;
+  title: string;
+  body: string;
+  result: string;
+};
+
+export type SelectedWorkConfig = BlockConfig & {
+  sub: string;
+  seeAll: string;
+  cards: SelectedWorkCard[];
+};
+
+export type UxWritingExample = {
+  label: string;
+  before: string;
+  after: string;
+  why: string;
+};
+
+export type UxWritingConfig = BlockConfig & {
+  body: string;
+  examples: UxWritingExample[];
+};
+
+export type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+};
+
+export type TestimonialsConfig = BlockConfig & {
+  sub: string;
+  items: Testimonial[];
 };
 
 export type UiLink = {
@@ -121,6 +162,7 @@ export type UiStrings = {
   caseCard: { view: string; open: string };
   workTabs: { caseStudies: string; designs: string };
   behance: { open: string; views: string; appreciations: string };
+  uxWriting?: { before: string; after: string; why: string };
   caseVisuals: { before: string; after: string; imageAlt: string };
   casePage: {
     backAllWork: string;
@@ -166,6 +208,7 @@ export type UiStrings = {
 export type SiteConfig = {
   name: string;
   role: string;
+  tagline?: string;
   email: string;
   phone: string;
   whatsapp: string;
@@ -179,10 +222,13 @@ export type SiteConfig = {
   metrics: Metric[];
   about: AboutConfig;
   work: BlockConfig & { closer: string };
-  xr: { caption: string } & BlockConfig;
+  xr: { caption: string; soundNote?: string } & BlockConfig;
   skills: SkillsConfig;
   timeline: TimelineConfig;
   contact: ContactConfig;
+  selectedWork?: SelectedWorkConfig;
+  uxWriting?: UxWritingConfig;
+  testimonials?: TestimonialsConfig;
   ui: UiStrings;
 };
 

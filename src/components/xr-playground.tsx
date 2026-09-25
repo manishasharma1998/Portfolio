@@ -339,6 +339,11 @@ export function XRPlayground({ copy }: { copy: SiteConfig["xr"] }) {
           <p className="mt-8 max-w-2xl text-sm leading-relaxed text-fog-500">
             {copy.caption}
           </p>
+          {copy.soundNote ? (
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-fog-500 italic">
+              {copy.soundNote}
+            </p>
+          ) : null}
         </Reveal>
       </div>
     </section>
