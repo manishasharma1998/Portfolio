@@ -176,19 +176,14 @@ export function XRPlayground({ copy }: { copy: SiteConfig["xr"] }) {
                 style={reduce ? undefined : { rotateX: rotX, rotateY: rotY }}
                 className="absolute inset-0 [transform-style:preserve-3d]"
               >
-                {/* ground grid */}
-                <div
-                  aria-hidden
-                  className="absolute inset-x-[-40%] bottom-[-12%] h-[60%]"
-                  style={{
-                    transform: "rotateX(74deg)",
-                    transformOrigin: "50% 0%",
-                    backgroundImage:
-                      "linear-gradient(to right, rgba(124,156,255,0.22) 1px, transparent 1px), linear-gradient(to bottom, rgba(124,156,255,0.22) 1px, transparent 1px)",
-                    backgroundSize: "56px 56px",
-                    maskImage:
-                      "linear-gradient(to top, rgba(0,0,0,0.9), transparent)",
-                  }}
+                {/* scene image */}
+                <Image
+                  src="/images/xr-scene.jpg"
+                  alt="Manisha Sharma's XR environment — spatial UI scene"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                  className="object-cover"
                 />
 
                 {/* desktop floating panels */}
@@ -219,9 +214,8 @@ export function XRPlayground({ copy }: { copy: SiteConfig["xr"] }) {
                   ))}
                 </div>
 
-                {/* hud tokens */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:72px_72px]" />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.6)_100%)]" />
+                {/* vignette */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(0,0,0,0.45)_100%)]" />
               </motion.div>
 
               {/* mobile stacked panel cards */}
