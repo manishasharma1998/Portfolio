@@ -12,6 +12,7 @@
   "nav": [
     { "label": "Home", "href": "/" },
     { "label": "Work", "href": "/work" },
+    { "label": "Design System", "href": "/design-system" },
     { "label": "XR", "href": "/#xr" },
     { "label": "Skills", "href": "/#skills" },
     { "label": "Journey", "href": "/#journey" },

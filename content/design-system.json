@@ -1,0 +1,85 @@
+{
+  "navLabel": "Design System",
+  "home": {
+    "kicker": "Design system",
+    "titleBefore": "Nebula. My own system,",
+    "titleBreak": "*built to be used*.",
+    "sub": "238 components for web, mobile and XR, running on one set of tokens in dark and light. I designed it, wrote every guideline, and built it in React and Figma.",
+    "cta": "Explore Nebula"
+  },
+  "page": {
+    "eyebrow": "Personal project · 2026",
+    "title": "Nebula",
+    "lead": "A design system for screens you tap, screens you scroll and screens you look through. I built it for my own brand, and to show how I think about systems from the first token to the last guideline.",
+    "role": "Designer, UX writer and builder",
+    "platforms": "Web · Mobile · XR",
+    "tools": "Figma · React · Design tokens"
+  },
+  "stats": [
+    { "value": "238", "label": "components" },
+    { "value": "13", "label": "categories" },
+    { "value": "2", "label": "themes, one token set" },
+    { "value": "AA", "label": "WCAG contrast in both themes" }
+  ],
+  "why": {
+    "kicker": "Why it exists",
+    "title": "Most systems stop at the edge of the phone.",
+    "body": [
+      "Web kits rarely cover mobile gestures. Mobile kits say nothing about a window floating two metres away. XR teams end up rebuilding buttons, cards and alerts from scratch.",
+      "Nebula starts from one set of decisions and carries them across all three. A button in a browser, a bottom sheet on a phone and a spatial window in a headset share the same tokens, the same states and the same voice."
+    ]
+  },
+  "principles": [
+    { "title": "Say it in the label", "body": "Buttons are verbs, errors say what to do next, and empty states offer a way forward." },
+    { "title": "Every state is designed", "body": "Hover, focus, pressed, disabled, loading, error and empty all ship with the component." },
+    { "title": "Colour is never alone", "body": "Status always pairs a colour with an icon or a word, so it still reads in greyscale." },
+    { "title": "One token, many surfaces", "body": "Web, mobile and XR read the same token names, so a theme change reaches everything." },
+    { "title": "Comfort before spectacle", "body": "In XR, targets are 60 pt or larger, windows sit one to two metres away and motion is calm." }
+  ],
+  "colors": [
+    { "name": "Plasma", "role": "Primary actions", "dark": "#2ee6c5", "light": "#00735f" },
+    { "name": "Flare", "role": "Accent and highlights", "dark": "#ff8a5b", "light": "#b93d0b" },
+    { "name": "Ion", "role": "Gaze and focus in XR", "dark": "#d4f25a", "light": "#56670a" },
+    { "name": "Surface", "role": "Cards and panels", "dark": "#141a22", "light": "#eef1f5" },
+    { "name": "Background", "role": "Page", "dark": "#07090d", "light": "#f3f5f8" },
+    { "name": "Ink", "role": "Text", "dark": "#eef3f8", "light": "#0b1117" }
+  ],
+  "type": [
+    { "family": "Sora", "use": "Display and headings", "sample": "Build what people finish" },
+    { "family": "DM Sans", "use": "Body and interface", "sample": "Clear labels, calm layouts and honest states." },
+    { "family": "JetBrains Mono", "use": "Tokens, data and code", "sample": "--nb-plasma: #2ee6c5;" }
+  ],
+  "groups": [
+    { "name": "Data display", "count": 42 },
+    { "name": "Forms", "count": 33 },
+    { "name": "XR & spatial", "count": 29 },
+    { "name": "Mobile", "count": 22 },
+    { "name": "Patterns", "count": 18 },
+    { "name": "Feedback", "count": 17 },
+    { "name": "Navigation", "count": 16 },
+    { "name": "Layout", "count": 15 },
+    { "name": "Typography", "count": 14 },
+    { "name": "Actions", "count": 14 },
+    { "name": "Overlays", "count": 12 },
+    { "name": "Utilities", "count": 5 },
+    { "name": "Brand", "count": 1 }
+  ],
+  "sections": {
+    "principles": { "kicker": "Principles", "title": "Five rules every component follows." },
+    "foundations": { "kicker": "Foundations", "title": "Tokens first, components second." },
+    "components": { "kicker": "Components", "title": "238 components in 13 categories.", "sub": "Each one ships with its variants, every state, usage rules, a “when not to use this” note and accessibility guidance." },
+    "mobile": { "kicker": "Mobile", "title": "Thumb-first by default.", "body": "22 mobile components: large titles, tab bars, bottom and action sheets, swipe rows, keypads and card stacks. Every swipe has a tap alternative." },
+    "xr": { "kicker": "XR & spatial", "title": "Hover means gaze.", "body": "29 spatial components: windows, ornaments, gaze rings, radial menus, hand menus and spatial toasts. Dwell and voice back up every pinch." },
+    "themes": { "kicker": "Themes", "title": "Dark and light from one set of tokens.", "body": "Every colour token has a dark and a light value, and both are checked for WCAG AA contrast." },
+    "handoff": { "kicker": "Handoff", "title": "Lives where the team works.", "items": [
+      { "title": "React library", "body": "Every component is a working React component with typed props." },
+      { "title": "Figma kit", "body": "Colour and spacing variables, text and effect styles, and all 238 components in dark and light." },
+      { "title": "Written guidelines", "body": "Do and don't rules, content guidance and accessibility notes for every component." }
+    ] }
+  },
+  "closing": {
+    "title": "Want a system like this for your product?",
+    "body": "I design systems that designers enjoy using and developers can ship.",
+    "cta": "Get in touch"
+  }
+}

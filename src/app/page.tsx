@@ -4,6 +4,7 @@ import { SiteNav } from "@/components/site-nav";
 import { Hero } from "@/components/hero";
 import { SignalBar } from "@/components/signal-bar";
 import { SelectedWork } from "@/components/selected-work";
+import { DesignSystemSection } from "@/components/design-system-section";
 import { About } from "@/components/about";
 import { XRPlayground } from "@/components/xr-playground";
 import { Skills } from "@/components/skills";
@@ -27,6 +28,7 @@ export default async function Home() {
       <Hero site={site} />
       <SignalBar metrics={site.metrics} />
       <SelectedWork />
+      <DesignSystemSection />
       <About />
       <XRPlayground copy={site.xr} />
       <Skills />
