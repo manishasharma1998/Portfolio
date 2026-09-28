@@ -68,7 +68,6 @@ export function SiteNav({
           <ThemeToggle />
           <a
             href={resumeHref}
-            download
             className="inline-flex h-10 items-center gap-2 rounded-full border border-line-strong px-4 text-sm text-bone-100 transition-colors hover:border-accent-400 hover:text-accent-400"
           >
             {ui.nav.resume}
@@ -122,7 +121,6 @@ export function SiteNav({
                 <ThemeToggle />
                 <a
                   href={resumeHref}
-                  download
                   onClick={close}
                   className="flex-1 rounded-full border border-line-strong px-3 py-2.5 text-center text-sm text-bone-100 transition-colors hover:border-accent-400 hover:text-accent-400"
                 >

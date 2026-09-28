@@ -72,7 +72,6 @@ export async function Contact() {
         <Reveal delay={0.18} className="mt-10 text-center">
           <a
             href={site.resume}
-            download
             className="inline-flex items-center gap-2 rounded-full bg-lens-400 px-7 py-3.5 font-medium text-accent-fg transition-colors hover:bg-lens-300"
           >
             {site.contact.resumeLabel}
