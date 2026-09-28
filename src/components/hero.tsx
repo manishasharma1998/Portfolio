@@ -77,7 +77,6 @@ export function Hero({ site }: { site: SiteConfig }) {
             <a
               key={label}
               href={href}
-              download={kind === "ghost"}
               className={
                 kind === "primary"
                   ? "group inline-flex items-center gap-2 rounded-full bg-accent-400 px-6 py-3 font-medium text-accent-fg transition-colors hover:bg-accent-500"
@@ -103,7 +102,7 @@ export function Hero({ site }: { site: SiteConfig }) {
         </p>
       </div>
 
-      <div aria-hidden className="absolute inset-0 border-b border-line" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 border-b border-line" />
     </section>
   );
 }

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { getSiteConfig } from "@/lib/content";
 import { getLocale } from "@/lib/i18n";
 import { SiteNav } from "@/components/site-nav";
@@ -35,7 +34,7 @@ export default async function ResumePage() {
               One page · every line earns its place
             </p>
           </div>
-          <Link
+          <a
             href={site.resumeFile}
             download
             className="inline-flex h-10 items-center gap-2 rounded-full bg-accent-400 px-5 text-sm font-medium text-accent-fg transition-opacity hover:opacity-90"
@@ -53,7 +52,7 @@ export default async function ResumePage() {
               <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
             </svg>
             Download résumé
-          </Link>
+          </a>
         </div>
       </div>
 
@@ -66,15 +65,9 @@ export default async function ResumePage() {
             className="h-[82dvh] w-full"
           />
         </div>
-        <p className="mt-4 flex flex-wrap items-center justify-between gap-2 text-sm text-fog-500">
-          <span>Designed to be read on screen or printed to A4.</span>
-          <Link
-            href={site.resumeFile}
-            download
-            className="font-medium text-accent-400 hover:underline"
-          >
-            Having trouble viewing? Download the PDF.
-          </Link>
+        <p className="mt-4 text-sm text-fog-500">
+          Designed to be read on screen or printed to A4. On mobile, tap the
+          Download button above.
         </p>
       </section>
 
