@@ -27,8 +27,8 @@ export default async function Home() {
       />
       <Hero site={site} />
       <SignalBar metrics={site.metrics} />
-      <SelectedWork />
       <DesignSystemSection />
+      <SelectedWork />
       <About />
       <XRPlayground copy={site.xr} />
       <Skills />
