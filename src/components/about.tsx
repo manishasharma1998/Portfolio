@@ -100,7 +100,7 @@ export async function About() {
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
                 />
                 <div
-                  className="absolute inset-0 opacity-40 mix-blend-overlay"
+                  className="pointer-events-none absolute inset-0 opacity-40 mix-blend-overlay"
                   style={{
                     background: `radial-gradient(80% 80% at 20% 0%, hsl(${p.hue} 70% 30% / 0.7), transparent 70%)`,
                   }}
