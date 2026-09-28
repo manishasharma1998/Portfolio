@@ -125,7 +125,7 @@ export type ChatFaq = {
 export type UiStrings = {
   announcement: { notice: string; change: string; dismiss: string };
   language: { label: string; switcherAria: string };
-  nav: {
+nav: {
     resume: string;
     downloadResume: string;
     openMenu: string;
@@ -202,6 +202,7 @@ export type SiteConfig = {
   linkedin: string;
   behance: string;
   resume: string;
+  resumeFile: string;
   location: string;
   nav: NavLink[];
   relocationBadge: string;

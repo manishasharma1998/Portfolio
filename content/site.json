@@ -7,7 +7,8 @@
   "whatsapp": "https://wa.me/919717922464",
   "linkedin": "https://www.linkedin.com/in/manishasharmaa",
   "behance": "https://www.behance.net/manishasharma78",
-  "resume": "/Manisha-Sharma-Resume.pdf",
+  "resume": "/resume",
+  "resumeFile": "/Manisha-Sharma-Resume.pdf",
   "location": "Based in New Delhi · Available to relocate immediately",
   "nav": [
     { "label": "Home", "href": "/" },
@@ -27,7 +28,7 @@
     "warning": "",
     "scrollHint": "The reasoning is below. So is the proof.",
     "primaryCta": "See the work",
-    "secondaryCta": "Download résumé",
+    "secondaryCta": "View résumé",
     "portraitCaption": "Open to work · Available immediately",
     "portraitLabel": "Manisha · UX/UI & XR"
   },
@@ -212,7 +213,7 @@
     "titleBreak": "people *finish*.",
     "blurb": "If you're hiring for judgment as well as craft, someone who asks the right question before drawing the first screen, I'd like to hear what you're working on. I usually reply within 24 hours.",
     "relocationNote": "Availability: Available immediately. Open to on-site roles in the UAE and remote roles worldwide.",
-    "resumeLabel": "Download résumé",
+    "resumeLabel": "View résumé",
     "resumeNote": "One page. Every line earns its place."
   },
   "selectedWork": {

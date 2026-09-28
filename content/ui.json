@@ -9,8 +9,8 @@
     "switcherAria": "Choose language"
   },
   "nav": {
-    "resume": "Resume",
-    "downloadResume": "Download resume",
+    "resume": "View Resume",
+    "downloadResume": "View resume",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "primaryAria": "Primary"
@@ -118,10 +118,10 @@
         ]
       },
       {
-        "q": "Download resume",
+        "q": "View resume",
         "keywords": ["resume", "cv", "download", "pdf"],
-        "a": "One click, straight to the PDF.",
-        "links": [{ "label": "Download resume", "href": "{resume}", "download": true }]
+        "a": "Opens as a page — download from the top right.",
+        "links": [{ "label": "View resume", "href": "/resume" }]
       },
       {
         "q": "XR & VR background",
